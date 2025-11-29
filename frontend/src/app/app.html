@@ -1,3 +1,4 @@
+
 <mat-toolbar class = toolbar>
   <span class = "title">ONDA</span>
   <span class="spacer"></span>
@@ -16,6 +17,7 @@
   </button>
 </div>
 
+<div class = "icones-escolha">
 <button class = "persson-button" mat-icon-button [matMenuTriggerFor]="menu">
   <mat-icon class = "persson">account_circle</mat-icon>
 </button>
@@ -27,6 +29,44 @@
 <button mat-icon-button>
   <mat-icon class = "cart">shopping_cart</mat-icon>
 </button>
+</div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-info">
+      <span>ONDA Ltda. - CPF/CNPJ: 12.345.678/0000-01</span><br>
+      <span>Av. Bernardino de Campos, 98, Salvador, Ba 12345-678</span><br>
+      <span>Email: info@Onda.com | Telefone: (71) 3456-7890</span><br>
+      <span>Estimativa de entrega: 2 - 5 dias úteis</span><br>
+    </div>
+
+    <div class="footer-security">
+      <mat-icon>security</mat-icon>
+      <span>&nbsp;&nbsp;Segurança</span><br>
+       <span>Ambiente 100% Seguro.</span><br>
+       <span>Sua informação é protegida.</span><br>
+      <span>Criptografia SSL 256-Bit.</span>
+    </div>
+
+    <div class="footer-payments">
+      <p>Métodos de Pagamento Aceitos</p>
+      <div class="payment-icons">
+          <img src = "https://toppng.com/public/uploads/preview/visa-logo-png-image-11661940030l07ll8dlqd.png">
+          <img src = "https://tse2.mm.bing.net/th/id/OIP.UeAWDFtVLrJ_uIhhXQBa7gHaHk?w=840&h=859&rs=1&pid=ImgDetMain&o=7&rm=3">
+          <img src = "https://vetores.org/wp-content/uploads/nubank.png"><br>
+          <img src = "https://w7.pngwing.com/pngs/750/612/png-transparent-boleto-3d-payment-system-icon.png">
+          <img src = "https://logospng.org/wp-content/uploads/mercado-pago.png">
+          <img src = "https://logodix.com/logo/720389.jpg">
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Todos os direitos reservados - Onda Ltda.</p>
+  </div>
+</footer>
+
+

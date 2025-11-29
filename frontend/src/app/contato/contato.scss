@@ -1,0 +1,50 @@
+.contato-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Arial', sans-serif;
+  color: #222;
+}
+
+.contato-container h1 {
+  font-size: 42px;
+  color: #f28444;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.contato-container h2 {
+  font-size: 26px;
+  margin-bottom: 50px;
+  font-weight: normal;
+  color: #555;
+}
+
+.lojas {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.loja, .revendedores {
+  flex: 1 1 400px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.loja h3, .revendedores h3 {
+  color: #f28444;
+  margin-bottom: 15px;
+}
+
+.revenda {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+

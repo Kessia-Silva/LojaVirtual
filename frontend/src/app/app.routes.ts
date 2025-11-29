@@ -7,6 +7,9 @@ import { Contato } from './contato/contato'
 
 import {LojaModule} from './loja/loja-module'
 
+import { Login } from './login/login';
+import { Cadastro } from './cadastro/cadastro';
+
 
 
 export const routes: Routes = [
@@ -16,5 +19,7 @@ export const routes: Routes = [
   { path: 'contato', component: Contato},
   { path: 'loja',
         loadChildren: () => import('./loja/loja-module').then(m=>m.LojaModule)
-  }
+  },
+  {path: 'login', component: Login},
+  {path: 'cadastro', component: Cadastro}
 ];

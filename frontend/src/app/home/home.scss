@@ -8,14 +8,64 @@ body{
   height: 300px;         /* altura fixa, não muito alta */
 }
 
-.imagem1,
-.imagem2 {
+.imagem1, .imagem2 {
   flex: 1;               /* cada div ocupa metade da tela */
 }
 
-.imagem1 img,
-.imagem2 img {
+.imagem1 img, .imagem2 img {
   width: 100%;           /* ocupa toda a largura da div */
   height: 160%;          /* ocupa toda a altura da div */
   object-fit: cover;     /* mantém proporção e corta se necessário */
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 200px;
+}
+
+.feature {
+  text-align: center;
+}
+
+
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* ajuste conforme necessidade */
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-text {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.banner-text h1 {
+  margin: 20px 0;      /* espaço entre os “parágrafos” (cada h1) */
+  font-family: 'Arial Black';
+  text-shadow: 2px 2px 4px #000;
+  letter-spacing: 7px;  /* aumenta o espaço entre letras */
+}
+
+.banner-button{
+  border: none;
+  border-bottom: 2px solid white;  /* a linha branca embaixo */
+  cursor: pointer;
+  background: none;
+  color: white;
+  font-size: 16px;
+  text-shadow: 1px 1px 4px #000;
+
 }
