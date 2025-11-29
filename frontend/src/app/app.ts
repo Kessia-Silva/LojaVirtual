@@ -1,16 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
-import {CdkMenuItemRadio, CdkMenuItemCheckbox, CdkMenuGroup,
-  CdkMenu, CdkMenuTrigger, CdkMenuItem, CdkMenuBar,} from '@angular/cdk/menu';
+
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule,  MatButtonModule, MatIconModule, CdkMenuTrigger],
+  imports: [RouterOutlet, MatToolbarModule, MatButtonModule,
+    MatIconModule, RouterLink, MatMenuModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

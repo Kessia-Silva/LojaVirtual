@@ -2,18 +2,31 @@
   <span class = "title">ONDA</span>
   <span class="spacer"></span>
   <div class = "button-escolha">
-  <button>
+  <button type="button" routerLink="/home">
     <span>HOME</span>
   </button>
-  <button>
+  <button routerLink="/loja">
     <span>LOJA</span>
   </button>
-  <button>
+  <button type="button" routerLink="/sobre">
     <span>SOBRE</span>
   </button>
-  <button>
+  <button routerLink="/contato">
     <span>CONTATO</span>
   </button>
 </div>
+
+<button class = "persson-button" mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon class = "persson">account_circle</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button class = "persson-item" routerLink="/login" mat-menu-item>Login</button>
+  <button class = "persson-item" routerLink="/cadastro" mat-menu-item>Cadastrar</button>
+</mat-menu>
+<button mat-icon-button>
+  <mat-icon class = "cart">shopping_cart</mat-icon>
+</button>
 </mat-toolbar>
+
 <router-outlet></router-outlet>
