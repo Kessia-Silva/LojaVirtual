@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
 
 import { Home } from './home/home';
 import { Sobre } from './sobre/sobre';
 import { Contato } from './contato/contato'
-
-import {LojaModule} from './loja/loja-module'
 
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
@@ -15,6 +12,7 @@ import { AreaCliente } from './Area-Cliente/area-cliente/area-cliente';
 import { ProdutoInfo } from './produto-info/produto-info/produto-info';
 import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras/carrinho-compras';
 import { LoginAdm } from './login-Adm/login-adm/login-adm';
+import { Loja } from './loja/loja';
 
 
 
@@ -23,9 +21,7 @@ export const routes: Routes = [
   { path: 'home', component: Home },
   { path: 'sobre', component: Sobre },
   { path: 'contato', component: Contato},
-  { path: 'loja',
-        loadChildren: () => import('./loja/loja-module').then(m=>m.LojaModule)
-  },
+  {path:'loja', component: Loja},
   {path: 'login', component: Login},
   {path: 'cadastro', component: Cadastro},
   {path: 'areaCliente', component: AreaCliente},
