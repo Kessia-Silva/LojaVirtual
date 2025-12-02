@@ -10,9 +10,10 @@ import { AreaAdm } from './Area-Adm/area-adm/area-adm';
 import { AreaCliente } from './Area-Cliente/area-cliente/area-cliente';
 
 import { ProdutoInfo } from './produto-info/produto-info/produto-info';
-import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras/carrinho-compras';
+
 import { LoginAdm } from './login-Adm/login-adm/login-adm';
 import { Loja } from './loja/loja';
+import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
 
 
 

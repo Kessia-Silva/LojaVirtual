@@ -5,24 +5,34 @@
     padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f2f2f2;
-    padding: 2rem;
+
+.cart-wrapper {
+    width: 100%;
+    min-height: 100vh; /* ocupa a tela toda */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
+.total-row {
+    margin: 0 !important;
+    padding: 0.3rem 0; /* pequeno espaçamento só pra não colar */
+}
+
+
+
 
 /* Card principal */
 .card {
     display: flex;
     max-width: 950px;
-    width: 100%;
+    width: 90%; /* antes era 100% */
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     overflow: hidden;
 }
+
 
 /* Carrinho */
 .cart {
@@ -115,8 +125,10 @@ body {
 .summary .row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin: 0; /* zera tudo */
+    padding: 0.2rem 0; /* bem leve pra não colar demais */
 }
+
 
 .summary select,
 .summary input {

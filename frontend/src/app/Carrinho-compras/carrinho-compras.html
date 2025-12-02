@@ -1,0 +1,83 @@
+<div class="cart-wrapper">
+<div class="card">
+
+    <!-- Área do carrinho -->
+    <div class="cart">
+        <div class="title">
+            <h4><b>Carrinho </b></h4>
+            <span class="text-muted">0 items</span>
+        </div>
+
+
+        <!-- Produto 1 -->
+
+<div *ngFor="let item of carrinho$ | async">
+
+    <div class="row main">
+        <img [src]="item.imagem" />
+
+        <div class="col">
+            <div class="text-muted">{{ item.nome }}</div>
+        </div>
+
+        <div class="col">
+            <a>-</a>
+            <a class="border">1</a>
+            <a >+</a>
+        </div>
+
+        <div class="col">
+            R$ {{ item.preco | currency:'BRL' }}
+            <span class="close" >&#10005;</span>
+        </div>
+    </div>
+
+</div>
+
+
+        <div class="back-to-shop">
+            <a href="#">&leftarrow;</a>
+            <span class="text-muted">Voltar para loja</span>
+        </div>
+    </div>
+
+    <!-- Resumo -->
+    <div class="summary">
+        <h5><b>Resumo</b></h5>
+        <hr>
+
+        <div class="row">
+            <span>ITEMS 0</span>
+            <span>R$ 00</span>
+        </div>
+
+        <br>
+
+        <form>
+            <p>Frete</p>
+            <select>
+                <option class="text-muted">Sedex – R$50.00</option>
+                <option class="text-muted">Entrega Padrão – R$25.00</option>
+            </select>
+        </form>
+
+<div class="row total-row">
+    <span>TOTAL</span>
+    <span>R$ 137.00</span>
+</div>
+
+<div class="row total-row">
+    <span>FRETE</span>
+    <span>R$ 137.00</span>
+</div>
+
+<br>
+
+
+
+        <button class="btn">CHECKOUT</button>
+    </div>
+
+</div>
+</div>
+
