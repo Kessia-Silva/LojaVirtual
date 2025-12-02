@@ -9,6 +9,11 @@ import {LojaModule} from './loja/loja-module'
 
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
+import { AreaAdm } from './Area-Adm/area-adm/area-adm';
+import { AreaCliente } from './Area-Cliente/area-cliente/area-cliente';
+
+import { ProdutoInfo } from './produto-info/produto-info/produto-info';
+import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras/carrinho-compras';
 
 
 
@@ -21,5 +26,9 @@ export const routes: Routes = [
         loadChildren: () => import('./loja/loja-module').then(m=>m.LojaModule)
   },
   {path: 'login', component: Login},
-  {path: 'cadastro', component: Cadastro}
+  {path: 'cadastro', component: Cadastro},
+  {path: 'areaCliente', component: AreaCliente},
+  {path: 'areaAdm', component: AreaAdm},
+  {path: 'produto-info', component: ProdutoInfo},
+  {path: 'carrinhoCompras', component: CarrinhoCompras}
 ];
