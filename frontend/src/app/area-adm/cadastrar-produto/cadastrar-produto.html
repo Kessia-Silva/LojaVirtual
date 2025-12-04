@@ -1,1 +1,46 @@
-<p>cadastrar-produto works!</p>
+<div class="container">
+  <h1>Cadastrar Produto</h1>
+
+  <form class="form">
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Nome do produto</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" min="0" step="0.01">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput rows="4"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Categoria</mat-label>
+      <mat-select>
+        <mat-option value="eletronicos">Eletrônicos</mat-option>
+        <mat-option value="roupas">Roupas</mat-option>
+        <mat-option value="acessorios">Acessórios</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Estoque</mat-label>
+      <input matInput type="number">
+    </mat-form-field>
+
+    <div class="upload">
+      <label class="label-upload">
+        <mat-icon>photo_camera</mat-icon>
+        Selecionar imagem
+        <input type="file" hidden>
+      </label>
+    </div>
+
+    <button mat-raised-button color="primary" class="btn-salvar">
+      Salvar Produto
+    </button>
+  </form>
+</div>

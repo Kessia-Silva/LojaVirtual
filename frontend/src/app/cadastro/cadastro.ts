@@ -8,14 +8,14 @@ import { MatIcon } from '@angular/material/icon';
 import { CadastroService } from './services/cadastro-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-cadastro',
   imports: [FormsModule, MatFormFieldModule, MatInputModule,
-    ReactiveFormsModule,  MatIcon, CommonModule  ],
+    ReactiveFormsModule,  MatIcon, CommonModule, RouterLink   ],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.scss',
 })

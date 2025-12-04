@@ -1,0 +1,37 @@
+<mat-toolbar class = toolbar>
+  <!-- Logo da loja -->
+
+  <img src="assets/img/fotos-do-site/logo.png" alt="Mix&Play Logo" class="logo">
+  <!-- Nome da loja -->
+  <span class="title">Onda</span>
+  <span class="spacer"></span>
+  <div class = "button-escolha">
+  <button type="button" routerLink="/home">
+    <span>HOME</span>
+  </button>
+  <button routerLink="/loja">
+    <span>LOJA</span>
+  </button>
+  <button type="button" routerLink="/sobre">
+    <span>SOBRE</span>
+  </button>
+  <button routerLink="/contato">
+    <span>CONTATO</span>
+  </button>
+</div>
+
+<div class = "icones-escolha">
+<button class = "persson-button" mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon class = "persson">account_circle</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button class = "persson-item" routerLink="/login" mat-menu-item>Login</button>
+  <button class = "persson-item" routerLink="/cadastro" mat-menu-item>Cadastrar</button>
+</mat-menu>
+<button mat-icon-button routerLink="/carrinhoCompras">
+  <mat-icon class = "cart">shopping_cart</mat-icon>
+</button>
+</div>
+</mat-toolbar>
+

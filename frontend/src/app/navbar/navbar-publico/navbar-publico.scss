@@ -1,0 +1,69 @@
+.toolbar{
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 0 0px;
+  overflow: hidden; /* evita que elementos vazem */
+}
+
+/* logo*/
+.logo {
+  width: 70px;
+  height: auto;
+  margin-left: 10px;
+}
+
+//Título//
+.title{
+  font-family: 'Arial', sans-serif; /* muda a fonte */
+  font-size: 30px;                  /* tamanho da letra */
+  color: #f28444;                   /* cor da letra */
+  font-weight: bold;                 /* negrito */
+  letter-spacing: 2px;               /* espaço entre letras */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* sombra */
+}
+
+
+//Butões que estão no meio//
+.button-escolha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex: 1;   /* ocupa o meio da toolbar */
+  margin-right: 30px;
+}
+//Butões que estão no meio//
+.button-escolha button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+//Butões que estão no meio//
+.button-escolha button span:hover{
+  color: #f28444;
+}
+
+// Icones (peesoa + carrinho)
+.icones-escolha{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.persson, .cart{
+  color: white;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+
+.persson:hover, .persson-item:hover,.cart:hover {
+  color: #f28444;
+}
+
+.persson-item{
+  color: black;
+}

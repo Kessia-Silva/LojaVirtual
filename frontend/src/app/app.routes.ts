@@ -15,19 +15,53 @@ import { LoginAdm } from './login-Adm/login-adm/login-adm';
 import { Loja } from './loja/loja';
 import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
 
-
+import { LayoutPublico } from './layout-publico/layout-publico';
+import { LayoutCliente } from './layout-cliente/layout-cliente';
+import { LayoutAdm } from './layout-adm/layout-adm';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: Home },
-  { path: 'sobre', component: Sobre },
-  { path: 'contato', component: Contato},
-  {path:'loja', component: Loja},
-  {path: 'login', component: Login},
-  {path: 'cadastro', component: Cadastro},
-  {path: 'areaCliente', component: AreaCliente},
-  { path: 'areaAdm', loadChildren: () => import('./area-adm/area-adm-module').then(m => m.AreaAdmModule) },
-  {path: 'produto-info', component: ProdutoInfo},
-  {path: 'carrinhoCompras', component: CarrinhoCompras},
-  {path: 'loginAdm', component: LoginAdm}
+
+  // 🔹 ROTAS PÚBLICAS (navbar público)
+  {
+    path: '',
+    component:  LayoutPublico,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: Home },
+      { path: 'sobre', component: Sobre },
+      { path: 'contato', component: Contato },
+      { path: 'loja', component: Loja },
+      { path: 'produto-info', component: ProdutoInfo },
+      { path: 'login', component: Login },
+      { path: 'cadastro', component: Cadastro },
+    ]
+  },
+
+  // 🔹 ROTAS CLIENTE (navbar cliente)
+  {
+    path: '',
+    component: LayoutCliente,
+    children: [
+      { path: 'areaCliente', component: AreaCliente },
+      { path: 'carrinhoCompras', component: CarrinhoCompras },
+      // outras páginas exclusivas do cliente
+    ]
+  },
+
+  // 🔹 ROTAS ADM (navbar adm)
+  {
+    path: 'areaAdm',
+    component: LayoutAdm,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./area-adm/area-adm-module').then(m => m.AreaAdmModule)
+      }
+    ]
+  },
+
+  // 🔹 ROTAS SEM LAYOUT ALGUM
+  { path: 'loginAdm', component: LoginAdm },
+
 ];
