@@ -6,7 +6,7 @@ import { Contato } from './contato/contato'
 
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
-import { AreaAdm } from './area-adm/area-adm/area-adm';
+import { AreaAdmModule } from './area-adm/area-adm-module';
 import { AreaCliente } from './Area-Cliente/area-cliente/area-cliente';
 
 import { ProdutoInfo } from './produto-info/produto-info/produto-info';
@@ -26,7 +26,7 @@ export const routes: Routes = [
   {path: 'login', component: Login},
   {path: 'cadastro', component: Cadastro},
   {path: 'areaCliente', component: AreaCliente},
-  {path: 'areaAdm', component: AreaAdm},
+  { path: 'areaAdm', loadChildren: () => import('./area-adm/area-adm-module').then(m => m.AreaAdmModule) },
   {path: 'produto-info', component: ProdutoInfo},
   {path: 'carrinhoCompras', component: CarrinhoCompras},
   {path: 'loginAdm', component: LoginAdm}

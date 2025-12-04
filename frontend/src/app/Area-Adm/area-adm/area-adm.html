@@ -1,3 +1,59 @@
-<div class = adm-body>
+<div class="adm-body">
+  <h2>Área de Administração</h2>
+  <p class="text-principal">
+    Escolha uma das opções abaixo para gerenciar as informações do sistema.
+  </p>
 
+  <div class="admin-grid">
+    <!-- Cadastrar Produto -->
+    <div class="admin-card">
+      <h3>Cadastrar Produto</h3>
+      <p>Adicione novos produtos informando: nome, preço, descrição, categoria, imagem e estoque.</p>
+      <button routerLink="cadastrarProduto">Cadastrar</button>
+    </div>
+
+    <!-- Editar Produto -->
+    <div class="admin-card">
+      <h3>Editar Produto</h3>
+      <p>Atualize dados do produto ou ajuste estoque dos produtos.</p>
+      <button routerLink="editarProduto">Editar</button>
+    </div>
+
+    <!-- Remover Produto -->
+    <div class="admin-card">
+      <h3>Remover Produto</h3>
+      <p>Remova produtos que não estão mais disponíveis.</p>
+      <button routerLink="removerProduto">Remover</button>
+    </div>
+
+    <!-- Gerenciar Gênero -->
+    <div class="admin-card">
+      <h3>Gerenciar Gênero Musical</h3>
+      <p>Crie, edite ou remova algum gênero musical.</p>
+      <button routerLink="gerenciarGeneroMusical">Gerenciar</button>
+    </div>
+
+    <!-- Visualizar Pedidos -->
+    <div class="admin-card">
+      <h3>Visualizar Pedidos</h3>
+      <p>Visualize pedidos pendentes, processando, enviados ou cancelados.</p>
+      <button routerLink="visualizarProdutos">Ver Pedidos</button>
+    </div>
+
+    <!-- Atualizar Status -->
+    <div class="admin-card">
+      <h3>Atualizar Status</h3>
+      <p>Atualize o status de cada pedido.</p>
+      <button routerLink="atualizarStatusPedido">Atualizar</button>
+    </div>
+
+      <!-- Visualizar detalhes do Pedido  -->
+    <div class="admin-card">
+      <h3>Visualizar Datalhes do Pedidos</h3>
+      <p>Visualize itens, quantidades, valor total, cliente e status do pedido.</p>
+      <button routerLink="visualizarProdutos">Ver Detalhes</button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
+

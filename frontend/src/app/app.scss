@@ -2,7 +2,6 @@
   background-color: black;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* espaço entre logo/título e ícones */
   padding: 0 0px;
   overflow: hidden; /* evita que elementos vazem */
 }
@@ -32,6 +31,7 @@
   align-items: center;
   gap: 40px;
   flex: 1;   /* ocupa o meio da toolbar */
+  margin-right: 20px;
 }
 //Butões que estão no meio//
 .button-escolha button {
@@ -50,7 +50,7 @@
 .icones-escolha{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .persson, .cart{
