@@ -2,9 +2,8 @@ import { ResolveFn } from '@angular/router';
 import { Injectable, Inject } from '@angular/core';
  import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
  import { Observable, of } from 'rxjs';
-import { GeneroMusical } from '../gerenciar-genero-musical/model/genero-musical';
-import { GerenciarGeneroMusicalService } from '../gerenciar-genero-musical/services/gerenciar-genero-musical-service';
-
+import { GeneroMusical } from '../produtos/gerenciar-genero-musical/model/genero-musical';
+import { GerenciarGeneroMusicalService } from '../produtos/gerenciar-genero-musical/services/gerenciar-genero-musical-service';
 
 @Injectable({
   providedIn: 'root'

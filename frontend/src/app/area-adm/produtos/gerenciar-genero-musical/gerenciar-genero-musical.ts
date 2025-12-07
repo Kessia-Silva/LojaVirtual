@@ -9,12 +9,12 @@ import { MatListModule } from '@angular/material/list';
 import { GeneroMusical } from './model/genero-musical';
 import { GerenciarGeneroMusicalService } from './services/gerenciar-genero-musical-service';
 
-import { ErrorDialog } from '../shared/components/error-dialog/error-dialog';
+import { ErrorDialog } from '../../shared/components/error-dialog/error-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError } from 'rxjs/operators';
-import { ConfirmationDialog } from '../shared/components/confirmation-dialog/confirmation-dialog';
+import { ConfirmationDialog } from '../../shared/components/confirmation-dialog/confirmation-dialog';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 @Component({
