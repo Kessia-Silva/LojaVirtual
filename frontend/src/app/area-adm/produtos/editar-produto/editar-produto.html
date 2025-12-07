@@ -44,7 +44,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Nome</mat-label>
-        <input matInput [(ngModel)]="produtoSelecionado!.nome">
+        <input matInput [(ngModel)]="produtoSelecionado!.nome"
+        (ngModelChange)="produtoSelecionado!.nome = capitalizeFirstLetter(produtoSelecionado!.nome)">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
