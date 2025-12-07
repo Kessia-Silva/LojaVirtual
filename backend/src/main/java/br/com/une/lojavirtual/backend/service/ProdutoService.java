@@ -1,0 +1,40 @@
+package br.com.une.lojavirtual.backend.service;
+
+import br.com.une.lojavirtual.backend.model.Produto;
+import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service // Indica ao Spring que aqui tem Regra de Negócio
+public class ProdutoService {
+
+    @Autowired
+    private ProdutoRepository repository;
+
+    // Listar tudo
+    public List<Produto> listarTodos() {
+        return repository.findAll();
+    }
+
+    // Buscar por ID
+    public Optional<Produto> buscarPorId(Long id) {
+        return repository.findById(id);
+    }
+
+    // Salvar ou Atualizar
+    public Produto salvar(Produto produto) {
+        // Validação simples (depois podemos melhorar)
+        if (produto.getPreco() != null && produto.getPreco().doubleValue() < 0) {
+            throw new IllegalArgumentException("O preço não pode ser negativo.");
+        }
+        return repository.save(produto);
+    }
+
+    // Deletar
+    public void deletar(Long id) {
+        repository.deleteById(id);
+    }
+}
