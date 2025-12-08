@@ -6,14 +6,14 @@ import { Contato } from './contato/contato'
 
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
-import { AreaAdmModule } from './area-adm/area-adm-module';
-import { AreaCliente } from './area-cliente/area-cliente/area-cliente';
+import { AreaAdmModule } from './Area-Adm/areaAdm-module';
+import { AreaCliente } from './Area-Cliente/homeCliente/area-cliente';
 
 import { ProdutoInfo } from './produto-info/produto-info';
 
 import { LoginAdm } from './login-Adm/login-adm/login-adm';
 import { Loja } from './loja/loja';
-import { CarrinhoCompras } from './carrinho-compras/carrinho-compras';
+import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
 
 import { LayoutPublico } from './layout-publico/layout-publico';
 export const routes: Routes = [
@@ -43,7 +43,7 @@ export const routes: Routes = [
 
   path: 'areaAdm',
   loadChildren: () =>
-    import('./area-adm/area-adm-module').then(m => m.AreaAdmModule)
+    import('./Area-Adm/areaAdm-module').then(m => m.AreaAdmModule)
 
   },
 

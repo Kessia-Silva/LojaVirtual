@@ -6,7 +6,7 @@ import { RemoverProduto } from './produtos/remover-produto/remover-produto';
 import { VisualizarProdutos } from './produtos/visualizar-produtos/visualizar-produtos';
 import { AtualizarStatusPedido } from './pedidos/atualizar-status-pedido/atualizar-status-pedido';
 import { GerenciarGeneroMusical } from './genero-musical/gerenciar-genero-musical/gerenciar-genero-musical';
-import { AreaAdm } from './area-adm/area-adm';
+import { AreaAdm } from './home-adm/area-adm';
 import { VisualizarPedidos } from './pedidos/visualizar-pedidos/visualizar-pedidos';
 
 const routes: Routes = [

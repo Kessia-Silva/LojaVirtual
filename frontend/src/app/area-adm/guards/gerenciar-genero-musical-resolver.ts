@@ -2,8 +2,7 @@ import { ResolveFn } from '@angular/router';
 import { Injectable, Inject } from '@angular/core';
  import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
  import { Observable, of } from 'rxjs';
-import { GeneroMusical } from '../genero-musical/model/genero-musical';
-import { GeneroMusicalService } from '../genero-musical/services/genero-musical-service';
+
 @Injectable({
   providedIn: 'root'
  })

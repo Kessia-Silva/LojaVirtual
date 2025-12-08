@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AreaAdmRoutingModule } from './area-adm-routing-module';
+import { AreaAdmRoutingModule } from './areaAdm-routing-module';
 
 
 @NgModule({

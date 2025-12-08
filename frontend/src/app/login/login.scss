@@ -77,7 +77,8 @@
 .login-form-container .cadastro-link {
   text-align: center;
   font-size: 14px;
-  margin-top: 10px;
+  margin: 0.5px 0; /* menor espaçamento entre os links */
+  line-height: 0.9; /* ajuda a deixar mais compacto */
 }
 
 .login-form-container .cadastro-link a {
