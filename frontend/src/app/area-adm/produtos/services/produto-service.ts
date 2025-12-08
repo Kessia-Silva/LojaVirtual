@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Produto } from '../model/produto-model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Produto } from '../../../models/produto-model';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,21 +13,23 @@ export class ProdutoService {
 
    private produtos: Produto[] = [
      {
-    id: "1",
+    id: 1,
     nome: 'Hamilton',
     preco: 99.9,
     descricao: 'Musica ótima',
     estoque: 100,
-    generoMusical: { id: '1', name: 'Pop' },
+    artista:'Lin Mannuel',
+    generoMusical: { id: 1, nome: 'Pop' },
     imagemUrl: 'assets/img/fotos-produtos/produto1.jpeg'
   },
   {
-    id: "2",
-    nome: 'Arlindo Cruz',
+    id: 2,
+    nome: 'Mais tocadas',
     preco: 199.9,
     descricao: 'Musica ótima',
+    artista:'Arlindo Cruz',
     estoque: 300,
-    generoMusical: { id: '2', name: 'MPB' },
+    generoMusical: { id: 2, nome: 'MPB' },
     imagemUrl: 'assets/img/fotos-produtos/produto10.jpeg'
   }
   ];
@@ -51,7 +53,7 @@ export class ProdutoService {
 
   // Adiciona um produto (mock). Gera id como string.
   addProduto(produto: Produto): void {
-    produto.id = new Date().getTime().toString(); // id string temporário
+    produto.id = new Date().getTime(); // id string temporário
     // ou: produto.id = crypto.randomUUID(); // se quiser UUID (navegador moderno)
     this.produtos.push(produto);
     this.produtosSubject.next(this.produtos);
@@ -83,7 +85,7 @@ export class ProdutoService {
   */
 
   // Remove por id (string)
-  deleteProduto(id: string): void {
+  deleteProduto(id: number): void {
     this.produtos = this.produtos.filter(p => p.id !== id);
     this.produtosSubject.next(this.produtos);
     // com backend: return this.httpClient.delete(`/api/produtos/${id}`);

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Produto } from '../model/produto-model';
 import { ProdutoService } from '../services/produto-service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -9,8 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { GeneroMusicalService } from '../../genero-musical/services/genero-musical-service';
-import { GeneroMusical } from '../../genero-musical/model/genero-musical';
 import { MatSelectModule } from '@angular/material/select';
+import { Produto } from '../../../models/produto-model';
+import { GeneroMusical } from '../../../models/generoMusical-models';
 @Component({
   selector: 'app-editar-produto',
   imports: [MatFormFieldModule, FormsModule, MatButtonModule,

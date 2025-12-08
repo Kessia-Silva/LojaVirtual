@@ -6,9 +6,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ProdutoService } from '../services/produto-service';
-import { Produto } from '../model/produto-model';
 import { FormsModule } from '@angular/forms';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
+import { Produto } from '../../../models/produto-model';
 
 @Component({
   selector: 'app-remover-produto',

@@ -5,13 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { GeneroMusical } from '../../genero-musical/model/genero-musical';
 import { GeneroMusicalService } from '../../genero-musical/services/genero-musical-service';
 import { Observable } from 'rxjs';
-import { Produto } from '../model/produto-model';
 import { FormsModule } from '@angular/forms';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { ProdutoService } from '../services/produto-service';
+import { GeneroMusical } from '../../../models/generoMusical-models';
+import { Produto } from '../../../models/produto-model';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -24,12 +24,13 @@ export class CadastrarProduto implements OnInit{
 
  generos$!: Observable<GeneroMusical[]>;
   produto: Produto = {
-    id: '',
+    id: 0,
     nome: '',
     preco: null as any,
     descricao: '',
     estoque: null as any,
-    generoMusical: { id: '', name: '' },
+    artista:'',
+    generoMusical: { id: 0, nome: '' },
     imagemUrl: ''
   };
 
@@ -65,12 +66,13 @@ export class CadastrarProduto implements OnInit{
 
   // Resetar formulário
   this.produto = {
-    id: '',
+    id: 0,
     nome: '',
     preco: null as any,
     descricao: '',
     estoque: null as any,
-    generoMusical: { id: '', name: '' },
+    artista:'',
+    generoMusical: { id: 0, nome: '' },
     imagemUrl: ''
   };
 

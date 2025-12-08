@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Produto } from '../model/produto-model';
 import { ProdutoService } from '../services/produto-service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
+import { Produto } from '../../../models/produto-model';
 
 @Component({
   selector: 'app-visualizar-produtos',
