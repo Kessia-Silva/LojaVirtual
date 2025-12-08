@@ -17,26 +17,37 @@ import { Produto } from '../../../models/produto-model';
   templateUrl: './remover-produto.html',
   styleUrl: './remover-produto.scss',
 })
+
 export class RemoverProduto {
 
-  produtos: Produto[] = [];           // Todos os produtos
-  produtosFiltrados: Produto[] = [];  // Produtos filtrados pela busca
-  buscaProduto: string = '';          // Valor do input de busca
-  produtoSelecionado: Produto | null = null; // Produto selecionado para confirmar remoção
+  produtos: Produto[] = [];
+  produtosFiltrados: Produto[] = [];
+  buscaProduto: string = '';
+  produtoSelecionado: Produto | null = null;
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
-    this.produtoService.getProdutos().subscribe(produtos => {
-      this.produtos = produtos;
-      this.produtosFiltrados = produtos;
+    this.carregarProdutos();
+  }
+
+  // Carrega todos os produtos do backend
+  carregarProdutos(): void {
+    this.produtoService.getProdutos().subscribe({
+      next: (produtos) => {
+        this.produtos = produtos;
+        this.produtosFiltrados = produtos;
+      },
+      error: (err) => console.error("Erro ao carregar produtos", err)
     });
   }
 
-  // Filtra os produtos conforme o input
+  // Filtra a lista pelo nome
   filtrarProdutos(): void {
     const termo = this.buscaProduto.toLowerCase();
-    this.produtosFiltrados = this.produtos.filter(p => p.nome.toLowerCase().includes(termo));
+    this.produtosFiltrados = this.produtos.filter(
+      p => p.nome.toLowerCase().includes(termo)
+    );
   }
 
   // Abre modal de confirmação
@@ -46,62 +57,28 @@ export class RemoverProduto {
 
   // Remove produto após confirmação
   removerProduto(): void {
-    if (this.produtoSelecionado) {
-      this.produtoService.deleteProduto(this.produtoSelecionado.id);
-      // Atualiza a lista de produtos local
-      this.produtos = this.produtos.filter(p => p.id !== this.produtoSelecionado!.id);
-      this.filtrarProdutos(); // atualiza produtosFiltrados
-
-    alert('Produto Removido com Sucesso');
-
-
-      this.produtoSelecionado = null; // fecha modal
-    }
-}
-
-/* Para o back
-
-produtos: Produto[] = [];
-  produtosFiltrados: Produto[] = [];
-  buscaProduto: string = '';
-  produtoSelecionado: Produto | null = null;
-
-  constructor(private produtoService: ProdutoService) { }
-
-  ngOnInit(): void {
-    this.carregarProdutos();
-  }
-
-  carregarProdutos(): void {
-    this.produtoService.getProdutos().subscribe(produtos => {
-      this.produtos = produtos;
-      this.produtosFiltrados = produtos;
-    });
-  }
-
-  filtrarProdutos(): void {
-    const termo = this.buscaProduto.toLowerCase();
-    this.produtosFiltrados = this.produtos.filter(p => p.nome.toLowerCase().includes(termo));
-  }
-
-  abrirConfirmacao(produto: Produto): void {
-    this.produtoSelecionado = produto;
-  }
-
-  removerProduto(): void {
     if (!this.produtoSelecionado) return;
 
     this.produtoService.deleteProduto(this.produtoSelecionado.id).subscribe({
       next: () => {
-        // Atualiza lista local
-        this.produtos = this.produtos.filter(p => p.id !== this.produtoSelecionado!.id);
+        // remove da lista local
+        this.produtos = this.produtos.filter(
+          p => p.id !== this.produtoSelecionado!.id
+        );
+
+        // atualiza lista filtrada
         this.filtrarProdutos();
+
+        alert('Produto removido com sucesso!');
+
         this.produtoSelecionado = null;
       },
       error: (err) => {
-        console.error('Erro ao remover produto', err);
+        console.error("Erro ao remover produto", err);
+        alert("Erro ao remover produto.");
       }
     });
-  }*/
+  }
 
 }
+
