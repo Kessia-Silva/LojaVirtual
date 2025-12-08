@@ -44,27 +44,39 @@ export class CadastrarProduto implements OnInit{
   }
 
   onSalvarProduto() {
-    if (!this.produto.nome || !this.produto.generoMusical.id) {
-      alert('Preencha todos os campos!');
-      return;
-    }
-
-    this.produtoService.addProduto(this.produto); // salva no mock
-    alert('Produto salvo com sucesso!');
-
-    // Limpa o formulário
-    this.produto = {
-      id: '',
-      nome: '',
-      preco: null as any,
-      descricao: '',
-      estoque: null as any,
-      generoMusical: { id: '', name: '' },
-      imagemUrl: ''
-    };
-    this.imagemPreview = null;
-    this.imagemSelecionada = null;
+   // Validação dos campos obrigatórios
+  if (
+    !this.produto.nome?.trim() ||                       // nome vazio
+    !this.produto.preco || this.produto.preco <= 0 ||   // preço inválido
+    !this.produto.estoque || this.produto.estoque < 0 ||// estoque inválido
+    !this.produto.generoMusical?.id ||                  // gênero não selecionado
+    !this.imagemSelecionada                             // imagem não escolhida
+  ) {
+    alert('Preencha todos os campos obrigatórios corretamente!');
+    return;
   }
+
+  // Formata nome
+  this.produto.nome = this.capitalizeFirstLetter(this.produto.nome);
+
+  // Salva
+  this.produtoService.addProduto(this.produto);
+  alert('Produto salvo com sucesso!');
+
+  // Resetar formulário
+  this.produto = {
+    id: '',
+    nome: '',
+    preco: null as any,
+    descricao: '',
+    estoque: null as any,
+    generoMusical: { id: '', name: '' },
+    imagemUrl: ''
+  };
+
+  this.imagemPreview = null;
+  this.imagemSelecionada = null;
+}
 
   onSelecionarGenero(genero: GeneroMusical) {
     this.produto.generoMusical = genero;

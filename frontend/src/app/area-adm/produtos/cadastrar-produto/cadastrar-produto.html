@@ -6,8 +6,7 @@
   <form class="form" (ngSubmit)="onSalvarProduto()">
     <mat-form-field appearance="outline" class="campo">
       <mat-label>Nome do produto</mat-label>
-      <input matInput [(ngModel)]="produto.nome" name="nome" required
-      (ngModelChange)="produto.nome = capitalizeFirstLetter(produto.nome)">
+      <input matInput [(ngModel)]="produto.nome" name="nome" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="campo">
