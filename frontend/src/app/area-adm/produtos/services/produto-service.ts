@@ -56,7 +56,9 @@ export class ProdutoService {
     this.produtos.push(produto);
     this.produtosSubject.next(this.produtos);
     // return this.httpClient.post('/api/produtos', produto);
+
   }
+
   /*  // trocar com backend:
   private addProduto(record: Partial<Produto>){
  return this.httpClient.post<Produto>(this.API, record);

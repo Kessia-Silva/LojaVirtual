@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf  } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -8,37 +8,86 @@ import { MatIconModule } from '@angular/material/icon';
 import { GeneroMusical } from '../../genero-musical/model/genero-musical';
 import { GeneroMusicalService } from '../../genero-musical/services/genero-musical-service';
 import { Observable } from 'rxjs';
+import { Produto } from '../model/produto-model';
+import { FormsModule } from '@angular/forms';
+import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
+import { ProdutoService } from '../services/produto-service';
 
 @Component({
   selector: 'app-cadastrar-produto',
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule,
-    MatIconModule, AsyncPipe, NgFor  ],
+    MatIconModule, AsyncPipe, NgFor,  NgIf, FormsModule, NavbarInternoAdm],
   templateUrl: './cadastrar-produto.html',
   styleUrl: './cadastrar-produto.scss',
 })
 export class CadastrarProduto implements OnInit{
 
-
-  // garante que será inicializado no ngOnInit antes do template usar
-  generos$!: Observable<GeneroMusical[]>;
-
-  produto = {
+ generos$!: Observable<GeneroMusical[]>;
+  produto: Produto = {
+    id: '',
     nome: '',
-    preco: 0,
-    genero: '',
-    categoriaId: '', // armazena id do genero
-    estoque: 0
+    preco: null as any,
+    descricao: '',
+    estoque: null as any,
+    generoMusical: { id: '', name: '' },
+    imagemUrl: ''
   };
 
-  constructor(private generoService: GeneroMusicalService) {}
+  imagemSelecionada: File | null = null;
+  imagemPreview: string | null = null;
+
+  constructor(private generoService: GeneroMusicalService,
+              private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
-    // usa o método do service — se o método não existir, chame this.generoService.generos$
     this.generos$ = this.generoService.getAll();
   }
 
   onSalvarProduto() {
-    // pegar dados de this.produto e enviar ao backend ou mock
-    console.log('Salvar produto', this.produto);
+    if (!this.produto.nome || !this.produto.generoMusical.id) {
+      alert('Preencha todos os campos!');
+      return;
+    }
+
+    this.produtoService.addProduto(this.produto); // salva no mock
+    alert('Produto salvo com sucesso!');
+
+    // Limpa o formulário
+    this.produto = {
+      id: '',
+      nome: '',
+      preco: null as any,
+      descricao: '',
+      estoque: null as any,
+      generoMusical: { id: '', name: '' },
+      imagemUrl: ''
+    };
+    this.imagemPreview = null;
+    this.imagemSelecionada = null;
   }
+
+  onSelecionarGenero(genero: GeneroMusical) {
+    this.produto.generoMusical = genero;
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.imagemSelecionada = input.files[0];
+      this.produto.imagemUrl = URL.createObjectURL(this.imagemSelecionada);
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagemPreview = reader.result as string;
+      };
+      reader.readAsDataURL(this.imagemSelecionada);
+    }
+  }
+
+  // Função para inicial maiúscula
+capitalizeFirstLetter(value: string): string {
+  if (!value) return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 }

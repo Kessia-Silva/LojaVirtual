@@ -34,3 +34,21 @@ h1 {
   border: 1px dashed #999;
   border-radius: 6px;
 }
+
+.preview-imagem {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.preview-imagem img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.button-color{
+color: #f28444 !important;
+}
+
