@@ -39,10 +39,13 @@ export class EditarProduto {
       });
 
       // Carrega gêneros musicais
-    this.generoService.getGeneros().subscribe(generos => {
-      this.generosMusicais = generos;
-    });
+
+      this.generoService.getAll().subscribe(generos => {
+  this.generosMusicais = generos;
+});
     }
+
+
 
     // Filtra os produtos conforme o input
     filtrarProdutos(): void {
@@ -72,13 +75,13 @@ capitalizeFirstLetter(value: string): string {
 }
 
 
+
 carregarGeneros() {
-    this.generoService.getGeneros().subscribe({
-      next: (lista) => this.generosMusicais = lista,
-      error: (err) => console.error('Erro ao carregar gêneros', err)
-    });
-
-
+  this.generoService.getAll().subscribe({
+    next: (lista) => this.generosMusicais = lista,
+    error: (err) => console.error('Erro ao carregar gêneros', err)
+  });
+}
 
 /*
 
@@ -87,5 +90,5 @@ trocar com backend:
     return this.httpCliente.get<GeneroMusical[]>(this.API);
   } */
 
-}
+
 }

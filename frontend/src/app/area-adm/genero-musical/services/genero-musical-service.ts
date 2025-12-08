@@ -14,32 +14,33 @@ private generos: GeneroMusical[] = [
     { id: "3", name: 'Axé' }
   ];
 
-  private generosSubject = new BehaviorSubject<GeneroMusical[]>(this.generos);
+  private generosSubject = new BehaviorSubject<GeneroMusical[]>([...this.generos]);
 
   constructor() {}
 
+  // Observable público
   getAll(): Observable<GeneroMusical[]> {
     return this.generosSubject.asObservable();
   }
 
-  add(name: string) {
+  add(genero: GeneroMusical) {
     const novoId = (Math.max(...this.generos.map(g => +g.id)) + 1).toString();
-    const novoGenero: GeneroMusical = { id: novoId, name };
-    this.generos.push(novoGenero);
-    this.generosSubject.next(this.generos);
+    genero.id = novoId;
+    this.generos.push(genero);
+    this.generosSubject.next([...this.generos]); // clonar para disparar atualização
   }
 
-  update(id: string, name: string) {
-    const index = this.generos.findIndex(g => g.id === id);
-    if (index > -1) {
-      this.generos[index] = { id, name };
-      this.generosSubject.next(this.generos);
+  update(generoEditado: GeneroMusical) {
+    const index = this.generos.findIndex(g => g.id === generoEditado.id);
+    if (index >= 0) {
+      this.generos[index] = generoEditado;
+      this.generosSubject.next([...this.generos]);
     }
   }
 
-  delete(id: string) {
+  remove(id: string) {
     this.generos = this.generos.filter(g => g.id !== id);
-    this.generosSubject.next(this.generos);
+    this.generosSubject.next([...this.generos]);
   }
 
   /*  ############ LIBERAR QUANDO TIVER O BANCO ESSA PARTE ########################

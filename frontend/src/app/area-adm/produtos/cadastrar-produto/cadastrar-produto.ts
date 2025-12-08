@@ -34,7 +34,7 @@ export class CadastrarProduto implements OnInit{
 
   ngOnInit(): void {
     // usa o método do service — se o método não existir, chame this.generoService.generos$
-    this.generos$ = this.generoService.getGeneros();
+    this.generos$ = this.generoService.getAll();
   }
 
   onSalvarProduto() {

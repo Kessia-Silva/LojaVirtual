@@ -36,17 +36,18 @@ export class GerenciarGeneroMusical implements OnInit {
 
   constructor(private generoService: GeneroMusicalService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.generos$ = this.generoService.getAll();
   }
 
   onSave() {
-    if (!this.generoForm.name.trim()) return;
+    const nome = this.generoForm.name?.trim();
+    if (!nome) return;
 
     if (this.generoForm.id) {
-      this.generoService.update(this.generoForm.id, this.generoForm.name);
+      this.generoService.update({ ...this.generoForm, name: nome });
     } else {
-      this.generoService.add(this.generoForm.name);
+      this.generoService.add({ id: '', name: nome });
     }
     this.onCancel();
   }
@@ -55,18 +56,14 @@ export class GerenciarGeneroMusical implements OnInit {
     this.generoForm = { ...genero };
   }
 
-  onRemove(id: string | undefined) {
+  onRemove(id?: string) {
     if (!id) return;
-    this.generoService.delete(id);
+    this.generoService.remove(id);
   }
 
   onCancel() {
     this.generoForm = { id: '', name: '' };
   }
-
-
-
-
 
 
 
@@ -138,4 +135,11 @@ ngOnInit(): void {
   console.log('Dados carregados do backend:', genero);
 }
 */
+
+
+// Função para inicial maiúscula
+capitalizeFirstLetter(value: string): string {
+  if (!value) return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
 }
