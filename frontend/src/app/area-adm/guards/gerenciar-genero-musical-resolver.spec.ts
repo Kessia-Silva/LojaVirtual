@@ -4,7 +4,7 @@ import { ResolveFn } from '@angular/router';
 import { gerenciarGeneroMusicalResolver } from './gerenciar-genero-musical-resolver';
 
 describe('gerenciarGeneroMusicalResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
+  const executeResolver: ResolveFn<boolean> = (...resolverParameters) =>
       TestBed.runInInjectionContext(() => gerenciarGeneroMusicalResolver(...resolverParameters));
 
   beforeEach(() => {

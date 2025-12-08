@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from '../model/pedido-model';
 import { PedidoService } from '../services/pedido-service';
 import { MatFormField, MatLabel } from "@angular/material/form-field";
 import { MatOption, MatSelect } from "@angular/material/select";
@@ -11,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
+import { Pedido } from '../../../models/pedido-model';
 
 @Component({
   selector: 'app-atualizar-status-pedido',

@@ -1,7 +1,7 @@
-import { ItemPedido } from "./itemPedido-model";
+import { ItemPedido } from "./itemPedido";
 
 export interface Pedido {
-  id: string;
+  id: number;
   clienteId: string;
   itens: ItemPedido[];
   total: number;
