@@ -31,6 +31,18 @@ public class ProdutoController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    // URL: http://localhost:8080/api/produtos/buscar?nome=Pink
+    @GetMapping("/buscar")
+    public List<Produto> buscarPorNome(@RequestParam String nome) {
+        return service.buscarPorNome(nome);
+    }
+
+    // URL: http://localhost:8080/api/produtos/categoria/Vinil
+    @GetMapping("/categoria/{categoria}")
+    public List<Produto> buscarPorCategoria(@PathVariable String categoria) {
+        return service.buscarPorCategoria(categoria);
+    }
+
     @PostMapping
     public ResponseEntity<Produto> criar(@RequestBody Produto produto) {
         Produto novoProduto = service.salvar(produto);

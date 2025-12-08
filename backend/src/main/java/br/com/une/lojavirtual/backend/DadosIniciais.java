@@ -1,7 +1,10 @@
 package br.com.une.lojavirtual.backend;
 
 import br.com.une.lojavirtual.backend.model.Produto;
+import br.com.une.lojavirtual.backend.model.TipoUsuario;
+import br.com.une.lojavirtual.backend.model.Usuario;
 import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
+import br.com.une.lojavirtual.backend.repository.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,19 +16,25 @@ import java.util.Arrays;
 public class DadosIniciais {
 
     @Bean
-    CommandLineRunner rodar(ProdutoRepository repository) {
+    CommandLineRunner rodar(ProdutoRepository produtoRepo, UsuarioRepository usuarioRepo) {
         return args -> {
-            // Verifica se já tem dados para não duplicar
-            if (repository.count() > 0) return;
+            // 1. Carga de Produtos (Mantivemos a lógica anterior)
+            if (produtoRepo.count() == 0) {
+                Produto p1 = new Produto(null, "Thriller", "Michael Jackson", "O álbum mais vendido da história", new BigDecimal("120.00"), 50, "Vinil", "url_img_1");
+                Produto p2 = new Produto(null, "The Dark Side of the Moon", "Pink Floyd", "Clássico do rock progressivo", new BigDecimal("150.00"), 20, "Vinil", "url_img_2");
+                Produto p3 = new Produto(null, "Revolver", "The Beatles", "Edição remasterizada", new BigDecimal("80.00"), 100, "CD", "url_img_3");
+                
+                produtoRepo.saveAll(Arrays.asList(p1, p2, p3));
+            }
 
-            Produto p1 = new Produto(null, "Thriller", "Michael Jackson", "O álbum mais vendido da história", new BigDecimal("120.00"), 50, "Vinil", "url_img_1");
-            Produto p2 = new Produto(null, "The Dark Side of the Moon", "Pink Floyd", "Clássico do rock progressivo", new BigDecimal("150.00"), 20, "Vinil", "url_img_2");
-            Produto p3 = new Produto(null, "Revolver", "The Beatles", "Edição remasterizada", new BigDecimal("80.00"), 100, "CD", "url_img_3");
-            Produto p4 = new Produto(null, "Acabou Chorare", "Novos Baianos", "Música popular brasileira", new BigDecimal("90.00"), 30, "Vinil", "url_img_4");
-            Produto p5 = new Produto(null, "Random Access Memories", "Daft Punk", "Eletrônica moderna", new BigDecimal("60.00"), 40, "CD", "url_img_5");
-
-            repository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
-            System.out.println("--- CARGA DE DADOS INICIAIS CONCLUÍDA COM SUCESSO ---");
+            // 2. Carga de Usuários (NOVO!)
+            if (usuarioRepo.count() == 0) {
+                Usuario admin = new Usuario(null, "Rafael Admin", "admin@loja.com", "senha1234", TipoUsuario.ADMIN);
+                Usuario cliente = new Usuario(null, "Vagner Cliente", "cliente@loja.com", "senha1234", TipoUsuario.CLIENTE);
+                
+                usuarioRepo.saveAll(Arrays.asList(admin, cliente));
+                System.out.println("--- USUÁRIOS DE TESTE CRIADOS ---");
+            }
         };
     }
 }

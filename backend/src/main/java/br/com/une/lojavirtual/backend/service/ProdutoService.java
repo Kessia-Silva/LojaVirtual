@@ -24,6 +24,16 @@ public class ProdutoService {
         return repository.findById(id);
     }
 
+    // Buscar por parte do nome (Busca)
+    public List<Produto> buscarPorNome(String nome) {
+        return repository.findByNomeContainingIgnoreCase(nome);
+    }
+
+    // Buscar por categoria exata (Filtro)
+    public List<Produto> buscarPorCategoria(String categoria) {
+        return repository.findByCategoria(categoria);
+    }
+
     // Salvar ou Atualizar
     public Produto salvar(Produto produto) {
         // Validação simples (depois podemos melhorar)
