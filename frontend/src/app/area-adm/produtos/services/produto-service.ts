@@ -27,6 +27,7 @@ export class ProdutoService {
 
   // 4. Criar produto novo
   addProduto(produto: Produto): Observable<Produto> {
+    console.log("📦 Produto enviado para o backend:", produto);
     return this.http.post<Produto>(this.API, produto);
   }
 

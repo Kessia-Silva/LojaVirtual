@@ -47,7 +47,8 @@ export class CadastrarProduto implements OnInit{
   onSalvarProduto() {
    // Validação dos campos obrigatórios
   if (
-    !this.produto.nome?.trim() ||                       // nome vazio
+    !this.produto.nome?.trim() ||
+    !this.produto.artista?.trim() ||                       // nome vazio
     !this.produto.preco || this.produto.preco <= 0 ||   // preço inválido
     !this.produto.estoque || this.produto.estoque < 0 ||// estoque inválido
     !this.produto.generoMusical?.id ||                  // gênero não selecionado
@@ -88,7 +89,7 @@ export class CadastrarProduto implements OnInit{
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.imagemSelecionada = input.files[0];
-      this.produto.imagemUrl = URL.createObjectURL(this.imagemSelecionada);
+      this.produto.imagemUrl = this.imagemSelecionada!.name;
 
       const reader = new FileReader();
       reader.onload = () => {
@@ -97,6 +98,8 @@ export class CadastrarProduto implements OnInit{
       reader.readAsDataURL(this.imagemSelecionada);
     }
   }
+
+
 
   // Função para inicial maiúscula
 capitalizeFirstLetter(value: string): string {

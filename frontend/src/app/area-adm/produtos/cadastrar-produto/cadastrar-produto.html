@@ -9,6 +9,12 @@
       <input matInput [(ngModel)]="produto.nome" name="nome" required>
     </mat-form-field>
 
+     <!-- NOVO CAMPO: ARTISTA -->
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Artista</mat-label>
+      <input matInput [(ngModel)]="produto.artista" name="artista" required>
+    </mat-form-field>
+
     <mat-form-field appearance="outline" class="campo">
       <mat-label>Preço</mat-label>
       <input matInput type="number" min="0" step="1" [(ngModel)]="produto.preco" name="preco" required>
