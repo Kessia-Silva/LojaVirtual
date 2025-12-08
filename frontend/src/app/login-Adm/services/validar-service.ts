@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ValidarService {
   // Lista de admins estática
   private admins = [
-    { email: 'admin1@exemplo.com', senha: '12345678' },
+    { email: 'teste@exemplo.com', senha: '12345678' },
     { email: 'admin2@exemplo.com', senha: 'senhaSegura' }
   ];
 

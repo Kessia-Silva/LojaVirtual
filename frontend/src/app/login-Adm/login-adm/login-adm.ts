@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,9 @@ import { ValidarService } from '../services/validar-service';
   templateUrl: './login-adm.html',
   styleUrl: './login-adm.scss',
 })
-export class LoginAdm {
+export class LoginAdm implements OnInit {
+
+
   // Formulário reativo
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -36,6 +38,10 @@ export class LoginAdm {
     this.hideSenha.set(!this.hideSenha());
   }
   constructor(private router: Router, private adminService: ValidarService) { }
+   ngOnInit() {
+  this.loginForm.reset();
+  this.hideSenha.set(true);
+  }
 
 onSubmit() {
   if (this.loginForm.valid) {
