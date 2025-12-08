@@ -7,18 +7,15 @@ import { Contato } from './contato/contato'
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
 import { AreaAdmModule } from './area-adm/area-adm-module';
-import { AreaCliente } from './Area-Cliente/area-cliente/area-cliente';
+import { AreaCliente } from './area-cliente/area-cliente/area-cliente';
 
-import { ProdutoInfo } from './produto-info/produto-info/produto-info';
+import { ProdutoInfo } from './produto-info/produto-info';
 
 import { LoginAdm } from './login-Adm/login-adm/login-adm';
 import { Loja } from './loja/loja';
-import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
+import { CarrinhoCompras } from './carrinho-compras/carrinho-compras';
 
 import { LayoutPublico } from './layout-publico/layout-publico';
-import { LayoutCliente } from './layout-cliente/layout-cliente';
-
-
 export const routes: Routes = [
 
   // 🔹 ROTAS PÚBLICAS (navbar público)
@@ -34,19 +31,12 @@ export const routes: Routes = [
       { path: 'produto-info', component: ProdutoInfo },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
+      { path: 'areaCliente', component: AreaCliente },
+      { path: 'carrinhoCompras', component: CarrinhoCompras },
     ]
   },
 
-  // 🔹 ROTAS CLIENTE (navbar cliente)
-  {
-    path: '',
-    component: LayoutCliente,
-    children: [
-      { path: 'areaCliente', component: AreaCliente },
-      { path: 'carrinhoCompras', component: CarrinhoCompras },
-      // outras páginas exclusivas do cliente
-    ]
-  },
+
 
   // 🔹 ROTAS ADM (navbar adm)
   {

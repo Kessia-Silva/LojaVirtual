@@ -1,7 +1,7 @@
 // 1. Importe OnInit do core
 import { Component, OnInit } from '@angular/core';
 // 2. Ajuste o nome da classe para CarrinhoService (se for o nome correto)
-import { CarrinhoService } from './ServicoCarrinho/service-carrinho';
+import { CarrinhoService } from './services/service-carrinho';
 import { Produto } from './../home/services/produtos';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CurrencyPipe, NgFor } from '@angular/common';
