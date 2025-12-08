@@ -23,7 +23,7 @@
       <mat-label>Gênero Musical</mat-label>
       <mat-select  (selectionChange)="onSelecionarGenero($event.value)" [value]="produto.generoMusical" required>
         <mat-option class = "color" *ngFor="let genero of generos$ | async" [value]="genero" >
-          {{ genero.name }}
+          {{ genero.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
