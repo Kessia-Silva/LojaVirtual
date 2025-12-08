@@ -45,9 +45,9 @@ export class GerenciarGeneroMusical implements OnInit {
     if (!nome) return;
 
     if (this.generoForm.id) {
-      this.generoService.update({ ...this.generoForm, name: nome });
+      this.generoService.update({ ...this.generoForm, nome: nome });
     } else {
-      this.generoService.add({ id: '', name: nome });
+      this.generoService.add({ id: 0, nome: nome });
     }
     this.onCancel();
   }
@@ -56,7 +56,7 @@ export class GerenciarGeneroMusical implements OnInit {
     this.generoForm = { ...genero };
   }
 
-  onRemove(id?: string) {
+  onRemove(id?: number) {
     if (!id) return;
     this.generoService.remove(id);
   }
