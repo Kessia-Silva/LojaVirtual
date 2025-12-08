@@ -29,6 +29,14 @@
   font-size: 26px;
 }
 
+/* Ícones à direita */
+.icones-escolha {
+  margin-left: auto;  /* força o ícone para a extrema direita */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* espaço entre ícones se houver mais de um */
+}
+
 .persson:hover, .persson-item:hover{
   color: #f28444;
 }
@@ -36,3 +44,6 @@
 .persson-item{
   color: black;
 }
+
+
+
