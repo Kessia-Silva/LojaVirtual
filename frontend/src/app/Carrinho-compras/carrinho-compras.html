@@ -14,7 +14,7 @@
 <div *ngFor="let item of carrinho$ | async">
 
     <div class="row main">
-        <img [src]="item.imagem" />
+        <img [src]="item.imagemUrl" />
 
         <div class="col">
             <div class="text-muted">{{ item.nome }}</div>

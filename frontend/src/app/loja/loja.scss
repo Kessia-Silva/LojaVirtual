@@ -109,3 +109,12 @@
 #grid-menu li.largeGrid a.active {
     background-position: -37px -33px;
 }
+
+.produtos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* cards menores */
+  gap: 70px; /* menos espaço entre cards */
+  padding: 12px;
+}
+
+

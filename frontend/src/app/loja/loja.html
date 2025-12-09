@@ -25,6 +25,14 @@
        </div>
 
        Showing 0 - 0
+
+    <div class="produtos-lista">
+  <ng-container *ngFor="let p of produtos">
+    <app-card-produto-loja [produto]="p"></app-card-produto-loja>
+  </ng-container>
+</div>
+
+
 </div>
 
 
