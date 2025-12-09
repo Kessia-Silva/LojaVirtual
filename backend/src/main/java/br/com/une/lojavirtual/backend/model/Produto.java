@@ -31,8 +31,12 @@ public class Produto {
 
     @Column(nullable = false)
     private Integer estoque;
-
-    private String categoria; // Ex: "CD", "Vinil", "Camiseta"
+    
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria; // Ex: "CD", "Vinil", "Camiseta"
 
     private String imagemUrl; // Link da capa do álbum
+
+    
 }

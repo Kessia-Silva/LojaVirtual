@@ -30,8 +30,8 @@ public class ProdutoService {
     }
 
     // Buscar por categoria exata (Filtro)
-    public List<Produto> buscarPorCategoria(String categoria) {
-        return repository.findByCategoria(categoria);
+    public List<Produto> buscarPorCategoria(String nomeCategoria) {
+        return repository.findByCategoriaNome(nomeCategoria);
     }
 
     // Salvar ou Atualizar
