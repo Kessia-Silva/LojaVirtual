@@ -32,7 +32,7 @@ public class ProdutoService {
 
     // Buscar por categoria exata (Filtro)
     public List<Produto> buscarPorCategoria(String nomeGenero) {
-        return repository.findByGeneroMusicalNomeIgnoreCase(nomeGenero);
+        return repository.buscarPorNomeDoGenero(nomeGenero);
     }
 
     // Salvar ou Atualizar
