@@ -1,16 +1,17 @@
 package br.com.une.lojavirtual.backend;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import br.com.une.lojavirtual.backend.model.Produto;
 import br.com.une.lojavirtual.backend.model.TipoUsuario;
 import br.com.une.lojavirtual.backend.model.Usuario;
 import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
 import br.com.une.lojavirtual.backend.repository.UsuarioRepository;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
 
 @Configuration
 public class DadosIniciais {
@@ -130,6 +131,120 @@ public class DadosIniciais {
         "CD",
         "assets/img/fotos-produtos/produto10.jpeg"
     );
+
+    Produto p11 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p12 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p13 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p14 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p15 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p16 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p17 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p18 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p19 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    Produto p20 = new Produto(
+        null,
+        "Sambista Perfeito",
+        "",
+        "",
+        new BigDecimal(""),
+        0,
+        "",
+        "assets/img/fotos-produtos/produto0.jpeg"
+    );
+
+    
+
+    
 
     produtoRepo.saveAll(Arrays.asList(
         p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
