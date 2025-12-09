@@ -133,121 +133,122 @@ public class DadosIniciais {
     );
 
     Produto p11 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+    null,
+    "BTS World",
+    "BTS",
+    "K-Pop",
+    new BigDecimal("89.90"),
+    10,
+    "CD",
+    "assets/img/fotos-produtos/produto11.jpeg"
+);
 
-    Produto p12 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p12 = new Produto(
+    null,
+    "Proof",
+    "BTS",
+    "K-Pop",
+    new BigDecimal("120.00"),
+    15,
+    "CD",
+    "assets/img/fotos-produtos/produto12.jpeg"
+);
 
-    Produto p13 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p13 = new Produto(
+    null,
+    "R",
+    "Rosie",
+    "Pop",
+    new BigDecimal("75.50"),
+    8,
+    "Vinil",
+    "assets/img/fotos-produtos/produto13.jpeg"
+);
 
-    Produto p14 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p14 = new Produto(
+    null,
+    "Sour",
+    "Olivia Rodrigo",
+    "Pop",
+    new BigDecimal("99.90"),
+    12,
+    "CD",
+    "assets/img/fotos-produtos/produto14.jpeg"
+);
 
-    Produto p15 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p15 = new Produto(
+    null,
+    "An Evening with Silk Sonic",
+    "Bruno Mars",
+    "R&B",
+    new BigDecimal("110.00"),
+    9,
+    "Vinil",
+    "assets/img/fotos-produtos/produto15.jpeg"
+);
 
-    Produto p16 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p16 = new Produto(
+    null,
+    "Happier Than Ever",
+    "Billie Eilish",
+    "Pop",
+    new BigDecimal("105.00"),
+    7,
+    "CD",
+    "assets/img/fotos-produtos/produto16.jpeg"
+);
 
-    Produto p17 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p17 = new Produto(
+    null,
+    "Dylan",
+    "Bob Dylan",
+    "Folk",
+    new BigDecimal("95.00"),
+    5,
+    "Vinil",
+    "assets/img/fotos-produtos/produto17.jpeg"
+);
 
-    Produto p18 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p18 = new Produto(
+    null,
+    "Faces",
+    "Caras",
+    "Pop",
+    new BigDecimal("85.00"),
+    6,
+    "CD",
+    "assets/img/fotos-produtos/produtos18.jpeg"
+);
 
-    Produto p19 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p19 = new Produto(
+    null,
+    "Chemtrails over the Country Club",
+    "Lana Del Rey",
+    "Indie",
+    new BigDecimal("99.90"),
+    4,
+    "CD",
+    "assets/img/fotos-produtos/produtos19.jpeg"
+);
 
-    Produto p20 = new Produto(
-        null,
-        "Sambista Perfeito",
-        "",
-        "",
-        new BigDecimal(""),
-        0,
-        "",
-        "assets/img/fotos-produtos/produto0.jpeg"
-    );
+Produto p20 = new Produto(
+    null,
+    "1989",
+    "Taylor Swift",
+    "Pop",
+    new BigDecimal("89.90"),
+    10,
+    "CD",
+    "assets/img/fotos-produtos/produtos20.jpeg"
+);
+
 
     
 
     
 
     produtoRepo.saveAll(Arrays.asList(
-        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
+        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20
     ));
 }
 
