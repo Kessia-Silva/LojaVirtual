@@ -1,12 +1,13 @@
 package br.com.une.lojavirtual.backend.service;
 
-import br.com.une.lojavirtual.backend.model.Produto;
-import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import br.com.une.lojavirtual.backend.model.Produto;
+import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
 
 @Service // Indica ao Spring que aqui tem Regra de Negócio
 public class ProdutoService {
@@ -30,8 +31,8 @@ public class ProdutoService {
     }
 
     // Buscar por categoria exata (Filtro)
-    public List<Produto> buscarPorCategoria(String categoria) {
-        return repository.findByCategoria(categoria);
+    public List<Produto> buscarPorCategoria(String nomeGenero) {
+        return repository.findByGeneroMusicalNomeIgnoreCase(nomeGenero);
     }
 
     // Salvar ou Atualizar

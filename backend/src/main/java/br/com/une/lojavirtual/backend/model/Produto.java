@@ -1,10 +1,18 @@
 package br.com.une.lojavirtual.backend.model;
 
-import jakarta.persistence.*;
+import java.math.BigDecimal;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
 
 @Entity // Diz ao Spring que isso é uma tabela no banco
 @Table(name = "tb_produtos") // Nome da tabela no banco
@@ -32,7 +40,10 @@ public class Produto {
     @Column(nullable = false)
     private Integer estoque;
 
-    private String categoria; // Ex: "CD", "Vinil", "Camiseta"
+    // Substituímos a String categoria por um Objeto completo
+    @ManyToOne // Muitos Produtos podem ter o mesmo Gênero
+    @JoinColumn(name = "genero_id", nullable = false)
+    private GeneroMusical generoMusical; // O nome do campo deve ser 'genero' para bater com o front ou usamos DTO depois
 
     private String imagemUrl; // Link da capa do álbum
 }
