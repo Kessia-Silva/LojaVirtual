@@ -40,7 +40,7 @@ public class ProdutoController {
     // URL: http://localhost:8080/api/produtos/categoria/Vinil
     @GetMapping("/categoria/{nomeGenero}")
     public List<Produto> buscarPorCategoria(@PathVariable String nomeGenero) {
-        return service.buscarPorGenero(nomeGenero);
+        return service.buscarPorCategoria(nomeGenero);
     }
 
     @PostMapping
