@@ -31,8 +31,8 @@ public class ProdutoService {
     }
 
     // Buscar por categoria exata (Filtro)
-    public List<Produto> buscarPorGenero(String nomeGenero) {
-        return repository.findByGeneroMusical_NomeIgnoreCase(nomeGenero);
+    public List<Produto> buscarPorCategoria(String nomeGenero) {
+        return repository.buscarPorNomeDoGenero(nomeGenero);
     }
 
     // Salvar ou Atualizar
