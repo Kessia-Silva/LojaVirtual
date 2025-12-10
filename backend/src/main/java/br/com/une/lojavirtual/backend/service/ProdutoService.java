@@ -35,6 +35,29 @@ public class ProdutoService {
         return repository.buscarPorNomeDoGenero(nomeGenero);
     }
 
+    // Atualizar Produto Existente
+    public Produto atualizar(Long id, Produto produtoAtualizado) {
+        Produto produtoExistente = buscarPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado."));
+
+        // Atualizamos apenas os campos permitidos
+        produtoExistente.setNome(produtoAtualizado.getNome());
+        produtoExistente.setArtista(produtoAtualizado.getArtista());
+        produtoExistente.setDescricao(produtoAtualizado.getDescricao());
+        produtoExistente.setPreco(produtoAtualizado.getPreco());
+        produtoExistente.setEstoque(produtoAtualizado.getEstoque());
+        produtoExistente.setImagemUrl(produtoAtualizado.getImagemUrl());
+        produtoExistente.setGeneroMusical(produtoAtualizado.getGeneroMusical());
+
+        return repository.save(produtoExistente);
+    }
+
+    @Autowired
+    private br.com.une.lojavirtual.backend.repository.ItemPedidoRepository itemPedidoRepository;
+    public List<Produto> buscarMaisVendidos() {
+        return itemPedidoRepository.findTopSellingProducts();
+    }
+
     // Salvar ou Atualizar
     public Produto salvar(Produto produto) {
         // Validação simples (depois podemos melhorar)
