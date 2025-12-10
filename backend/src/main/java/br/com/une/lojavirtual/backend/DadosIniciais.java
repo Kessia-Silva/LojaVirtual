@@ -262,12 +262,112 @@ Produto p20 = new Produto(
     "assets/img/fotos-produtos/produto20.jpeg"
 );
 
+Produto p21 = new Produto(
+    null,
+    "The Troy Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Primeiro capítulo de EPIC: The Musical, com duração aproximada de 16 minutos e 5 faixas. Narra a vitória de Odysseus na guerra de Troia, incluindo a invasão da cidade com o cavalo de Troia, misturando elementos dramáticos, introspectivos e épicos. Ideal para fãs de musicais conceituais e mitologia.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto21.jpg"
+);
+
+Produto p22 = new Produto(
+    null,
+    "The Cyclops Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Segundo capítulo da série, inspirado no encontro de Odysseus com o ciclope Polyphemus. Retrata tensão, medo e estratégia da fuga, com batidas dramáticas e melodias sombrias, perfeito para quem gosta de emoção e narrativa mitológica.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto22.jpg"
+);
+
+Produto p23 = new Produto(
+    null,
+    "The Ocean Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Terceira saga, retratando a travessia marítima de Odysseus e sua tripulação enfrentando tempestades e desafios divinos. Clima de aventura e superação com músicas épicas e dramáticas, ideal para fãs de histórias mitológicas.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto23.jpg"
+);
+
+Produto p24 = new Produto(
+    null,
+    "The Circe Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Quarta saga da série, narrando o encontro de Odysseus com a feiticeira Circe. Música cheia de fantasia e mistério, com arranjos dramáticos e envolventes, perfeita para quem gosta de magia e narrativa intensa.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto24.jpg"
+);
+
+Produto p25 = new Produto(
+    null,
+    "The Underworld Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Quinta saga, com tom sombrio e introspectivo. Odysseus adentra o submundo em busca de verdades e destino. Ideal para fãs de narrativa intensa, conflitos existenciais e ambientações dramáticas.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto25.jpg"
+);
+
+Produto p26 = new Produto(
+    null,
+    "The Thunder Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Sexta saga, marcada por confrontos, tempestades e tensão dramática. Música potente com arranjos épicos, perfeita para momentos de ação e batalhas míticas na narrativa musical.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto26.jpg"
+);
+
+Produto p27 = new Produto(
+    null,
+    "The Wisdom Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Sétima parte da série, com foco em sabedoria, decisões difíceis e conflitos internos. Tons reflexivos e simbólicos tornam a música perfeita para quem gosta de profundidade emocional e significado nas letras.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto27.jpg"
+);
+
+Produto p28 = new Produto(
+    null,
+    "The Vengeance Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Oitava saga, com clima intenso de justiça, vingança e confrontos finais. Sonoridade dramática e urgente, atraindo fãs de histórias fortes e musicais emocionantes.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto28.jpg"
+);
+
+Produto p29 = new Produto(
+    null,
+    "The Ithaca Saga",
+    "Epic: The Musical / Jorge Rivera-Herrans",
+    "Nona e última saga da série, marcando o retorno de Odysseus e a conclusão da odisseia. Cerca de 22 minutos de música épica e dramática, perfeita para fãs de finais emocionantes e narrativas completas.",
+    new BigDecimal("99.90"),
+    15,
+    musical,
+    "assets/img/fotos-produtos/produto29.jpg"
+);
+
+
 
                 produtoRepo.saveAll(Arrays.asList(
                 p1, p2, p3, p4, p5,
                 p6, p7, p8, p9, p10,
                 p11, p12, p13, p14, p15,
-                p16, p17, p18, p19, p20
+                p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29
                 ));
 
             }
