@@ -46,4 +46,6 @@ public class Produto {
     private GeneroMusical generoMusical; // O nome do campo deve ser 'genero' para bater com o front ou usamos DTO depois
 
     private String imagemUrl; // Link da capa do álbum
+
+    
 }

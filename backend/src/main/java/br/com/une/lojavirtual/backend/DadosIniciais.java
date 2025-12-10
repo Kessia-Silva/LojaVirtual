@@ -44,13 +44,11 @@ public class DadosIniciais {
             }
         }
 
-            // 2. Carga de Usuários (NOVO!)
+            // 3. Usuários (Mantém igual)
             if (usuarioRepo.count() == 0) {
                 Usuario admin = new Usuario(null, "Rafael Admin", "admin@loja.com", "senha1234", TipoUsuario.ADMIN);
                 Usuario cliente = new Usuario(null, "Vagner Cliente", "cliente@loja.com", "senha1234", TipoUsuario.CLIENTE);
-                
                 usuarioRepo.saveAll(Arrays.asList(admin, cliente));
-                System.out.println("--- USUÁRIOS DE TESTE CRIADOS ---");
             }
         };
     }
