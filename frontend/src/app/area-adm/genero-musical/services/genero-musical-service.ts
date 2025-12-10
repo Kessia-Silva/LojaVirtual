@@ -10,10 +10,18 @@ import { GeneroMusical } from '../../../models/generoMusical-models';
 export class GeneroMusicalService {
 
 private generos: GeneroMusical[] = [
-    { id: 1, nome: 'Pop' },
-    { id: 2, nome: 'Eletrônico' },
-    { id: 3, nome: 'Axé' }
-  ];
+  { id: 1, nome: 'Pop' },
+  { id: 2, nome: 'Rock' },
+  { id: 3, nome: 'MPB' },
+  { id: 4, nome: 'K-pop' },
+  { id: 5, nome: 'Sertanejo' },
+  { id: 6, nome: 'Worship' },
+  { id: 7, nome: 'Musical' },
+  { id: 8, nome: 'Olodum' },
+  { id: 9, nome: 'Anime / OST' },
+  { id: 10, nome: 'Reggae' }
+];
+
 
   private generosSubject = new BehaviorSubject<GeneroMusical[]>([...this.generos]);
 

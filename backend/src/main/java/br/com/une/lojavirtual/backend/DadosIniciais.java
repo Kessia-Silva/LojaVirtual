@@ -36,13 +36,15 @@ GeneroMusical reggae = new GeneroMusical(null, "Reggae");
 
             
             // Salvamos e guardamos as referências para usar nos produtos
-            generoRepo.saveAll(Arrays.asList(rock, pop, mpb));
+            generoRepo.saveAll(Arrays.asList(
+    rock, pop, mpb, kpop, sertanejo, worship, musical, olodum, anime, reggae
+));
             
             // 2. Cadastrar Produtos (Usando os objetos de gênero acima)
             if (produtoRepo.count() == 0) {
                 Produto p1 = new Produto(
     null,
-    "Hamilton (Original Broadway Cast Recording)",
+    "Hamilton",
     "Lin‑Manuel Miranda (Original Broadway Cast)",
     "A trilha sonora oficial do musical Hamilton — mistura hip-hop, R&B, soul e show tunes que narra a vida de Alexander Hamilton através de 46 faixas divididas em dois atos, com duração total de aproximadamente 2h22. O álbum reinventa o teatro musical tradicional com batidas contemporâneas e rap ágil, mantendo a força dramática e a riqueza histórica da narrativa.",
     new BigDecimal("99.90"),
