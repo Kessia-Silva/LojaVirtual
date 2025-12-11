@@ -443,8 +443,8 @@ Produto p37 = new Produto(
     "Falso Brilhante",
     "Elis Regina",
     "Lançado em 1976, Falso Brilhante é um dos álbuns mais icônicos de Elis Regina, destacando sua interpretação intensa e personalidade marcante. Inclui sucessos como “Como Nossos Pais” e “Fascinação”, consolidando-a como referência da música brasileira.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("90.90"),
+    67,
     mpb,
     "assets/img/fotos-produtos/produto37.jpeg"
 );
@@ -454,8 +454,8 @@ Produto p38 = new Produto(
     "Acabou Chorare",
     "Novos Baianos",
     "Lançado em 1972, Acabou Chorare é um marco do rock e da música popular brasileira, mesclando samba, baião e rock. Com faixas como “Preta Pretinha” e “Mistério do Planeta”, o álbum é referência de criatividade e inovação musical no Brasil.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("80.90"),
+    50,
     mpb,
     "assets/img/fotos-produtos/produto38.jpeg"
 );
@@ -465,8 +465,8 @@ Produto p39 = new Produto(
     "Cores, Nomes",
     "Caetano Veloso",
     "Lançado em 1982, Cores, Nomes traz Caetano Veloso explorando MPB com arranjos sofisticados e letras poéticas. Destacam-se faixas como “Você É Linda” e “Um Canto de Afoxé para o Bloco do Ilê”, mostrando a versatilidade e genialidade do artista.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("87.90"),
+    95,
     mpb,
     "assets/img/fotos-produtos/produto39.jpeg"
 );
@@ -476,8 +476,8 @@ Produto p40 = new Produto(
     "Construção",
     "Chico Buarque",
     "Álbum lançado em 1971, Construção é considerado um dos melhores trabalhos de Chico Buarque. Com arranjos complexos e letras críticas sobre a sociedade brasileira, inclui faixas emblemáticas como “Construção” e “Deus Lhe Pague”.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("89.90"),
+    95,
     mpb,
     "assets/img/fotos-produtos/produto40.jpeg"
 );
@@ -487,8 +487,8 @@ Produto p41 = new Produto(
     "Elis & Tom",
     "Elis Regina & Tom Jobim",
     "Lançado em 1974, Elis & Tom é uma colaboração histórica entre Elis Regina e Tom Jobim. O álbum apresenta clássicos da bossa nova como “Águas de Março” e “Wave”, destacando a harmonia perfeita entre voz e arranjos.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("79.90"),
+    170,
     mpb,
     "assets/img/fotos-produtos/produto41.jpeg"
 );
@@ -498,8 +498,8 @@ Produto p42 = new Produto(
     "Clube da Esquina",
     "Milton Nascimento & Lô Borges",
     "Lançado em 1972, Clube da Esquina é um marco da música brasileira, misturando MPB, jazz e rock. Com faixas icônicas como “Cravo e Canela” e “Paisagem da Janela”, o álbum influenciou gerações de músicos brasileiros.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("69.90"),
+    150,
     mpb,
     "assets/img/fotos-produtos/produto42.jpeg"
 );
@@ -509,8 +509,8 @@ Produto p43 = new Produto(
     "Expresso 2222",
     "Gilberto Gil",
     "Lançado em 1972, Expresso 2222 é um álbum emblemático de Gilberto Gil, combinando samba, rock e música popular brasileira. Destacam-se faixas como “Expresso 2222” e “Back in Bahia”, mostrando a versatilidade do artista.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("79.90"),
+    157,
     mpb,
     "assets/img/fotos-produtos/produto43.jpeg"
 );
@@ -520,8 +520,8 @@ Produto p44 = new Produto(
     "Mais",
     "Marisa Monte",
     "Lançado em 1991, Mais é o segundo álbum de Marisa Monte, consolidando sua carreira com MPB moderna. Inclui sucessos como “Beija Eu” e “Depois”, mesclando arranjos sofisticados e melodias envolventes.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("59.90"),
+    151,
     mpb,
     "assets/img/fotos-produtos/produto44.jpeg"
 );
@@ -531,24 +531,128 @@ Produto p45 = new Produto(
     "Oceano (Coisa de Acender)",
     "Djavan",
     "Lançado em 1982, Oceano (Coisa de Acender) é um dos álbuns mais memoráveis de Djavan, misturando MPB, jazz e elementos tropicais. Com faixas como “Oceano” e “Coisa de Acender”, o disco mostra sua habilidade em criar melodias sofisticadas e poéticas.",
-    new BigDecimal("99.90"),
-    15,
+    new BigDecimal("69.90"),
+    167,
     mpb,
     "assets/img/fotos-produtos/produto45.jpeg"
+);
+
+Produto p46 = new Produto(
+    null,
+    "Evidências",
+    "Chitãozinho & Xororó",
+    "Lançado em 1990, Evidências é um dos álbuns mais icônicos da dupla Chitãozinho & Xororó, trazendo clássicos que marcaram a música sertaneja. Inclui faixas como “Evidências” e “Se Deus Me Ouvisse”, essenciais para fãs do gênero.",
+    new BigDecimal("89.90"),
+    209,
+    sertanejo,
+    "assets/img/fotos-produtos/produto46.jpeg"
+);
+
+Produto p47 = new Produto(
+    null,
+    "É o Amor",
+    "Zezé Di Camargo & Luciano",
+    "Álbum lançado em 1991, É o Amor é um marco da carreira da dupla Zezé Di Camargo & Luciano. Com sucessos como a faixa-título “É o Amor”, o disco consolidou a dupla no cenário sertanejo nacional.",
+    new BigDecimal("79.90"),
+    256,
+    sertanejo,
+    "assets/img/fotos-produtos/produto47.jpeg"
+);
+
+Produto p48 = new Produto(
+    null,
+    "Borboletas",
+    "Victor & Leo",
+    "Lançado em 2007, Borboletas apresenta o melhor da dupla Victor & Leo, com faixas românticas e hits como “Borboletas” e “Fada”. O álbum destaca a força do sertanejo moderno e da interpretação vocal da dupla.",
+    new BigDecimal("85.50"),
+    183,
+    sertanejo,
+    "assets/img/fotos-produtos/produto48.jpeg"
+);
+
+Produto p49 = new Produto(
+    null,
+    "Ao Vivo no Rio",
+    "Luan Santana",
+    "Registro ao vivo da turnê de Luan Santana, lançando seus maiores sucessos como “Meteoro” e “Te Esperando”. O álbum captura a energia do show e a paixão do público, consolidando Luan como um dos principais nomes do sertanejo contemporâneo.",
+    new BigDecimal("92.00"),
+    223,
+    sertanejo,
+    "assets/img/fotos-produtos/produto49.jpeg"
+);
+
+Produto p50 = new Produto(
+    null,
+    "O Embaixador",
+    "Gusttavo Lima",
+    "Lançado em 2011, O Embaixador é o álbum que marcou o sucesso de Gusttavo Lima no sertanejo universitário, com hits como “Balada Boa” e “Refém”. Um álbum essencial para fãs do gênero e colecionadores.",
+    new BigDecimal("99.90"),
+    162,
+    sertanejo,
+    "assets/img/fotos-produtos/produto50.jpeg"
+);
+
+Produto p51 = new Produto(
+    null,
+    "Acústico Ao Vivo",
+    "Bruno & Marrone",
+    "Álbum acústico lançado ao vivo, mostrando a força da dupla Bruno & Marrone. Com sucessos como “Choram as Rosas” e “Dormi na Praça”, o disco é um registro da emoção e interpretação do sertanejo romântico.",
+    new BigDecimal("88.00"),
+    140,
+    sertanejo,
+    "assets/img/fotos-produtos/produto51.jpeg"
+);
+
+Produto p52 = new Produto(
+    null,
+    "Cintilante (Ao Vivo)",
+    "Simone Mendes",
+    "Lançado em 2018, Cintilante (Ao Vivo) captura a essência da voz de Simone Mendes, trazendo arranjos ao vivo de sucessos como “Tá Tudo Bem” e “Cintilante”. Um álbum moderno que reafirma seu talento no sertanejo feminino.",
+    new BigDecimal("82.50"),
+    120,
+    sertanejo,
+    "assets/img/fotos-produtos/produto52.jpeg"
+);
+
+Produto p53 = new Produto(
+    null,
+    "Tudo na Paz",
+    "Jorge & Mateus",
+    "Lançado em 2012, Tudo na Paz reúne hits da dupla Jorge & Mateus, incluindo “Amo Noite e Dia” e “Pode Chorar”. O álbum destaca a versatilidade e a força do sertanejo contemporâneo.",
+    new BigDecimal("90.00"),
+    121,
+    sertanejo,
+    "assets/img/fotos-produtos/produto53.jpg"
+);
+
+Produto p54 = new Produto(
+    null,
+    "Hora Certa",
+    "Paula Fernandes",
+    "Álbum de Paula Fernandes lançado em 2009, Hora Certa traz faixas que consolidaram a cantora no cenário sertanejo romântico, incluindo sucessos como “Pássaro de Fogo” e “Hora Certa”.",
+    new BigDecimal("87.90"),
+    15,
+    sertanejo,
+    "assets/img/fotos-produtos/produto54.jpg"
+);
+
+Produto p55 = new Produto(
+    null,
+    "Alma Sertaneja | Discografia",
+    "Chitãozinho & Xororó",
+    "Coletânea especial da dupla Chitãozinho & Xororó, reunindo seus maiores sucessos ao longo da carreira, incluindo “Evidências”, “Fio de Cabelo” e “Se Deus Me Ouvisse”. Um álbum essencial para fãs do sertanejo clássico.",
+    new BigDecimal("95.00"),
+    18,
+    sertanejo,
+    "assets/img/fotos-produtos/produto55.jpg"
 );
 
 
 
 
 
-               produtoRepo.saveAll(Arrays.asList(
-    p1, p2, p3, p4, p5,
-    p6, p7, p8, p9, p10,
-    p11, p12, p13, p14, p15,
-    p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,
-    p30, p31, p32, p33, p34,
-    p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45
-));
+
+               produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55));
 
 
             }
