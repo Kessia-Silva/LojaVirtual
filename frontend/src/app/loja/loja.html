@@ -4,6 +4,25 @@
 
 <div id="sidebar">
 
+<h3>Buscar por álbum</h3>
+<input
+  type="text"
+  [(ngModel)]="termoBuscaAlbum"
+  (input)="filtrarPorAlbum()"
+  placeholder="Digite o nome do álbum..."
+  class="search-input"
+/>
+
+<h3>Buscar por artista</h3>
+<input
+  type="text"
+  [(ngModel)]="termoBuscaArtista"
+  (input)="filtrarPorArtista()"
+  placeholder="Digite o nome do artista..."
+  class="search-input"
+/>
+
+
 <h3>CATEGORIAS</h3>
 
 <div class="categoria-chips">

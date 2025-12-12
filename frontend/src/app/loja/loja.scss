@@ -166,3 +166,23 @@
   font-weight: bold;
   color: #888;
 }
+
+//area de buscar por nome
+.search-input {
+  width: 100%;        /* ocupa toda a largura disponível */
+  max-width: 160px;   /* limita para não passar da sidebar */
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box; /* importante para padding não quebrar largura */
+  transition: 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1282ff;
+  box-shadow: 0 0 4px rgba(18,130,255,0.4);
+}
+

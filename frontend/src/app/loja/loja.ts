@@ -76,5 +76,34 @@ export class Loja {
   this.produtos = [...this.produtosOriginais];
 }
 
+termoBuscaAlbum: string = '';
+termoBuscaArtista: string = '';
+
+filtrarPorAlbum() {
+  const termo = this.termoBuscaAlbum.trim().toLowerCase();
+
+  if (!termo) {
+    this.produtos = [...this.produtosOriginais];
+    return;
+  }
+
+  this.produtos = this.produtosOriginais.filter(p =>
+    p.nome.toLowerCase().includes(termo)
+  );
+}
+
+filtrarPorArtista() {
+  const termo = this.termoBuscaArtista.trim().toLowerCase();
+
+  if (!termo) {
+    this.produtos = [...this.produtosOriginais];
+    return;
+  }
+
+  this.produtos = this.produtosOriginais.filter(p =>
+    p.artista.toLowerCase().includes(termo)
+  );
+}
+
 
 }
