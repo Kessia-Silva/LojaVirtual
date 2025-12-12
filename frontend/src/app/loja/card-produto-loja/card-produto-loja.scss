@@ -36,6 +36,16 @@
   object-fit: cover;
 }
 
+.clickable-img {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clickable-img:hover {
+  transform: scale(1.05);
+}
+
+
 /* ===== Parte inferior ===== */
 .bottom {
   height: 28%;

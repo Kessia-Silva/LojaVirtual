@@ -28,7 +28,7 @@ export const routes: Routes = [
       { path: 'sobre', component: Sobre },
       { path: 'contato', component: Contato },
       { path: 'loja', component: Loja },
-      { path: 'produto-info', component: ProdutoInfo },
+      { path: 'produto-info/:id', component: ProdutoInfo },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
       { path: 'areaCliente', component: AreaCliente },

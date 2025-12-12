@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <div class="top">
-      <img [src]="produto.imagemUrl" [alt]="produto.nome">
+      <img [src]="produto.imagemUrl" [alt]="produto.nome" (click)="irParaProduto(produto.id)" class="clickable-img">
 
       <!-- BOTÃO FLUTUANTE -->
       <button class="buy-btn">
