@@ -646,15 +646,217 @@ Produto p55 = new Produto(
     sertanejo,
     "assets/img/fotos-produtos/produto55.jpg"
 );
+Produto p56 = new Produto(
+    null,
+    "Let There Be Light",
+    "Hillsong Worship",
+    "Álbum ao vivo do Hillsong Worship, gravado durante a Hillsong Conference em Sydney e lançado em 14 de outubro de 2016. O projeto captura a adoração congregacional com músicas que se tornaram grandes hinos modernos, como “Behold (Then Sings My Soul)”, “What a Beautiful Name” e “Grace to Grace”. É considerado um dos álbuns mais influentes do ministério global de louvor da Hillsong, reunindo líderes e compositores como Brooke Ligertwood, Ben Fielding, Joel Houston e Reuben Morgan. O álbum aborda temas de luz, esperança e a presença de Deus na vida do crente. ",
+    new BigDecimal("99.90"),
+    20,
+    worship,
+    "assets/img/fotos-produtos/produto56.jpeg"
+);
+
+Produto p57 = new Produto(
+    null,
+    "Child of God II",
+    "Forrest Frank",
+    "Segundo álbum de estúdio cristão do artista americano Forrest Frank, lançado em maio de 2025. O projeto mistura elementos de pop cristão e hip‑hop e tem sido bem recebido nas paradas de música cristã contemporânea, alcançando destaque com faixas como “Your Way’s Better” e colaborando com nomes como Thomas Rhett. O álbum celebra a identidade e a fé cristã por meio de composições modernas e acessíveis.",
+    new BigDecimal("85.00"),
+    15,
+    worship,
+    "assets/img/fotos-produtos/produto57.jpeg"
+);
+
+Produto p58 = new Produto(
+    null,
+    "Essência (Ao Vivo)",
+    "Dunamis Music",
+    "Projeto ao vivo do ministério Dunamis Music, lançado em 2024, que apresenta uma coletânea de músicas de adoração contemporânea com ênfase em presença, louvor e intimidade com Deus. O repertório inclui composições como “Essência” e outras que têm sido usadas em momentos de adoração e celebração em igrejas por todo o Brasil e no exterior.",
+    new BigDecimal("92.50"),
+    18,
+    worship,
+    "assets/img/fotos-produtos/produto58.jpeg"
+);
+
+
+Produto p59 = new Produto(
+    null,
+    "Live in Miami",
+    "Hillsong United",
+    "Álbum ao vivo do Hillsong United gravado em 2011 e lançado em 14 de fevereiro de 2012. Registrado na American Airlines Arena em Miami, o projeto traz performances de sucessos da banda e captura a energia de uma grande noite de adoração, com músicas como “Hosanna”, “Your Name High” e “From the Inside Out”.",
+    new BigDecimal("88.00"),
+    12,
+    worship,
+    "assets/img/fotos-produtos/produto59.jpeg"
+);
+
+
+Produto p60 = new Produto(
+    null,
+    "Essência",
+    "Dunamis Music",
+    "Projeto que reúne músicas significativas do ministério Dunamis Music, focadas em louvor, intimidade e devoção a Deus. O repertório (e o título) enfatizam a essência da adoração e a busca por um relacionamento mais profundo com Cristo.",
+    new BigDecimal("90.00"),
+    14,
+    worship,
+    "assets/img/fotos-produtos/produto60.jpeg"
+);
+
+
+Produto p61 = new Produto(
+    null,
+    "Live in Miami",
+    "Hillsong United",
+    "Registro ao vivo da banda Hillsong United capturado em Miami (2011), lançado em 2012. Ele apresenta performances de várias músicas que marcaram os primeiros anos da banda, destacando o estilo rock‑worship moderno em um ambiente de culto dinâmico e poderoso.",
+    new BigDecimal("99.90"),
+    20,
+    worship,
+    "assets/img/fotos-produtos/produto61.jpeg"
+);
+
+
+Produto p62 = new Produto(
+    null,
+    "Peregrino",
+    "Alessandro Vilas Boas",
+    "Álbum de adoração lançado por Alessandro Vilas Boas, com músicas em português que exploram temas de fé, caminhada espiritual e devoção. Com composições que convidam o ouvinte à reflexão e à entrega, o projeto é usado em cultos e momentos devocionais.",
+    new BigDecimal("87.50"),
+    10,
+    worship,
+    "assets/img/fotos-produtos/produto62.jpeg"
+);
+
+
+Produto p63 = new Produto(
+    null,
+    "Até Que Ele Venha / Chova Justiça",
+    "Thamires Garcia",
+    "Projeto musical da cantora Thamires Garcia, reunindo canções de adoração contemporânea que falam de esperança, justiça espiritual e expectativa pela manifestação de Deus. O álbum combina temas de fé com letras que buscam fortalecer a comunidade cristã através da música.",
+    new BigDecimal("92.00"),
+    12,
+    worship,
+    "assets/img/fotos-produtos/produto63.jpeg"
+);
+
+
+Produto p64 = new Produto(
+    null,
+    "Cultura do Céu",
+    "Cultura do Céu",
+    "Álbum do grupo brasileiro Cultura do Céu, liderado por Davi Fernandes com seus filhos Kaleb & Josh. O projeto traz músicas que misturam louvor contemporâneo com influências pop e eletrônicas e enfatizam temas de esperança, adoração e presença de Deus.",
+    new BigDecimal("95.00"),
+    15,
+    worship,
+    "assets/img/fotos-produtos/produto64.jpeg"
+);
+
+
+Produto p65 = new Produto(
+    null,
+    "Morada Para Onde Eu Irei",
+    "Live Church",
+    "Álbum congregacional da igreja Live Church, com canções de louvor que inspiram comunhão e adoração coletiva. O projeto é ideal para momentos de culto comunitário e celebração da fé cristã, reunindo músicas que enfatizam a presença de Deus como morada eterna do crente.",
+    new BigDecimal("90.00"),
+    18,
+    worship,
+    "assets/img/fotos-produtos/produto65.jpeg"
+);
+
+Produto p66 = new Produto(
+    null,
+    "Map of the Soul: 7",
+    "BTS",
+    "Lançado em 21 de fevereiro de 2020, “Map of the Soul: 7” é o quarto álbum em coreano (sétimo no geral) do BTS, marcando uma celebração dos sete anos de carreira do grupo. Com 20 faixas, o álbum mistura pop, R&B, hip hop e EDM, explorando temas de introspecção, crescimento pessoal e identidade. Inclui grandes sucessos como “ON” e “Black Swan”, além de colaborações notáveis (Halsey em “Boy With Luv” e Sia em “ON – Remix”). O álbum foi um dos mais vendidos de 2020 e ajudou a consolidar o BTS como fenômeno global.",
+    new BigDecimal("120.00"),
+    15,
+    kpop,
+    "assets/img/fotos-produtos/produto66.jpeg"
+);
+
+Produto p67 = new Produto(
+    null,
+    "BE",
+    "BTS",
+    "Lançado em 20 de novembro de 2020, “BE” é o quinto álbum em coreano (nono no geral) do BTS, criado em resposta à pandemia de COVID‑19 e concebido com forte participação dos próprios membros na composição e produção. O álbum transmite mensagens de esperança e conexão durante tempos difíceis, com faixas como “Life Goes On” e o single global “Dynamite”. Musicalmente, mescla pop, hip hop, disco e synth‑pop, refletindo emoções variadas como solidariedade, saudade e otimismo.",
+    new BigDecimal("115.00"),
+    12,
+    kpop,
+    "assets/img/fotos-produtos/produto67.jpeg"
+);
+
+Produto p68 = new Produto(
+    null,
+    "The Album",
+    "BLACKPINK",
+    "Lançado em 2 de outubro de 2020, “The Album” é o primeiro álbum de estúdio coreano do BLACKPINK, marcando um importante marco na carreira do grupo feminino. Com oito faixas, o trabalho mistura pop, hip hop, EDM e R&B, trazendo hits como “How You Like That”, “Ice Cream” (com Selena Gomez) e “Lovesick Girls”. O álbum explora temas de amor, crescimento e confiança, além de mostrar a versatilidade vocal e o forte apelo internacional do BLACKPINK.",
+    new BigDecimal("125.00"),
+    10,
+    kpop,
+    "assets/img/fotos-produtos/produto68.jpeg"
+);
+
+Produto p69 = new Produto(
+    null,
+    "Formula of Love: O+T=<3",
+    "TWICE",
+    "Lançado em 12 de novembro de 2021, “Formula of Love: O+T=<3” é o terceiro álbum de estúdio coreano (sexto no geral) do grupo TWICE. O álbum apresenta uma mistura de disco‑pop, synth‑pop, R&B e outros estilos, com faixas populares como “Scientist”, “The Feels” (primeiro single em inglês do grupo) e “Talk That Talk”. O projeto foi um dos mais vendidos do grupo até então e solidificou TWICE como um dos principais atos femininos no K‑pop global.",
+    new BigDecimal("110.00"),
+    14,
+    kpop,
+    "assets/img/fotos-produtos/produto69.jpeg"
+);
+
+Produto p70 = new Produto(
+    null,
+    "New Jeans",
+    "NewJeans",
+    "Lançado digitalmente em 1º de agosto de 2022 (físico em 8 de agosto de 2022), “New Jeans” é o EP de estreia do grupo NewJeans, introduzindo o quinteto ao cenário do K‑pop com um som fresco que mistura synth‑pop, R&B e hip‑hop. O EP contém grandes sucessos como “Attention”, “Hype Boy” e “Cookie”, que foram amplamente elogiados por sua produção inovadora e atraíram atenção internacional imediatamente após o debut do grupo.",
+    new BigDecimal("105.00"),
+    16,
+    kpop,
+    "assets/img/fotos-produtos/produto70.jpeg"
+);
+
+Produto p71 = new Produto(
+    null,
+    "Super Shy (Single)",
+    "NewJeans",
+    "Lançado como single e incorporado nas versões físicas/álbuns do NewJeans, “Super Shy” se tornou um dos maiores sucessos do grupo, com melodias cativantes e estética sonora que combina pop moderno com elementos de R&B e electro. A faixa ajudou o grupo a consolidar sua popularidade global e viralizou nas plataformas de streaming e redes sociais.",
+    new BigDecimal("98.00"),
+    20,
+    kpop,
+    "assets/img/fotos-produtos/produto71.jpeg"
+);
+
+Produto p72 = new Produto(
+    null,
+    "Lilac",
+    "IU",
+    "Lançado em 25 de março de 2021, “Lilac” é o quinto álbum de estúdio da cantora sul‑coreana IU, celebrando seus 13 anos de carreira com um projeto que mistura city pop, retro‑funk, pop e R&B. O álbum traz singles marcantes como “Celebrity”, “Lilac” e “Coin”, e foi certificado múltiplas vezes nas paradas coreanas por suas vendas e popularidade.",
+    new BigDecimal("102.00"),
+    12,
+    kpop,
+    "assets/img/fotos-produtos/produto72.jpeg"
+);
+
+Produto p73 = new Produto(
+    null,
+    "Love Poem",
+    "IU",
+    "Lançado em 18 de novembro de 2019, “Love Poem” é o quinto EP coreano de IU, que apresenta letras introspectivas e emotivas, com destaque para as faixas “Love Poem”, “Blueming” e “Above the Time”. O projeto foi aclamado tanto por fãs quanto pela crítica por sua profundidade emocional e pela performance vocal da artista.",
+    new BigDecimal("100.00"),
+    15,
+    kpop,
+    "assets/img/fotos-produtos/produto73.jpeg"
+);
 
 
 
 
 
 
-               produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55));
-
-
+               produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55,p56, p57, p58, p59, p60,p61, p62, p63, p64, p65,p66, p67, p68, p69, p70, p71, p72, p73));
             }
         }
             
