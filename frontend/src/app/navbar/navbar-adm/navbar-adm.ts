@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { ValidarService } from '../../login-Adm/services/validar-service';
 
 @Component({
   selector: 'app-navbar-adm',
@@ -14,12 +15,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarAdm {
 
-   constructor(private router: Router) {}
+   constructor(private router: Router,private adminService: ValidarService) {}
 
   logout() {
-    // Limpar dados do usuário/admin
-    localStorage.removeItem('admin');
-    // Redirecionar para a página home
+    this.adminService.logout()
     this.router.navigate(['/']);
   }
 }
