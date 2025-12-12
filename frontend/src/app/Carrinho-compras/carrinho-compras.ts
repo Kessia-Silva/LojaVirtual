@@ -9,11 +9,12 @@ import { ProdutoService } from '../Area-Adm/produtos/services/produto-service';
 import { AuthGuard } from '../Services/auth-guard';
 import { ValidarService } from '../login-Adm/services/validar-service';
 import { Carrinho, ItemCarrinho } from '../models/carrinho';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'carrinho-compras',
   standalone: true, // Adicionado para componentes Standalone
-  imports: [NgFor, AsyncPipe, CurrencyPipe],
+  imports: [NgFor, AsyncPipe, CurrencyPipe,RouterModule],
   templateUrl: './carrinho-compras.html',
   styleUrl: './carrinho-compras.scss',
 })
