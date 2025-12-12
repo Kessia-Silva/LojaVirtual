@@ -18,6 +18,7 @@ import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
 import { LayoutPublico } from './layout-publico/layout-publico';
 import { produtoResolver } from './resolvers/produto-resolver';
 import { AuthGuard } from './Services/auth-guard';
+import { ConfirmarPagamento } from './Area-Cliente/confirmar-pagamento/confirmar-pagamento';
 
 
 export const routes: Routes = [
@@ -31,6 +32,7 @@ export const routes: Routes = [
       { path: 'home', component: Home },
       { path: 'sobre', component: Sobre },
       { path: 'contato', component: Contato },
+      {path: 'confirmarPagamento', component: ConfirmarPagamento},
       {
         path: 'loja',
         component: Loja,
