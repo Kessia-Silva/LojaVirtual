@@ -33,11 +33,12 @@ GeneroMusical musical = new GeneroMusical(null, "Musical");
 GeneroMusical olodum = new GeneroMusical(null, "Olodum");
 GeneroMusical anime = new GeneroMusical(null, "Anime OST");
 GeneroMusical reggae = new GeneroMusical(null, "Reggae");
+GeneroMusical samba = new GeneroMusical(null, "Samba");
 
             
             // Salvamos e guardamos as referências para usar nos produtos
             generoRepo.saveAll(Arrays.asList(
-    rock, pop, mpb, kpop, sertanejo, worship, musical, olodum, anime, reggae
+    rock, pop, mpb, kpop, sertanejo, worship, musical, olodum, anime, reggae,samba
 ));
             
             // 2. Cadastrar Produtos (Usando os objetos de gênero acima)
@@ -148,7 +149,7 @@ Produto p10 = new Produto(
     "Um dos álbuns mais celebrados de Arlindo Cruz, reunindo sambas marcantes com a assinatura do artista: letras poéticas, arranjos tradicionais e muito balanço. O disco destaca a força do samba carioca e traz composições que reforçam Arlindo como um dos maiores nomes do gênero. Ideal para quem aprecia samba de raiz e a musicalidade rica do artista.",
     new BigDecimal("69.90"),
     100,
-    olodum,
+    samba,
     "assets/img/fotos-produtos/produto10.jpeg"
 );
 
@@ -851,12 +852,116 @@ Produto p73 = new Produto(
     "assets/img/fotos-produtos/produto73.jpeg"
 );
 
+Produto p74 = new Produto(
+    null,
+    "Vale dos Reis: As Sete Portas da Energia",
+    "Olodum",
+    "Álbum do Olodum lançado em 2012, apresentando 8 faixas que celebram a energia vibrante e os ritmos afro‑brasileiros que caracterizam o samba‑reggae baiano. O projeto combina percussão intensa, letras que exaltam a cultura afro‑descendente e a tradição dos tambores do Olodum, refletindo sua importância na música e no carnaval da Bahia.",
+    new BigDecimal("95.00"),
+    12,
+    olodum,
+    "assets/img/fotos-produtos/produto80.jpeg"
+);
+
+Produto p75 = new Produto(
+    null,
+    "Samba de Raiz Ao Vivo",
+    "Diversos Artistas",
+    "Coletânea ao vivo que reúne clássicos do samba de raiz interpretados por diversos artistas consagrados. O álbum apresenta performances autênticas e espontâneas que capturam a essência do samba tradicional, com sonoridade que enfatiza cavaquinho, pandeiro e voz, celebrando a história e a cultura do gênero.",
+    new BigDecimal("89.90"),
+    15,
+    samba,
+    "assets/img/fotos-produtos/produto74.jpg"
+);
+
+Produto p76 = new Produto(
+    null,
+    "Deixa a Vida Me Levar",
+    "Zeca Pagodinho",
+    "Clássico álbum do sambista Zeca Pagodinho com destaque para o hit “Deixa a Vida Me Levar”, que se tornou um dos maiores símbolos do samba e pagode brasileiros. O projeto mistura composições que celebram alegria, cotidiano e malandragem com a interpretação descontraída e carismática que marcou a carreira do artista.",
+    new BigDecimal("92.50"),
+    10,
+    samba,
+    "assets/img/fotos-produtos/produto75.jpg"
+);
+
+
+Produto p77 = new Produto(
+    null,
+    "Nosso Samba",
+    "Fundo de Quintal",
+    "Álbum representativo do Fundo de Quintal, grupo lendário do samba carioca, reunindo faixas que se tornaram referência do samba de roda e pagode. Com arranjos marcantes de cavaco, banjo e percussão e vozes harmonizadas, o projeto celebra a tradição do samba com repertório que influenciou gerações de músicos.",
+    new BigDecimal("94.00"),
+    14,
+    samba,
+    "assets/img/fotos-produtos/produto76.jpeg"
+);
+
+
+Produto p78 = new Produto(
+    null,
+    "Samba Quente",
+    "Fundo de Quintal",
+    "Coletânea com os maiores sucessos do Fundo de Quintal, trazendo o melhor do samba e do pagode carioca. O repertório inclui interpretações emblemáticas que destacam a musicalidade e a contribuição do grupo para a história do samba popular brasileiro.",
+    new BigDecimal("90.00"),
+    12,
+    samba,
+    "assets/img/fotos-produtos/produto77.jpeg"
+);
+
+Produto p79 = new Produto(
+    null,
+    "Edição Especial Para Alguém Muito Especial",
+    "Olodum",
+    "Coletânea especial do Olodum com faixas que celebram a cultura afro‑brasileira e o ritmo contagiante do samba‑reggae. O álbum reúne sucessos do grupo percussivo, destacando sua contribuição histórica ao carnaval de Salvador e à música brasileira.",
+    new BigDecimal("96.50"),
+    10,
+    olodum,
+    "assets/img/fotos-produtos/produto78.jpeg"
+);
+
+Produto p80 = new Produto(
+    null,
+    "Canta Canta, Minha Gente",
+    "Martinho da Vila",
+    "Lançado em 1974, “Canta Canta, Minha Gente” é um dos álbuns mais emblemáticos de Martinho da Vila, com letras poéticas e melodias que celebram as tradições do samba. O disco é considerado um clássico da música brasileira e inclui faixas que se tornaram parte do repertório essencial do gênero.",
+    new BigDecimal("97.00"),
+    8,
+    samba,
+    "assets/img/fotos-produtos/produto79.jpeg"
+);
+
+Produto p81 = new Produto(
+    null,
+    "Olodum Pela Vida",
+    "Olodum",
+    "Coletânea do Olodum que destaca sua trajetória musical e a força dos ritmos afro‑brasileiros, misturando percussão contagiante e músicas que celebram a vida, a cultura e a tradição do samba‑reggae. O álbum inclui temas consagrados e referências à presença do Olodum no cenário musical brasileiro.",
+    new BigDecimal("95.50"),
+    10,
+    olodum,
+    "assets/img/fotos-produtos/produto82.jpg"
+);
+
+
+Produto p82 = new Produto(
+    null,
+    "Timbalada",
+    "Timbalada",
+    "Lançado em 1993, este álbum da Timbalada apresenta o percussivo e inovador estilo samba‑reggae baiano criado por Carlinhos Brown. Com batidas intensas, ritmo contagiante e instrumentos marcantes, o trabalho consolidou o grupo como um dos principais representantes da música baiana no Brasil e no exterior.",
+    new BigDecimal("98.00"),
+    12,
+    samba,
+    "assets/img/fotos-produtos/produto81.jpeg"
+);
 
 
 
 
 
-               produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55,p56, p57, p58, p59, p60,p61, p62, p63, p64, p65,p66, p67, p68, p69, p70, p71, p72, p73));
+
+
+
+               produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55,p56, p57, p58, p59, p60,p61, p62, p63, p64, p65,p66, p67, p68, p69, p70, p71, p72, p73,p74,p75, p76, p77, p78,p79, p80, p81, p82));
             }
         }
             
