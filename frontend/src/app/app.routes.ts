@@ -36,7 +36,7 @@ export const routes: Routes = [
         component: Loja,
         resolve: { produtos: produtoResolver }
       },
-      { path: 'produto-info/:id', component: ProdutoInfo },
+      { path: 'produto-info/:id', component: ProdutoInfo},
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
       { path: 'carrinho', component: CarrinhoCompras, canActivate: [AuthGuard]},
