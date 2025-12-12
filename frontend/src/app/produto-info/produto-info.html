@@ -1,4 +1,9 @@
 <main>
+  <!-- Spinner enquanto carrega -->
+<div *ngIf="loading" class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
   <div class="container">
     <div class="grid second-nav">
       <div class="column-xs-12">
@@ -11,9 +16,6 @@
         </nav>
       </div>
     </div>
-
-    <!-- Mostra enquanto o produto NÃO está carregado -->
-    <p *ngIf="!produto">Carregando o produto, aguarde...</p>
 
     <div class="grid product" *ngIf="produto">
       <div class="column-xs-12 column-md-7">

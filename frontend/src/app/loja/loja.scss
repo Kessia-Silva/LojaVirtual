@@ -186,9 +186,20 @@
   box-shadow: 0 0 4px rgba(18,130,255,0.4);
 }
 
-.loading-spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40vh; // altura proporcional à tela
+.produtos-lista-wrapper {
+  width: 100%; /* garante que o spinner ocupe toda largura */
 }
+
+
+ .loading-spinner {
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;      /* centraliza verticalmente */
+  width: 100%;              /* ocupa toda a largura disponível */
+  height: 200px;            /* altura desejada */
+}
+
+::ng-deep mat-spinner circle {
+  stroke: #f28444;  // Força a cor laranja
+}
+

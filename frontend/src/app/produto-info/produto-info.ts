@@ -4,10 +4,11 @@ import { ProdutoService } from '../Area-Adm/produtos/services/produto-service';
 import { Produto } from '../models/produto-model';
 import { CardProdutoLoja } from '../loja/card-produto-loja/card-produto-loja';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-produto-info',
-  imports: [CardProdutoLoja,CommonModule],
+  imports: [CardProdutoLoja, CommonModule, MatProgressSpinner],
   templateUrl: './produto-info.html',
   styleUrl: './produto-info.scss',
 })
@@ -16,6 +17,8 @@ export class ProdutoInfo {
 
   produto!: Produto;
   produtosRelacionados: Produto[] = [];
+  loading: boolean = true; // indica carregamento
+
 
   constructor(
     private route: ActivatedRoute,        // Para pegar o id na URL
@@ -25,6 +28,8 @@ export class ProdutoInfo {
 ngOnInit() {
   this.route.paramMap.subscribe(params => {
     const produtoId = Number(params.get('id'));
+    this.loading = true; // inicia carregamento
+
 
     // 1️⃣ Buscar produto atual
     this.produtoService.getProdutoById(produtoId).subscribe(prod => {
@@ -35,6 +40,8 @@ ngOnInit() {
         this.produtoService.getByCategoria(String(this.produto.generoMusical.nome))
           .subscribe(produtos => {
             this.produtosRelacionados = produtos.filter(p => p.id !== this.produto.id);
+            this.loading = false; // carregamento finalizado
+
           });
       }
     });

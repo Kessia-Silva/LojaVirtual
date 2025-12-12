@@ -397,3 +397,18 @@ footer {
 }
 
 
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; // altura maior
+  width: 100%;
+
+}
+::ng-deep mat-spinner circle {
+  stroke: #f28444;  // Força a cor laranja
+}
+
+
+
