@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ValidarService } from '../services/validar-service';
+import { ErrorDialog } from '../../Area-Adm/shared/components/error-dialog/error-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-adm',
@@ -12,8 +14,10 @@ import { ValidarService } from '../services/validar-service';
   templateUrl: './login-adm.html',
   styleUrl: './login-adm.scss',
 })
-export class LoginAdm implements OnInit {
 
+
+
+export class LoginAdm implements OnInit {
 
   // Formulário reativo
   loginForm: FormGroup = new FormGroup({
@@ -28,42 +32,58 @@ export class LoginAdm implements OnInit {
   // Controle da visibilidade da senha
   hideSenha = signal(true);
 
-  // Função para alternar visibilidade da senha
+  constructor(
+    private router: Router,
+    private adminService: ValidarService,
+    private dialog: MatDialog
+  ) {}
+
+  ngOnInit() {
+    this.loginForm.reset();
+    this.hideSenha.set(true);
+  }
+
+  // Alterna visibilidade da senha
+  toggleSenhaVisibility(event: Event) {
+    event.preventDefault();
+    this.hideSenha.set(!this.hideSenha());
+  }
+
+  // Retorna estado da senha (true = escondida)
   hide() {
     return this.hideSenha();
   }
 
-  clickEvent(event: Event) {
-    event.preventDefault();
-    this.hideSenha.set(!this.hideSenha());
-  }
-  constructor(private router: Router, private adminService: ValidarService) { }
-   ngOnInit() {
-  this.loginForm.reset();
-  this.hideSenha.set(true);
-  }
-
-onSubmit() {
-  if (this.loginForm.valid) {
-    const email = this.loginForm.value.email;
-    const senha = this.loginForm.value.senha;
-
-    const valido = this.adminService.validarLogin(email, senha);
-
-    if (valido) {
-      console.log('Login feito com sucesso!');
-      this.loginForm.reset();      // 🔹 limpa o formulário
-      this.hideSenha.set(true);    // 🔹 reset visibilidade da senha
-      this.router.navigateByUrl('/areaAdm', { replaceUrl: true });
-    } else {
-      console.log('Email ou senha incorretos');
-    }
-
-  } else {
-    console.log('Formulário inválido');
+  onSubmit() {
+  if (!this.loginForm.valid) {
     this.loginForm.markAllAsTouched();
+    this.dialog.open(ErrorDialog, { data: 'Formulário inválido' });
+    return;
   }
+
+  const { email, senha } = this.loginForm.value;
+
+  this.adminService.login(email, senha).subscribe({
+    next: (valido) => {
+      // Aqui o backend retornou 200 OK
+      this.loginForm.reset();
+      this.hideSenha.set(true);
+      this.router.navigateByUrl('/areaAdm', { replaceUrl: true });
+    },
+    error: (err) => {
+      // Aqui o backend retornou 400 ou outro erro
+      let msg = 'Erro ao fazer login';
+      if (err.error?.erro) {
+        msg = err.error.erro; // pega a mensagem do backend
+      }
+      this.dialog.open(ErrorDialog, { data: msg });
+
+      // Reset do formulário e da senha
+      this.loginForm.reset();
+      this.hideSenha.set(true);
+    }
+  });
 }
 
-
 }
+
