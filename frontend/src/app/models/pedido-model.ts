@@ -7,5 +7,5 @@ export interface Pedido {
   itens: ItemPedido[];
   valorTotal: number;
   dataPedido: Date;
-  status: 'PENDENTE' | 'PROCESSANDO' | 'ENVIADO' | 'CANCELADO';
+  status: 'PENDENTE' | 'PROCESSANDO' | 'ENVIADO' | 'ENTREGUE' |'CANCELADO';
 }

@@ -66,11 +66,11 @@
 }
 
 /* cores por status */
-.status.pendente { background-color: #ffcc66; }      /* laranja suave */
-.status.processando { background-color: #ff9933; }   /* laranja mais forte */
-.status.enviado { background-color: #4CAF50; }       /* verde */
+.status-pendente { background-color: #ffcc66; }      /* laranja suave */
+.status-processamento { background-color: #ff9933; }   /* laranja mais forte */
+.status-enviado { background-color: #4CAF50; }       /* verde */
 .status.entregue { background-color: #2196F3; }      /* azul */
-.status.cancelado { background-color: #f44336; }     /* vermelho */
+.status-cancelado { background-color: #f44336; }     /* vermelho */
 
 /* ===== Itens dentro do pedido ===== */
 .itens-pedido {
@@ -108,4 +108,15 @@
   gap: 4px;
   font-size: 14px;
   color: #111;
+}
+
+
+.cancel-btn {
+  margin-left: 10px;
+  padding: 4px 8px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }

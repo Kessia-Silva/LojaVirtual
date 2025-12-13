@@ -37,6 +37,16 @@
         <div><strong>{{ item.produto.nome }}</strong></div>
         <div>Quantidade: {{ item.qtdComprada }}</div>
         <div>Subtotal: {{ (item.produto.preco * item.qtdComprada) | currency:'BRL':'symbol':'1.2-2' }}</div>
+        <div> Status:  <span [ngClass]="{
+        'status-pendente': pedido.status === 'PENDENTE',
+        'status-processamento': pedido.status === 'PROCESSANDO',
+        'status-enviado': pedido.status === 'ENVIADO',
+        'status-entregue': pedido.status === 'ENTREGUE',
+        'status-cancelado': pedido.status === 'CANCELADO'
+      }">{{pedido.status}}</span>
+
+
+      </div>
       </div>
     </div>
   </div>
