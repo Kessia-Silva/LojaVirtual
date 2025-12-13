@@ -1,4 +1,15 @@
 <app-navbar-interno-adm></app-navbar-interno-adm>
+<!-- Mensagem de sucesso -->
+<!-- Mensagem de sucesso -->
+<div class="alert-sucesso" *ngIf="mensagemSucesso">
+  <mat-icon>check_circle</mat-icon>
+  {{ mensagemSucesso }}
+  <button type="button" class="close-msg" mat-icon-button (click)="mensagemSucesso = null">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
 <div class="container-remover">
 
   <h2>Remover Produto</h2>
@@ -48,8 +59,9 @@
       <p>Tem certeza que deseja remover o produto <strong>{{ produtoSelecionado.nome }}</strong>?</p>
 
       <div class="botoes-modal">
-        <button class = "button-color" mat-raised-button (click)="produtoSelecionado = null">Cancelar</button>
-        <button class = "button-color" mat-raised-button (click)="removerProduto()">Remover</button>
+        <button type="button" class = "button-color" mat-raised-button (click)="produtoSelecionado = null">Cancelar</button>
+        <button type="button" class = "button-color" mat-raised-button (click)="removerProduto()">Remover</button>
+
       </div>
     </div>
   </div>

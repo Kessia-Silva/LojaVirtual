@@ -135,3 +135,39 @@
 ::ng-deep mat-spinner circle {
   stroke: #f28444;  // Força a cor laranja
 }
+
+.alert-sucesso {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  z-index: 1000;
+  animation: slideIn .3s ease;
+   background-color: #d4edda;
+  color: #155724;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.close-msg {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

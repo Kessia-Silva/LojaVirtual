@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { AsyncPipe, NgFor, CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,11 +27,17 @@ export class RemoverProduto {
   buscaProduto: string = '';
   produtoSelecionado: Produto | null = null;
       loadingProdutos = true;
+      mensagemSucesso: string | null = null;
+removendo: boolean = false;
+
+
 
 
   constructor(
     private route: ActivatedRoute,
-    private produtoService: ProdutoService
+    private produtoService: ProdutoService,
+      private cdr: ChangeDetectorRef // <--- injeta o ChangeDetectorRef
+
   ) {}
 
   ngOnInit(): void {
@@ -73,22 +79,27 @@ carregarProdutos(): void {
 
   // Remove produto após confirmação
   removerProduto(): void {
-    if (!this.produtoSelecionado) return;
+     if (!this.produtoSelecionado || this.removendo) return;
 
-    this.produtoService.deleteProduto(this.produtoSelecionado.id).subscribe({
-      next: () => {
-        // remove da lista local
-        this.produtos = this.produtos.filter(
-          p => p.id !== this.produtoSelecionado!.id
-        );
+  this.removendo = true;
+  const produto = this.produtoSelecionado;
 
-        // atualiza lista filtrada
-        this.filtrarProdutos();
+  // Atualiza lista e fecha modal
+  this.produtos = this.produtos.filter(p => p.id !== produto.id);
+  this.filtrarProdutos();
+  this.produtoSelecionado = null;
 
-        alert('Produto removido com sucesso!');
+  // Mostra mensagem imediatamente
+  this.mensagemSucesso = `Produto "${produto.nome}" removido com sucesso!`;
 
-        this.produtoSelecionado = null;
-      },
+  // força Angular a detectar a mudança
+  this.cdr.detectChanges();
+
+  // requisição ao backend
+  this.produtoService.deleteProduto(produto.id).subscribe({
+    next: () => {
+      this.removendo = false;
+    },
       error: (err) => {
         console.error("Erro ao remover produto", err);
         alert("Erro ao remover produto.");
