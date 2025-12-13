@@ -1,14 +1,40 @@
-<div *ngIf="loading" class="loading-spinner">
-  <mat-spinner></mat-spinner>
-</div>
+<main>
+  <!-- Spinner enquanto carrega os produtos -->
+  <div *ngIf="loading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
 
-<div *ngIf="!loading && produtos.length">
-  <h3>Você também pode gostar</h3>
-  <div class="produtos-lista">
-    <div *ngFor="let p of produtos" (click)="verProduto(p)" style="cursor:pointer">
-      <app-card-produto-loja [produto]="p"></app-card-produto-loja>
+  <!-- Carrossel de produtos -->
+  <div *ngIf="!loading && produtos.length" class="grid related-products">
+    <div class="column-xs-12">
+      <h3>Você também pode gostar</h3>
+    </div>
+
+    <div class="column-xs-12">
+      <div class="carousel-wrapper">
+        <!-- Botão esquerdo -->
+        <button class="arrow left" (click)="scroll(-1)">‹</button>
+
+        <!-- Lista de produtos -->
+        <div class="produtos-lista" #carousel>
+          <ng-container *ngFor="let p of produtos">
+            <app-card-produto-loja
+              [produto]="p"
+              (click)="verProduto(p)">
+            </app-card-produto-loja>
+          </ng-container>
+        </div>
+
+        <!-- Botão direito -->
+        <button class="arrow right" (click)="scroll(1)">›</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Mensagem caso não haja produtos -->
+  <div *ngIf="!loading && !produtos.length">
+    <p>Nenhum produto relacionado encontrado.</p>
+  </div>
+</main>
 
 

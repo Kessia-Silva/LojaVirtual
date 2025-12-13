@@ -11,10 +11,11 @@ import { GeneroMusicalService } from '../../genero-musical/services/genero-music
 import { MatSelectModule } from '@angular/material/select';
 import { Produto } from '../../../models/produto-model';
 import { GeneroMusical } from '../../../models/generoMusical-models';
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
 @Component({
   selector: 'app-editar-produto',
   imports: [MatFormFieldModule, FormsModule, MatButtonModule,
-    CommonModule, MatSelectModule, MatInputModule, MatIconModule, NavbarInternoAdm,],
+    CommonModule, MatSelectModule, MatInputModule, MatIconModule, NavbarInternoAdm, MatProgressSpinner],
   templateUrl: './editar-produto.html',
   styleUrl: './editar-produto.scss',
 })
@@ -25,6 +26,9 @@ export class EditarProduto {
     buscaProduto: string = '';          // Valor do input de busca
     produtoSelecionado: Produto | null = null; // Produto selecionado para confirmar remoção
     generosMusicais: GeneroMusical[] = [];  // Lista de gêneros do service
+    loadingProdutos = true;
+    loadingSalvar = false;
+
 
     constructor(
     private produtoService: ProdutoService,
@@ -32,10 +36,14 @@ export class EditarProduto {
   ) {}
 
     ngOnInit(): void {
+
       // Carrega produtos
+       this.loadingProdutos = true;
       this.produtoService.getProdutos().subscribe(produtos => {
+         console.log('Produtos recebidos:', produtos);
         this.produtos = produtos;
         this.produtosFiltrados = produtos;
+        this.loadingProdutos = false;
       });
 
       // Carrega gêneros musicais
@@ -79,8 +87,10 @@ export class EditarProduto {
   // Aplica capitalize
   this.produtoSelecionado.nome = this.capitalizeFirstLetter(this.produtoSelecionado.nome);
 
+
   // Atualiza via serviço
   this.produtoService.updateProduto(this.produtoSelecionado);
+   this.loadingSalvar = false;
 
   // Atualiza lista filtrada
   this.filtrarProdutos();

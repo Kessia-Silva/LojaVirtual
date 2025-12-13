@@ -11,8 +11,13 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 
+  <!-- Spinner enquanto carrega os produtos -->
+<div *ngIf="loadingProdutos" class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
   <!-- Lista de produtos filtrados -->
-  <div class="lista-produtos" *ngIf="produtosFiltrados.length > 0">
+  <div class="lista-produtos" *ngIf="!loadingProdutos && produtosFiltrados.length > 0">
     <div class="produto-item" *ngFor="let produto of produtosFiltrados">
 
       <img [src]="produto.imagemUrl" alt="Imagem" class="produto-img">
@@ -34,13 +39,18 @@
   </div>
 
   <!-- Nenhum resultado -->
-  <p class="nenhum" *ngIf="buscaProduto && produtosFiltrados.length === 0">
+  <p class="nenhum" *ngIf="buscaProduto && !loadingProdutos && produtosFiltrados.length === 0">
     Nenhum produto encontrado.
   </p>
 
   <!-- Modal de edição -->
   <div class="modal-bg" *ngIf="produtoSelecionado">
     <div class="modal">
+
+    <!-- Spinner ao salvar -->
+    <div *ngIf="loadingSalvar" class="loading-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
       <h3>Editar Produto</h3>
 
 <mat-form-field appearance="outline">

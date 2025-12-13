@@ -120,3 +120,18 @@
 .button-color{
   color: #f28444 !important;
 }
+
+
+
+
+ .loading-spinner {
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;      /* centraliza verticalmente */
+  width: 100%;              /* ocupa toda a largura disponível */
+  height: 200px;            /* altura desejada */
+}
+
+::ng-deep mat-spinner circle {
+  stroke: #f28444;  // Força a cor laranja
+}

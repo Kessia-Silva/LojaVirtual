@@ -1,7 +1,10 @@
 <div class="cart-wrapper">
 <div class="card">
+<div *ngIf="loading" class="spinner-wrapper">
+  <div class="spinner"></div>
+</div>
 
-    <div class="cart">
+<div *ngIf="!loading" class="cart">
         <div class="title">
             <h4><b>Carrinho </b></h4>
             <span class="text-muted">{{ carrinho?.itens?.length }} items</span>

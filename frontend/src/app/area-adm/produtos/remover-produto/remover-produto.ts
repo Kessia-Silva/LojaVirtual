@@ -9,11 +9,12 @@ import { ProdutoService } from '../services/produto-service';
 import { FormsModule } from '@angular/forms';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { Produto } from '../../../models/produto-model';
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-remover-produto',
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatButtonModule, MatIconModule, AsyncPipe, NgFor, FormsModule, CommonModule, NavbarInternoAdm],
+    MatButtonModule, MatIconModule, AsyncPipe, NgFor, FormsModule, CommonModule, NavbarInternoAdm, MatProgressSpinner],
   templateUrl: './remover-produto.html',
   styleUrl: './remover-produto.scss',
 })
@@ -24,6 +25,8 @@ export class RemoverProduto {
   produtosFiltrados: Produto[] = [];
   buscaProduto: string = '';
   produtoSelecionado: Produto | null = null;
+      loadingProdutos = true;
+
 
   constructor(private produtoService: ProdutoService) {}
 
@@ -33,10 +36,13 @@ export class RemoverProduto {
 
   // Carrega todos os produtos do backend
   carregarProdutos(): void {
+        this.loadingProdutos = true;
     this.produtoService.getProdutos().subscribe({
       next: (produtos) => {
         this.produtos = produtos;
         this.produtosFiltrados = produtos;
+            this.loadingProdutos = false;
+
       },
       error: (err) => console.error("Erro ao carregar produtos", err)
     });

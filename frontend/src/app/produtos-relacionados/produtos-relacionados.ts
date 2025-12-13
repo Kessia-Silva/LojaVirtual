@@ -44,6 +44,15 @@ export class ProdutosRelacionados  implements OnChanges   {
     // Navega via router para evitar refresh total
     window.location.href = `/produto-info/${prod.id}`;
   }
+
+   // Função para rolar o carrossel para esquerda e direita
+  scroll(direction: number) {
+    const carousel = document.querySelector('.produtos-lista');
+    if (carousel) {
+      const width = carousel.clientWidth; // largura do carrossel
+      carousel.scrollBy({ left: direction * width / 2, behavior: 'smooth' });
+    }
+}
 }
 
 
