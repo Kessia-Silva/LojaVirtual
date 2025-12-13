@@ -91,6 +91,16 @@ nav {
   }
 }
 
+h1 {
+  font-size: 2rem;         // ou o tamanho que você quiser
+  line-height: 2.5rem;     // aumenta a distância entre linhas quebradas
+  margin: 1rem 0;           // adiciona espaço acima e abaixo
+  word-wrap: break-word;    // permite quebrar palavras longas se necessário
+  overflow-wrap: break-word;
+}
+
+
+
 .flex-nav ul {
   position: absolute;
   z-index: 1;

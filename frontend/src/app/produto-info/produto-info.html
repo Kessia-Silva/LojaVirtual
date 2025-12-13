@@ -21,6 +21,7 @@
       <!-- Informações do produto -->
       <div class="column-xs-12 column-md-5">
         <h1>{{ produto.nome }}</h1>
+        <br>
         <h2>R$ {{ produto.preco?.toFixed(2) || '0.00' }}</h2>
         <div class="description">
           <p>{{ produto.descricao }}</p>
