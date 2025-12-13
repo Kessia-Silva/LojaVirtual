@@ -9,7 +9,7 @@ import { ProdutoService } from '../Area-Adm/produtos/services/produto-service';
 import { AuthGuard } from '../Services/auth-guard';
 import { ValidarService } from '../login-Adm/services/validar-service';
 import { Carrinho, ItemCarrinho } from '../models/carrinho';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatProgressSpinner, MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { FormsModule } from '@angular/forms';
 import { ServicePedido } from '../Area-Cliente/Services/service-pedido';
@@ -33,13 +33,24 @@ export class CarrinhoCompras implements OnInit{
     private authService: ValidarService,
     private router: Router,
     private pedidoService: ServicePedido,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
 // Simula 5 segundos de carregamento
-    this.carregarCarrinho();
+     // pega o carrinho já resolvido pelo resolver
+  this.route.data.subscribe({
+      next: (data) => {
+        this.carrinho = data['carrinho'];
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro carregando carrinho via resolver:', err);
+        this.loading = false;
+      }
+    });
   }
-
+/*
   carregarCarrinho() {
     this.loading = true;
     const usuarioId = this.authService.getUsuario();
@@ -56,14 +67,15 @@ export class CarrinhoCompras implements OnInit{
         this.loading = false;
       }
     });
-  }
+  }*/
 
   aumentar(item: ItemCarrinho) {
   const usuario = this.authService.getUsuario();
   if (!usuario) return;
 
   this.carrinhoService.aumentar(Number(usuario.id), item).subscribe(() => {
-    this.carregarCarrinho();
+    //this.carregarCarrinho();
+    this.atualizarCarrinho();
   });
 }
 
@@ -72,7 +84,8 @@ diminuir(item: ItemCarrinho) {
   if (!usuario) return;
 
   this.carrinhoService.diminuir(Number(usuario.id), item).subscribe(() => {
-    this.carregarCarrinho();
+    //this.carregarCarrinho();
+    this.atualizarCarrinho();
   });
 }
 
@@ -81,9 +94,27 @@ remover(item: ItemCarrinho) {
   if (!usuario) return;
 
   this.carrinhoService.removerItem(Number(usuario.id), item.produto.id).subscribe(() => {
-    this.carregarCarrinho();
+    //this.carregarCarrinho();
+    this.atualizarCarrinho();
   });
 }
+
+private atualizarCarrinho() {
+    const usuario = this.authService.getUsuario();
+    if (!usuario) return;
+
+    this.loading = true;
+    this.carrinhoService.getCarrinho(Number(usuario.id)).subscribe({
+      next: (c) => {
+        this.carrinho = c;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro ao atualizar carrinho:', err);
+        this.loading = false;
+      }
+    });
+  }
 
 checkoutAtivo = false;
 

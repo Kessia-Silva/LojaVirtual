@@ -21,6 +21,7 @@ import { AuthGuard } from './Services/auth-guard';
 import { ProdutoResolver } from './resolvers/produto-id-resolver-resolver';
 import { MinhaConta } from './Area-Cliente/minha-conta/minha-conta';
 import { MeusPedidos } from './Area-Cliente/meus-pedidos/meus-pedidos';
+import { carrinhoResolver } from './resolvers/carrinho-compras/carrinho-compras-resolver';
 
 
 export const routes: Routes = [
@@ -67,7 +68,9 @@ export const routes: Routes = [
   canActivate: [AuthGuard],
   children: [
     { path: '', redirectTo: 'carrinho', pathMatch: 'full' },
-    { path: 'carrinho', component: CarrinhoCompras },
+    {path: 'carrinho',
+  component: CarrinhoCompras,
+  resolve: { carrinho: carrinhoResolver }},
     { path: 'minha-Conta', component: MinhaConta },
     { path: 'meus-pedidos', component: MeusPedidos },
     // aqui você pode adicionar mais rotas da área do cliente, tipo pedidos, perfil etc.
