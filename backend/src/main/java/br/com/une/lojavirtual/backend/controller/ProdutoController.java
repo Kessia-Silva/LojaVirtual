@@ -66,7 +66,9 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Produto> criar(@RequestBody Produto produto) {
+        System.out.println(produto);
         Produto novoProduto = service.salvar(produto);
+
         // Retorna 201 Created
         return ResponseEntity.status(HttpStatus.CREATED).body(novoProduto);
     }

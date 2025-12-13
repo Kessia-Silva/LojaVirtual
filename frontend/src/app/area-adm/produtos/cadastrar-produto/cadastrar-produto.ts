@@ -62,8 +62,31 @@ export class CadastrarProduto implements OnInit{
   this.produto.nome = this.capitalizeFirstLetter(this.produto.nome);
 
   // Salva
-  this.produtoService.addProduto(this.produto);
-  alert('Produto salvo com sucesso!');
+  this.produtoService.addProduto(this.produto).subscribe({
+  next: (res) => {
+    console.log('Produto criado no backend:', res);
+    alert('Produto salvo com sucesso!');
+
+    // Resetar formulário
+    this.produto = {
+      id: 0,
+      nome: '',
+      preco: null as any,
+      descricao: '',
+      estoque: null as any,
+      artista:'',
+      generoMusical: { id: 0, nome: '' },
+      imagemUrl: ''
+    };
+    this.imagemPreview = null;
+    this.imagemSelecionada = null;
+  },
+  error: (err) => {
+    console.error('Erro ao salvar produto:', err);
+    alert('Erro ao salvar produto. Veja o console.');
+  }
+});
+
 
   // Resetar formulário
   this.produto = {
@@ -89,7 +112,8 @@ export class CadastrarProduto implements OnInit{
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.imagemSelecionada = input.files[0];
-      this.produto.imagemUrl = this.imagemSelecionada!.name;
+      // Para enviar ao backend apenas o caminho, você pode definir:
+      this.produto.imagemUrl = `assets/img/Novos-produtos/${this.imagemSelecionada.name}`;
 
       const reader = new FileReader();
       reader.onload = () => {

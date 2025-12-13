@@ -26,10 +26,23 @@ export class ProdutoService {
   }
 
   // 4. Criar produto novo
-  addProduto(produto: Produto): Observable<Produto> {
-    console.log("📦 Produto enviado para o backend:", produto);
-    return this.http.post<Produto>(this.API, produto);
-  }
+addProduto(produto: Produto): Observable<Produto> {
+  // Monta um objeto seguro para o backend
+  const produtoEnviar = {
+    nome: produto.nome,
+    artista: produto.artista,
+    descricao: produto.descricao,
+    preco: produto.preco,
+    estoque: produto.estoque,
+    imagemUrl: produto.imagemUrl,
+    generoMusical: { id: produto.generoMusical.id } // só o ID
+  };
+
+  console.log("📦 Produto enviado para o backend:", produtoEnviar);
+
+  return this.http.post<Produto>(this.API, produtoEnviar);
+}
+
 
   // 5. Atualizar produto existente
   updateProduto(produto: Produto): Observable<Produto> {
