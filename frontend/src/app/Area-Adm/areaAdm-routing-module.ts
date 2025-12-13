@@ -8,17 +8,27 @@ import { AtualizarStatusPedido } from './pedidos/atualizar-status-pedido/atualiz
 import { GerenciarGeneroMusical } from './genero-musical/gerenciar-genero-musical/gerenciar-genero-musical';
 import { AreaAdm } from './home-adm/area-adm';
 import { VisualizarPedidos } from './pedidos/visualizar-pedidos/visualizar-pedidos';
+import { produtoResolver } from '../resolvers/produto-resolver';
 
 const routes: Routes = [
   { path: '', component: AreaAdm },
   {path: 'cadastrarProduto', component:CadastrarProduto},
-  {path: 'editarProduto', component:EditarProduto},
-  {path: 'removerProduto', component:RemoverProduto},
-  {path: 'visualizarProdutos', component:VisualizarProdutos},
+  {path: 'editarProduto', component:EditarProduto,
+    resolve: {produtos: produtoResolver}
+  },
+
+  {path: 'removerProduto', component:RemoverProduto,
+    resolve: {produtos: produtoResolver
+    }},
+
+  {path: 'visualizarProdutos', component:VisualizarProdutos,
+    resolve: {produtos: produtoResolver}
+  },
   {path: 'atualizarStatusPedido', component:AtualizarStatusPedido},
   {path: 'gerenciarGeneroMusical', component:GerenciarGeneroMusical},
   {path: 'visualizarPedidos', component: VisualizarPedidos},
 /*
+{
   path: 'gerenciarGeneroMusical/new',
     component: GerenciarGeneroMusical
   },

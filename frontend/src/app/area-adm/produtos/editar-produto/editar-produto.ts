@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Produto } from '../../../models/produto-model';
 import { GeneroMusical } from '../../../models/generoMusical-models';
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-editar-produto',
   imports: [MatFormFieldModule, FormsModule, MatButtonModule,
@@ -31,6 +32,7 @@ export class EditarProduto {
 
 
     constructor(
+    private route: ActivatedRoute,
     private produtoService: ProdutoService,
     private generoService: GeneroMusicalService
   ) {}
@@ -38,13 +40,13 @@ export class EditarProduto {
     ngOnInit(): void {
 
       // Carrega produtos
-       this.loadingProdutos = true;
-      this.produtoService.getProdutos().subscribe(produtos => {
-         console.log('Produtos recebidos:', produtos);
-        this.produtos = produtos;
-        this.produtosFiltrados = produtos;
-        this.loadingProdutos = false;
-      });
+
+      this.route.data.subscribe(({ produtos }) => {
+      console.log('Produtos vindos do resolver:', produtos);
+      this.produtos = produtos;
+      this.produtosFiltrados = produtos;
+      this.loadingProdutos = false;
+          });
 
       // Carrega gêneros musicais
 

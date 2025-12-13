@@ -6,5 +6,5 @@ import { take } from 'rxjs';
 
 export const produtoResolver: ResolveFn<Produto[]> = (route, state) => {
   const produtoService = inject(ProdutoService); // inject permite acessar serviços
-  return produtoService.getProdutos().pipe(take(1));; // retorna Observable<Produto[]>
+  return produtoService.getProdutos().pipe(take(1)); // retorna Observable<Produto[]>
 };
