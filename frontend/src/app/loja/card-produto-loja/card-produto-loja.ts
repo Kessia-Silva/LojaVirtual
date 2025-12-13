@@ -52,7 +52,7 @@ adicionarAoCarrinho(produto: Produto) {
   } else {
     this.router.navigate(['/login']);
   }
-}
+} 
   irParaProduto(id: number) {
   this.router.navigate(['/produto-info', id]);
 }
