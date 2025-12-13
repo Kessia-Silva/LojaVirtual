@@ -15,7 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-loja',
   standalone: true,
-  imports: [MatIconModule, CommonModule, NgFor, CardProdutoLoja, FormsModule, MatFormField, MatCheckboxModule, MatProgressSpinner],
+  imports: [MatIconModule, CommonModule, NgFor, CardProdutoLoja, FormsModule,
+     MatFormField, MatCheckboxModule, MatProgressSpinner],
   templateUrl: './loja.html',
   styleUrl: './loja.scss',
 })
