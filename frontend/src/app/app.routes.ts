@@ -44,7 +44,6 @@ export const routes: Routes = [
 },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
-      { path: 'carrinho', component: CarrinhoCompras, canActivate: [AuthGuard]},
     ]
   },
 
@@ -57,6 +56,19 @@ export const routes: Routes = [
 
   // 🔹 ROTAS SEM LAYOUT
   { path: 'loginAdm', component: LoginAdm },
+
+
+// 🔹 ROTAS CLIENTE (requer login)
+{
+  path: 'cliente',
+  component: LayoutPublico, // você pode criar um layout específico se quiser
+  canActivate: [AuthGuard],
+  children: [
+    { path: '', redirectTo: 'carrinho', pathMatch: 'full' },
+    { path: 'carrinho', component: CarrinhoCompras },
+    // aqui você pode adicionar mais rotas da área do cliente, tipo pedidos, perfil etc.
+  ]
+},
 
 ];
 
