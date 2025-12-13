@@ -132,12 +132,4 @@ carregarGeneros() {
   });
 }
 
-/*
-
-trocar com backend:
- getGeneros(): Observable<GeneroMusical[]> {
-    return this.httpCliente.get<GeneroMusical[]>(this.API);
-  } */
-
-
 }

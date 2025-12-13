@@ -31,7 +31,8 @@ export class CadastrarProduto implements OnInit{
     estoque: null as any,
     artista:'',
     generoMusical: { id: 0, nome: '' },
-    imagemUrl: ''
+    imagemUrl: '',
+    ativo: true,
   };
 
   imagemSelecionada: File | null = null;
@@ -76,7 +77,8 @@ export class CadastrarProduto implements OnInit{
       estoque: null as any,
       artista:'',
       generoMusical: { id: 0, nome: '' },
-      imagemUrl: ''
+      imagemUrl: '',
+      ativo:true
     };
     this.imagemPreview = null;
     this.imagemSelecionada = null;
@@ -97,7 +99,8 @@ export class CadastrarProduto implements OnInit{
     estoque: null as any,
     artista:'',
     generoMusical: { id: 0, nome: '' },
-    imagemUrl: ''
+    imagemUrl: '',
+    ativo: true
   };
 
   this.imagemPreview = null;

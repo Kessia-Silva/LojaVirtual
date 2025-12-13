@@ -1,46 +1,72 @@
 <app-navbar-interno-adm></app-navbar-interno-adm>
-<!-- Mensagem de sucesso -->
+
 <!-- Mensagem de sucesso -->
 <div class="alert-sucesso" *ngIf="mensagemSucesso">
   <mat-icon>check_circle</mat-icon>
   {{ mensagemSucesso }}
-  <button type="button" class="close-msg" mat-icon-button (click)="mensagemSucesso = null">
+  <button
+    mat-icon-button
+    class="close-msg"
+    (click)="mensagemSucesso = null">
     <mat-icon>close</mat-icon>
   </button>
 </div>
-
 
 <div class="container-remover">
 
   <h2>Remover Produto</h2>
 
-  <!-- Campo para buscar produto -->
-  <mat-form-field  appearance="outline" class="campo-busca">
+  <!-- Buscar -->
+  <mat-form-field appearance="outline" class="campo-busca">
     <mat-label>Buscar produto</mat-label>
-    <input matInput placeholder="Digite o nome do produto" [(ngModel)]="buscaProduto"
-      (input)="filtrarProdutos()">
+    <input
+      matInput
+      placeholder="Digite o nome do produto"
+      [(ngModel)]="buscaProduto"
+      (input)="filtrarProdutos()"
+    />
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-   <!-- Spinner enquanto carrega os produtos -->
-<div *ngIf="loadingProdutos" class="loading-spinner">
-  <mat-spinner></mat-spinner>
-</div>
 
-  <!-- Lista de resultados -->
-  <div class="lista-produtos" *ngIf="!loadingProdutos && produtosFiltrados.length > 0">
+  <!-- Spinner -->
+  <div *ngIf="loadingProdutos" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <!-- Lista -->
+  <div
+    class="lista-produtos"
+    *ngIf="!loadingProdutos && produtosFiltrados.length > 0"
+  >
     <div class="produto-item" *ngFor="let produto of produtosFiltrados">
 
-      <img [src]="produto.imagemUrl" alt="Imagem" class="produto-img">
+      <img
+        [src]="produto.imagemUrl"
+        alt="Imagem"
+        class="produto-img"
+      />
 
       <div class="produto-info">
-        <h3>{{ produto.nome }}</h3>
+        <h3>
+          {{ produto.nome }}
+          <span *ngIf="produto.ativo === false" class="badge-desativado">
+            DESATIVADO
+          </span>
+        </h3>
+
         <p><strong>Artista:</strong> {{ produto.artista }}</p>
         <p><strong>Preço:</strong> R$ {{ produto.preco | number:'1.2-2' }}</p>
-        <p><strong>Gênero Musical:</strong> </p>
-        <p><strong>Estoque:</strong> {{ produto.estoque}}</p>
+        <p><strong>Gênero:</strong> {{ produto.generoMusical?.nome }}</p>
+        <p><strong>Estoque:</strong> {{ produto.estoque }}</p>
       </div>
 
-      <button class="button-color" mat-raised-button color="warn" (click)="abrirConfirmacao(produto)">
+      <button
+        mat-raised-button
+        color="warn"
+        class="button-color"
+        (click)="abrirConfirmacao(produto)"
+        [disabled]="produto.ativo === false"
+      >
         Remover
       </button>
 
@@ -52,19 +78,4 @@
     Nenhum produto encontrado.
   </p>
 
-  <!-- Modal de confirmação -->
-  <div class="modal-bg" *ngIf="produtoSelecionado">
-    <div class="modal">
-      <h3>Confirmar Remoção</h3>
-      <p>Tem certeza que deseja remover o produto <strong>{{ produtoSelecionado.nome }}</strong>?</p>
-
-      <div class="botoes-modal">
-        <button type="button" class = "button-color" mat-raised-button (click)="produtoSelecionado = null">Cancelar</button>
-        <button type="button" class = "button-color" mat-raised-button (click)="removerProduto()">Remover</button>
-
-      </div>
-    </div>
-  </div>
-
 </div>
-

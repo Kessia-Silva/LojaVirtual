@@ -54,6 +54,11 @@ addProduto(produto: Produto): Observable<Produto> {
     return this.http.delete<void>(`${this.API}/${id}`);
   }
 
+  // 6.1 Desativar produto (soft delete)
+desativarProduto(id: number): Observable<Produto> {
+  return this.http.patch<Produto>(`${this.API}/${id}/desativar`, {});
+}
+
   // 7. Buscar produtos por categoria
  getByCategoria(nomeGenero: string): Observable<Produto[]> {
   return this.http.get<Produto[]>(`${this.API}/categoria/${nomeGenero}`);

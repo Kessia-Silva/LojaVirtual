@@ -8,6 +8,7 @@ export interface Produto {
   descricao: string;
   preco: number;
   estoque: number;
-  generoMusical: GeneroMusical;  
+  generoMusical: GeneroMusical;
   imagemUrl: string;
+  ativo: boolean
 }

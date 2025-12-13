@@ -1,6 +1,6 @@
 import { ItemPedido } from "./itemPedido";
 
-export interface Pedido { 
+export interface Pedido {
   id: number;
   usuario: string;
   itens: ItemPedido[];
