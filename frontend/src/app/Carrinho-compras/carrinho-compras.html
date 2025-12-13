@@ -56,11 +56,14 @@
         <br>
 
         <form>
+  <form *ngIf="temItensNoCarrinho()">
   <p>Frete</p>
   <select (change)="selecionarFrete($event)">
-  <option value="50">Receba em 7 dias via Sedex – R$50,00</option>
-  <option value="25">Receba em 15 dias via Entrega Padrão – R$25,00</option>
-</select>
+    <option value="50">Receba em 7 dias via Sedex – R$50,00</option>
+    <option value="25">Receba em 15 dias via Entrega Padrão – R$25,00</option>
+  </select>
+</form>
+
 
 </form>
 

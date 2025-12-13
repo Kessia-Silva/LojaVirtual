@@ -161,6 +161,11 @@ selecionarFrete(event: Event) {
   this.freteSelecionado = Number(select.value);
 }
 
+temItensNoCarrinho(): boolean {
+  return !!(this.carrinho && this.carrinho.itens && this.carrinho.itens.length > 0);
+}
+
+
 
 // Getter para total com frete
 get totalComFrete(): number {
