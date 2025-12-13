@@ -21,7 +21,9 @@ const routes: Routes = [
     resolve: {produtos: produtoResolver
     }},
 
-  {path: 'visualizarProdutos', component:VisualizarProdutos},
+  {path: 'visualizarProdutos', component:VisualizarProdutos,
+    resolve: {produtos: produtoResolver}
+  },
   {path: 'atualizarStatusPedido', component:AtualizarStatusPedido},
   {path: 'gerenciarGeneroMusical', component:GerenciarGeneroMusical},
   {path: 'visualizarPedidos', component: VisualizarPedidos},

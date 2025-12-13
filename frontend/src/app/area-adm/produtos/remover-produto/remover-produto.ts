@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { Produto } from '../../../models/produto-model';
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-remover-produto',
@@ -28,25 +29,34 @@ export class RemoverProduto {
       loadingProdutos = true;
 
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private produtoService: ProdutoService
+  ) {}
 
   ngOnInit(): void {
     this.carregarProdutos();
   }
 
+
+
   // Carrega todos os produtos do backend
-  carregarProdutos(): void {
-        this.loadingProdutos = true;
-    this.produtoService.getProdutos().subscribe({
-      next: (produtos) => {
+carregarProdutos(): void {
+    this.loadingProdutos = true;
+
+    this.route.data.subscribe({
+      next: ({ produtos }) => {
         this.produtos = produtos;
         this.produtosFiltrados = produtos;
-            this.loadingProdutos = false;
-
+        this.loadingProdutos = false;
       },
-      error: (err) => console.error("Erro ao carregar produtos", err)
+      error: (err) => {
+        console.error('Erro ao carregar produtos', err);
+        this.loadingProdutos = false;
+      }
     });
   }
+
 
   // Filtra a lista pelo nome
   filtrarProdutos(): void {

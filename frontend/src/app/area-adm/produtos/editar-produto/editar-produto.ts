@@ -46,7 +46,6 @@ export class EditarProduto {
       this.produtos = produtos;
       this.produtosFiltrados = produtos;
       this.loadingProdutos = false;
-
           });
 
       // Carrega gêneros musicais
