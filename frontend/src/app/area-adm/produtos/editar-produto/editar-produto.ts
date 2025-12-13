@@ -72,7 +72,7 @@ export class EditarProduto {
 
 
 
- EditarProduto(): void {
+EditarProduto(): void {
   if (!this.produtoSelecionado) return;
 
   // Validação de campos obrigatórios
@@ -83,22 +83,30 @@ export class EditarProduto {
     this.produtoSelecionado.estoque === null
   ) {
     alert('Preencha todos os campos obrigatórios antes de salvar.');
-    return; // sai sem salvar
+    return;
   }
 
-  // Aplica capitalize
+  // Formata nome
   this.produtoSelecionado.nome = this.capitalizeFirstLetter(this.produtoSelecionado.nome);
 
-
   // Atualiza via serviço
-  this.produtoService.updateProduto(this.produtoSelecionado);
-   this.loadingSalvar = false;
+  this.produtoService.updateProduto(this.produtoSelecionado)
+    .subscribe({
+      next: (res) => {
+        console.log('Produto atualizado no backend:', res);
+        alert('Produto atualizado com sucesso!');
 
-  // Atualiza lista filtrada
-  this.filtrarProdutos();
+        // Atualiza lista filtrada
+        this.filtrarProdutos();
 
-  // Fecha modal
-  this.produtoSelecionado = null;
+        // Limpa seleção
+        this.produtoSelecionado = null;
+      },
+      error: (err) => {
+        console.error('Erro ao atualizar produto:', err);
+        alert('Erro ao atualizar produto. Veja o console.');
+      }
+    });
 }
 
   cancelarEdicao() {

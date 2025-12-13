@@ -78,7 +78,7 @@ Produto p3 = new Produto(
     "Die With A Smile",
     "Lady Gaga & Bruno Mars",
     "Single colaborativo de Lady Gaga e Bruno Mars, trazendo uma mistura marcante de pop e soul. A faixa destaca os vocais poderosos dos dois artistas e apresenta produção refinada, com arranjos modernos e atmosfera romântica. Este lançamento especial em CD inclui a versão oficial do single e é um item ideal para fãs e colecionadores.",
-    new BigDecimal("59.90"),
+    new BigDecimal("89.90"),
     550,
     pop,
     "assets/img/fotos-produtos/produto3.jpeg"
