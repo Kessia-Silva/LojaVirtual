@@ -1,1 +1,49 @@
-<p>meus-pedidos works!</p>
+
+<br>
+<br>
+<!-- ===== Abas de Status ===== -->
+<div class="order-tabs">
+<button (click)="filtrarPedidos('todos')" [class.active]="statusSelecionado==='todos'">Todos</button>
+<button (click)="filtrarPedidos('PENDENTE')" [class.active]="statusSelecionado==='PENDENTE'">Pendente</button>
+<button (click)="filtrarPedidos('PROCESSANDO')" [class.active]="statusSelecionado==='PROCESSANDO'">Processando</button>
+<button (click)="filtrarPedidos('ENVIADO')" [class.active]="statusSelecionado==='ENVIADO'">Enviado</button>
+<button (click)="filtrarPedidos('ENTREGUE')" [class.active]="statusSelecionado==='ENTREGUE'">Entregue</button>
+<button (click)="filtrarPedidos('CANCELADO')" [class.active]="statusSelecionado==='CANCELADO'">Cancelado</button>
+
+</div>
+
+<!-- ===== Lista de Pedidos ===== -->
+<div *ngFor="let pedido of pedidosFiltrados" class="pedido-card">
+
+  <!-- Cabeçalho do Pedido -->
+  <div class="pedido-header">
+    <div>
+      <strong>Pedido nº {{ pedido.id }}</strong> -
+      {{ pedido.dataPedido | date:'shortDate' }} -
+      Total: {{ pedido.valorTotal | currency:'BRL':'symbol':'1.2-2' }}
+    </div>
+    <div class="status" [ngClass]="pedido.status">
+      {{ pedido.status | titlecase }}
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Itens do Pedido -->
+  <div class="itens-pedido">
+    <div *ngFor="let item of pedido.itens" class="item-card">
+      <img [src]="item.produto.imagemUrl" alt="{{ item.produto.nome }}">
+      <div class="item-info">
+        <div><strong>{{ item.produto.nome }}</strong></div>
+        <div>Quantidade: {{ item.qtdComprada }}</div>
+        <div>Subtotal: {{ (item.produto.preco * item.qtdComprada) | currency:'BRL':'symbol':'1.2-2' }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+

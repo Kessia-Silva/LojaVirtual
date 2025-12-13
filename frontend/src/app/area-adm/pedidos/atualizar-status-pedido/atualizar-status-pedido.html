@@ -20,9 +20,9 @@
     <mat-card class="card-pedido" *ngFor="let p of pedidosFiltrados">
 
       <div class="info-pedido">
-       <h3>Cliente: {{p.clienteId }}</h3>
-        <p><strong>Total:</strong> R$ {{ p.total | number:'1.2-2' }}</p>
-        <p><strong>Data:</strong> {{ p.data | date:'dd/MM/yyyy HH:mm' }}</p>
+       <h3>Cliente: {{p.usuario }}</h3>
+        <p><strong>Total:</strong> R$ {{ p.valorTotal | number:'1.2-2' }}</p>
+        <p><strong>Data:</strong> {{ p.dataPedido | date:'dd/MM/yyyy HH:mm' }}</p>
         <p><strong>Status:</strong>
           <span class="status {{ p.status }}">
             {{ p.status }}
@@ -33,20 +33,20 @@
       <!-- Ações conforme o status -->
       <div class="acoes">
         <button  class="button-color" mat-raised-button color="accent"
-          *ngIf="p.status === 'pendente'"
-          (click)="atualizarStatus(p, 'processando')">
+          *ngIf="p.status === 'PENDENTE'"
+          (click)="atualizarStatus(p, 'PROCESSANDO')">
           Processar
         </button>
 
         <button class="button-color" mat-raised-button color="primary"
-          *ngIf="p.status === 'processando'"
-          (click)="atualizarStatus(p, 'enviado')">
+          *ngIf="p.status === 'PROCESSANDO'"
+          (click)="atualizarStatus(p, 'ENVIADO')">
           Enviar
         </button>
 
         <button class="button-color" mat-raised-button color="warn"
-          *ngIf="p.status !== 'enviado' && p.status !== 'cancelado'"
-          (click)="atualizarStatus(p, 'cancelado')">
+          *ngIf="p.status !== 'ENVIADO' && p.status !== 'CANCELADO'"
+          (click)="atualizarStatus(p, 'CANCELADO')">
           Cancelar
         </button>
 

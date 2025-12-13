@@ -5,24 +5,25 @@
 
   <!-- Filtro de Status -->
   <mat-form-field appearance="outline" class="filtro-status">
-    <mat-label>Status do Pedido</mat-label>
-    <mat-select [(ngModel)]="statusSelecionado" (selectionChange)="filtrarStatus()">
-      <mat-option value="todos">Todos</mat-option>
-      <mat-option value="pendente">Pendente</mat-option>
-      <mat-option value="processando">Processando</mat-option>
-      <mat-option value="enviado">Enviado</mat-option>
-      <mat-option value="cancelado">Cancelado</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-label>Status do Pedido</mat-label>
+  <mat-select [(ngModel)]="statusSelecionado" (selectionChange)="filtrarStatus()">
+    <mat-option value="TODOS">Todos</mat-option>
+    <mat-option value="PENDENTE">Pendente</mat-option>
+    <mat-option value="PROCESSANDO">Processando</mat-option>
+    <mat-option value="ENVIADO">Enviado</mat-option>
+    <mat-option value="CANCELADO">Cancelado</mat-option>
+  </mat-select>
+</mat-form-field>
+
 
   <!-- Lista de pedidos -->
   <div class="lista-cards" *ngIf="pedidosFiltrados.length > 0">
     <mat-card class="card-pedido" *ngFor="let p of pedidosFiltrados">
 
       <div class="info-pedido">
-       <h3>Cliente: {{p.clienteId }}</h3>
-        <p><strong>Total:</strong> R$ {{ p.total | number:'1.2-2' }}</p>
-        <p><strong>Data:</strong> {{ p.data | date:'dd/MM/yyyy HH:mm' }}</p>
+       <h3>Cliente: {{p.usuario }}</h3>
+        <p><strong>Total:</strong> R$ {{ p.valorTotal | number:'1.2-2' }}</p>
+        <p><strong>Data:</strong> {{ p.dataPedido | date:'dd/MM/yyyy HH:mm' }}</p>
         <p><strong>Status:</strong>
           <span class="status {{ p.status }}">
             {{ p.status }}
@@ -47,7 +48,7 @@
   <p class="nenhum" *ngIf="pedidosFiltrados.length === 0">
     Nenhum pedido encontrado.
   </p>
-
 </div>
+
 
 

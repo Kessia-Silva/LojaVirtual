@@ -42,13 +42,22 @@ h2 {
   font-size: 14px;
 }
 
-/* ESTILOS DE STATUS */
 .status {
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 6px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  color: #fff;
   text-transform: capitalize;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
 }
+
+/* ===== Status por Categoria ===== */
+.status.pendente { background-color: #ffcc66; }
+.status.processando { background-color: #ff9933; }
+.status.enviado { background-color: #4CAF50; }
+.status.entregue { background-color: #2196F3; }
+.status.cancelado { background-color: #f44336; }
 
 .status.pendente {
   background: #ffd966;

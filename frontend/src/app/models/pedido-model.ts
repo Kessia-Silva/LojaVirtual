@@ -1,10 +1,10 @@
 import { ItemPedido } from "./itemPedido";
 
-export interface Pedido {
+export interface Pedido { 
   id: number;
-  clienteId: string;
+  usuario: string;
   itens: ItemPedido[];
-  total: number;
-  data: Date;
-  status: 'pendente' | 'processando' | 'enviado' | 'cancelado';
+  valorTotal: number;
+  dataPedido: Date;
+  status: 'PENDENTE' | 'PROCESSANDO' | 'ENVIADO' | 'CANCELADO';
 }

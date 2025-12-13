@@ -23,9 +23,9 @@ export class PedidoService {
  private pedidos: Pedido[] = [
   {
     id: 1,
-    clienteId: '101',
-    data: new Date(),
-    status: 'pendente',
+    usuario: '101',
+    dataPedido: new Date(),
+    status: 'PENDENTE',
     itens: [
       {
         produto: {
@@ -38,7 +38,7 @@ export class PedidoService {
           generoMusical: { id: 1, nome: 'Pop' },
           imagemUrl: 'assets/img/fotos-produtos/produto1.jpeg'
         },
-        quantidadeComprada: 2
+        qtdComprada: 2
       },
       {
         produto: {
@@ -51,16 +51,16 @@ export class PedidoService {
           generoMusical: { id: 2, nome: 'MPB' },
           imagemUrl: 'assets/img/fotos-produtos/produto3.jpeg'
         },
-        quantidadeComprada: 2
+        qtdComprada: 2
       }
     ],
-    total: 399.80,
+    valorTotal: 399.80,
   },
   {
     id: 2,
-    clienteId: '102',
-    data: new Date(),
-    status: 'enviado',
+    usuario: '102',
+    dataPedido: new Date(),
+    status: 'ENVIADO',
     itens: [
       {
         produto: {
@@ -73,10 +73,10 @@ export class PedidoService {
           generoMusical: { id: 2, nome: 'MPB' },
           imagemUrl: 'assets/img/fotos-produtos/produto2.jpeg'
         },
-        quantidadeComprada: 1
+        qtdComprada: 1
       }
     ],
-    total: 99.95,
+    valorTotal: 99.95,
   }
 ];
 
