@@ -19,6 +19,7 @@ import { LayoutPublico } from './layout-publico/layout-publico';
 import { produtoResolver } from './resolvers/produto-resolver';
 import { AuthGuard } from './Services/auth-guard';
 import { ConfirmarPagamento } from './Area-Cliente/confirmar-pagamento/confirmar-pagamento';
+import { ProdutoResolver } from './resolvers/produto-id-resolver-resolver';
 
 
 export const routes: Routes = [
@@ -38,7 +39,11 @@ export const routes: Routes = [
         component: Loja,
         resolve: { produtos: produtoResolver }
       },
-      { path: 'produto-info/:id', component: ProdutoInfo},
+      {
+  path: 'produto-info/:id',
+  component: ProdutoInfo,
+  resolve: { produto: ProdutoResolver }
+},
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
       { path: 'carrinho', component: CarrinhoCompras, canActivate: [AuthGuard]},

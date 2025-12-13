@@ -1,0 +1,14 @@
+<div *ngIf="loading" class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading && produtos.length">
+  <h3>Você também pode gostar</h3>
+  <div class="produtos-lista">
+    <div *ngFor="let p of produtos" (click)="verProduto(p)" style="cursor:pointer">
+      <app-card-produto-loja [produto]="p"></app-card-produto-loja>
+    </div>
+  </div>
+</div>
+
+

@@ -1,65 +1,49 @@
 <main>
-  <!-- Spinner -->
+  <!-- Spinner enquanto carrega -->
   <div *ngIf="loading" class="loading-spinner">
     <mat-spinner></mat-spinner>
   </div>
-  <div  *ngIf="!loading" class="container">
-    <div class="grid second-nav">
-      <div class="column-xs-12">
-        <nav>
-          <ol class="breadcrumb-list">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Loja</a></li>
-            <li class="breadcrumb-item active">Album</li>
-          </ol>
-        </nav>
-      </div>
-    </div>
 
-    <!-- Mostra enquanto o produto NÃO está carregado -->
-    <p *ngIf="!produto">Carregando o produto, aguarde...</p>
-
-    <div class="grid product" *ngIf="produto">
+  <!-- Conteúdo principal -->
+  <div *ngIf="!loading && produto" class="container">
+    <div class="grid product">
+      <!-- Galeria de imagens -->
       <div class="column-xs-12 column-md-7">
         <div class="product-gallery">
           <div class="product-images">
-            <img class="back left" [src]="produto?.imagemUrl" [alt]="produto.nome">
-            <img class="back right" [src]="produto?.imagemUrl" [alt]="produto.nome">
-            <img class="main" [src]="produto?.imagemUrl" [alt]="produto.nome">
+            <img class="back left" [src]="produto.imagemUrl" [alt]="produto.nome" />
+            <img class="back right" [src]="produto.imagemUrl" [alt]="produto.nome" />
+            <img class="main" [src]="produto.imagemUrl" [alt]="produto.nome" />
           </div>
         </div>
       </div>
+
+      <!-- Informações do produto -->
       <div class="column-xs-12 column-md-5">
-        <h1>{{ produto?.nome }}</h1>
-        <h2>${{ produto.preco.toFixed(2) }}</h2>
+        <h1>{{ produto.nome }}</h1>
+        <h2>R$ {{ produto.preco?.toFixed(2) || '0.00' }}</h2>
         <div class="description">
-          <p>{{ produto?.descricao }}</p>
+          <p>{{ produto.descricao }}</p>
         </div>
         <button class="add-to-cart">Adicionar no carrinho</button>
       </div>
     </div>
 
-    <!-- Produtos relacionados com carrossel -->
-<div class="grid related-products" *ngIf="produtosRelacionados?.length">
-  <div class="column-xs-12">
-    <h3>Você também pode gostar</h3>
+    <!-- Produtos relacionados -->
+<app-produtos-relacionados [categoria]="categoriaProdutosRelacionados"></app-produtos-relacionados>
   </div>
 
-  <div class="column-xs-12">
-    <div class="carousel-wrapper">
-      <button class="arrow left" (click)="scroll(-1)">‹</button>
-
-      <div class="produtos-lista" #carousel>
-        <ng-container *ngFor="let p of produtosRelacionados">
-          <app-card-produto-loja [produto]="p"></app-card-produto-loja>
-        </ng-container>
-      </div>
-
-      <button class="arrow right" (click)="scroll(1)">›</button>
-    </div>
-  </div>
-</div>
-
-
+  <!-- Produto não encontrado -->
+  <div *ngIf="!loading && !produto">
+    <p>Produto não encontrado.</p>
   </div>
 </main>
+
+
+
+
+
+
+
+
+
