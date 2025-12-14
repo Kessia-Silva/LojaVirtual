@@ -20,7 +20,7 @@
     <mat-card class="card-pedido" *ngFor="let p of pedidosFiltrados">
 
       <div class="info-pedido">
-       <h3>Cliente: {{p.usuario }}</h3>
+       <h3>Cliente: {{p.usuario.nome}}</h3>
         <p><strong>Total:</strong> R$ {{ p.valorTotal | number:'1.2-2' }}</p>
         <p><strong>Data:</strong> {{ p.dataPedido | date:'dd/MM/yyyy HH:mm' }}</p>
         <p><strong>Status:</strong>
