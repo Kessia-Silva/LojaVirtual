@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.une.lojavirtual.backend.model.Pedido;
 import br.com.une.lojavirtual.backend.model.Produto;
+import br.com.une.lojavirtual.backend.model.StatusPedido;
 import br.com.une.lojavirtual.backend.repository.ProdutoRepository;
 
 @Service // Indica ao Spring que aqui tem Regra de Negócio

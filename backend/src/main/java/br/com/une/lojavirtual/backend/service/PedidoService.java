@@ -88,4 +88,13 @@ public class PedidoService {
     {
         return repository.findByUsuarioId(usuarioId);
     }
+
+     //Atualizar Status do pedido
+    public Pedido atualizarStatus(Long id, StatusPedido novoStatus)
+    {
+        Pedido pedido = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Pedido não encontrado."));
+
+        pedido.setStatus(novoStatus);
+        return repository.save(pedido);
+    }
 }
