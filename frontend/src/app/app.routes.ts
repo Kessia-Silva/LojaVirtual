@@ -24,6 +24,7 @@ import { carrinhoResolver } from './resolvers/carrinho-compras/carrinho-compras-
 import { meusPedidosResolver } from './resolvers/meus-pedidos/meus-pedidos-resolver';
 import { EditarMinhaConta } from './Area-Cliente/editar-minha-conta/editar-minha-conta';
 import { AdminGuard } from './Services/AuthAdm-guard/admin-guard';
+import { produtosRelacionadosResolver } from './resolvers/produtos-relacionados-resolver-resolver';
 
 
 export const routes: Routes = [
