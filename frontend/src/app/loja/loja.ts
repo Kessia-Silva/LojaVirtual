@@ -41,12 +41,10 @@ loading: boolean = true;
 
     // Carrega os produtos
     this.route.data.subscribe(data => {
-  this.produtos = data['produtos'];
-  this.produtosOriginais = data['produtos'];
-  this.loading = false;
-
-      //console.log('Produtos carregados:', produtos);
-    });
+    this.produtos = this.shuffleArray(data['produtos']);
+    this.produtosOriginais = [...this.produtos]; // copia para referência original
+    this.loading = false;
+});
 
     // Carrega os gêneros (quando backend estiver pronto)
     this.generoService.getAll().subscribe(generos => {
@@ -108,6 +106,14 @@ filtrarPorArtista() {
   this.produtos = this.produtosOriginais.filter(p =>
     p.artista.toLowerCase().includes(termo)
   );
+}
+
+// Função para embaralhar um array
+shuffleArray(array: any[]) {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 }
 
 
