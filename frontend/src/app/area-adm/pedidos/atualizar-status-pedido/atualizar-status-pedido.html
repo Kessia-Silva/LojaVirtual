@@ -11,6 +11,7 @@
       <mat-option value="PENDENTE">Pendente</mat-option>
       <mat-option value="PROCESSANDO">Processando</mat-option>
       <mat-option value="ENVIADO">Enviado</mat-option>
+      <mat-option value="ENTREGUE">Entregue</mat-option>
       <mat-option value="CANCELADO">Cancelado</mat-option>
     </mat-select>
   </mat-form-field>
@@ -45,7 +46,7 @@
         </button>
 
         <button class="button-color" mat-raised-button color="warn"
-          *ngIf="p.status !== 'ENVIADO' && p.status !== 'CANCELADO'"
+          *ngIf="p.status !== 'ENVIADO' && p.status !== 'CANCELADO'"  && p.status !== "ENTREGUE"
           (click)="atualizarStatus(p, 'CANCELADO')">
           Cancelar
         </button>

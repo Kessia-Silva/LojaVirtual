@@ -16,7 +16,7 @@ constructor(private router: Router) {}
   }
 
   irParaEditarConta() {
-    this.router.navigate(['cliente/editar-conta']);
+    this.router.navigate(['cliente/editar-minha-conta']);
   }
 
   irParaHistorico() {

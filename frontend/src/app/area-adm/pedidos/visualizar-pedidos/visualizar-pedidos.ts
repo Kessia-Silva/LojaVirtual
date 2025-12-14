@@ -41,7 +41,7 @@ export class VisualizarPedidos implements OnInit{
   }
 
   filtrarStatus(): void {
-    if (this.statusSelecionado === 'todos') {
+    if (this.statusSelecionado === 'TODOS') {
       this.pedidosFiltrados = this.pedidos;
     } else {
       this.pedidosFiltrados = this.pedidos.filter(

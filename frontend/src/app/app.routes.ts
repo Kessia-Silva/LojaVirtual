@@ -22,6 +22,7 @@ import { MinhaConta } from './Area-Cliente/minha-conta/minha-conta';
 import { MeusPedidos } from './Area-Cliente/meus-pedidos/meus-pedidos';
 import { carrinhoResolver } from './resolvers/carrinho-compras/carrinho-compras-resolver';
 import { meusPedidosResolver } from './resolvers/meus-pedidos/meus-pedidos-resolver';
+import { EditarMinhaConta } from './Area-Cliente/editar-minha-conta/editar-minha-conta';
 
 
 export const routes: Routes = [
@@ -77,6 +78,7 @@ export const routes: Routes = [
       pedidos: meusPedidosResolver
     }
      },
+     { path: 'editar-minha-conta', component: EditarMinhaConta },
     // aqui você pode adicionar mais rotas da área do cliente, tipo pedidos, perfil etc.
   ]
 },
