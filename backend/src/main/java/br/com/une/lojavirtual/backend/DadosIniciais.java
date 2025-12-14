@@ -1167,8 +1167,8 @@ Produto p100 = new Produto(
 
 // 3. Usuários (Mantém igual)
 if (usuarioRepo.count() == 0) {
-    Usuario admin = new Usuario(null, "Rafael Admin", "admin@loja.com", "senha1234", TipoUsuario.ADMIN);
-    Usuario cliente = new Usuario(null, "Vagner Cliente", "cliente@loja.com", "senha1234", TipoUsuario.CLIENTE);
+    Usuario admin = new Usuario(null, "Rafael Admin", "admin@loja.com", "senha1234", TipoUsuario.ADMIN,"rua da Mangueira");
+    Usuario cliente = new Usuario(null, "Vagner Cliente", "cliente@loja.com", "senha1234", TipoUsuario.CLIENTE, "rua do limoeiro 529");
     usuarioRepo.saveAll(Arrays.asList(admin, cliente));
 
 Carrinho c1 = new Carrinho();

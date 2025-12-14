@@ -34,4 +34,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING) // Grava no banco como texto ("ADMIN", "CLIENTE") e não número (0, 1)
     @Column(nullable = false)
     private TipoUsuario tipo; // ADMIN ou CLIENTE
+
+    @NotBlank(message = "O endereço é obrigatório") // define como obrigatório
+    private String endereco;
+
+    
 }

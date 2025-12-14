@@ -9,15 +9,17 @@
 </div>
 
 <div class="cart" *ngIf="!loading" >
+
         <div class="title">
             <h4><b>Carrinho </b></h4>
             <span class="text-muted">{{ carrinho?.itens?.length }} items</span>
         </div>
+        <p *ngIf="!carrinho?.itens?.length">
+                Você não adicionou nenhum produto no seu carrinho ainda!
+        </p>
 
         <div *ngFor="let item of carrinho?.itens">
-
             <div class="row main">
-
                 <img [src]="item.produto.imagemUrl" />
 
                 <div class="col">
@@ -26,21 +28,18 @@
 
                 <div class="col">
                     <a (click)="diminuir(item)">-</a>
-<a class="border">{{ item.quantidade }}</a>
-<a (click)="aumentar(item)">+</a>
-
+                    <a class="border">{{ item.quantidade }}</a>
+                    <a (click)="aumentar(item)">+</a>
                 </div>
 
                 <div class="col">
                     R$ {{ item.produto.preco | currency:'BRL' }}
                     <span class="close" (click)="remover(item)">&#10005;</span>
-
                 </div>
 
             </div>
 
         </div>
-
         <div class="back-to-shop">
             <a href="/loja">&leftarrow;
             <span class="text-muted">Voltar para loja</span>
@@ -49,17 +48,20 @@
     </div>
 
     <div class="summary" *ngIf="!loading">
-        <h5><b>Resumo</b></h5>
-        <hr>
+      <!-- Endereço do usuário -->
+    <div class="user-address" *ngIf="usuario?.endereco">
+        <b>Endereço:</b> <br> {{ usuario?.endereco }}
+    </div>
+    <br> <br>
 
+        <hr>
         <div class="row">
             <span>ITEMS {{ carrinho?.itens?.length }}</span>
             <span>{{ carrinho?.valorTotal | currency:'BRL' }}</span>
         </div>
-
         <br>
 
-        <form>
+  <form>
   <form *ngIf="temItensNoCarrinho()">
   <p>Frete</p>
   <select (change)="selecionarFrete($event)">
@@ -67,8 +69,6 @@
     <option value="25">Receba em 15 dias via Entrega Padrão – R$25,00</option>
   </select>
 </form>
-
-
 </form>
 
 <div class="row total-row">

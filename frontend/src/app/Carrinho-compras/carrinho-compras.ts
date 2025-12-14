@@ -13,6 +13,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatProgressSpinner, MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { FormsModule } from '@angular/forms';
 import { ServicePedido } from '../Area-Cliente/Services/service-pedido';
+import { Usuario } from '../models/usuarioLogin-model';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class CarrinhoCompras implements OnInit{
   loading = true;  // precisa iniciar como true para ver o spinner
  carrinho!: Carrinho; // carrinho completo
   carregando = true;
+  usuario: Usuario | null = null;
 
   constructor(
     private carrinhoService: CarrinhoService,
@@ -36,7 +38,9 @@ export class CarrinhoCompras implements OnInit{
     private route: ActivatedRoute
   ) {}
 
+
   ngOnInit(): void {
+    this.usuario = this.authService.getUsuario();
 // Simula 5 segundos de carregamento
      // pega o carrinho já resolvido pelo resolver
   this.route.data.subscribe({
@@ -50,6 +54,7 @@ export class CarrinhoCompras implements OnInit{
       }
     });
   }
+
 /*
   carregarCarrinho() {
     this.loading = true;
