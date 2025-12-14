@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { Pedido } from '../../../models/pedido-model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-atualizar-status-pedido',
@@ -23,20 +24,15 @@ export class AtualizarStatusPedido {
     pedidosFiltrados: Pedido[] = [];
     statusSelecionado: string = 'todos';
 
-    constructor(private pedidoService: PedidoService) {}
+    constructor(
+      private pedidoService: PedidoService,
+    private route: ActivatedRoute
+  ) {}
 
     ngOnInit(): void {
-      this.carregarPedidos();
-    }
 
-    carregarPedidos(): void {
-      this.pedidoService.getPedidos().subscribe({
-        next: (lista) => {
-          this.pedidos = lista;
-          this.filtrarStatus();
-        },
-        error: (err) => console.error(err)
-      });
+  this.pedidos = this.route.snapshot.data['pedidos'];
+  this.filtrarStatus();
     }
 
     filtrarStatus(): void {

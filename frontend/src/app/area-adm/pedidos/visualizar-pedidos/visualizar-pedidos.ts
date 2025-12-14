@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { VisualizarDetalhesPedido } from "../visualizar-detalhes-pedido/visualizar-detalhes-pedido";
 import { Pedido } from '../../../models/pedido-model';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-visualizar-pedidos',
   imports: [MatFormField, MatOption, MatLabel, MatSelect,
@@ -28,20 +29,15 @@ export class VisualizarPedidos implements OnInit{
   statusSelecionado: string = 'todos';
   pedidoSelecionado?: Pedido;  // para abrir o modal
 
-  constructor(private pedidoService: PedidoService) {}
+  constructor(
+    private pedidoService: PedidoService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.carregarPedidos();
-  }
+     this.pedidos = this.route.snapshot.data['pedidos'];
+  this.filtrarStatus();
 
-  carregarPedidos(): void {
-    this.pedidoService.getPedidos().subscribe({
-      next: (lista) => {
-        this.pedidos = lista;
-        this.filtrarStatus();
-      },
-      error: (err) => console.error(err)
-    });
   }
 
   filtrarStatus(): void {

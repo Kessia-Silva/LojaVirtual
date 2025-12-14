@@ -9,6 +9,7 @@ import { GerenciarGeneroMusical } from './genero-musical/gerenciar-genero-musica
 import { AreaAdm } from './home-adm/area-adm';
 import { VisualizarPedidos } from './pedidos/visualizar-pedidos/visualizar-pedidos';
 import { produtoResolver } from '../resolvers/produto-resolver';
+import { PedidoResolver } from '../resolvers/pedidos/pedidos-resolver';
 
 const routes: Routes = [
   { path: '', component: AreaAdm },
@@ -25,9 +26,13 @@ const routes: Routes = [
   {path: 'visualizarProdutos', component:VisualizarProdutos,
     resolve: {produtos: produtoResolver}
   },
-  {path: 'atualizarStatusPedido', component:AtualizarStatusPedido},
+  {path: 'atualizarStatusPedido', component:AtualizarStatusPedido,
+    resolve: { pedidos: PedidoResolver }
+  },
   {path: 'gerenciarGeneroMusical', component:GerenciarGeneroMusical},
-  {path: 'visualizarPedidos', component: VisualizarPedidos},
+  {path: 'visualizarPedidos', component: VisualizarPedidos,
+    resolve: { pedidos: PedidoResolver }
+  },
 /*
 {
   path: 'gerenciarGeneroMusical/new',
