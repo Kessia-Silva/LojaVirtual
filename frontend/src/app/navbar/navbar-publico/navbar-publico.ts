@@ -7,6 +7,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
 import { ValidarService } from '../../login/services/validar-service';
+import { Alerts } from '../../shared/alerts/alerts';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -18,11 +20,24 @@ import { ValidarService } from '../../login/services/validar-service';
 })
 export class NavbarPublico {
   menuAberto: boolean = false;
-  constructor(public validarService: ValidarService) {}
+  constructor(public validarService: ValidarService,private dialog: MatDialog,
+  private router: Router) {}
 
-  logout(){
-    this.validarService.logout()
-  }
+  logout() {
+  // desloga
+  this.validarService.logout();
+
+  // abre alerta
+  const dialogRef = this.dialog.open(Alerts, {
+    data: 'Você foi deslogado com sucesso.'
+  });
+
+  // quando fechar o alerta, redireciona
+  dialogRef.afterClosed().subscribe(() => {
+    this.router.navigate(['/home']);
+  });
+}
+
 
 
 
