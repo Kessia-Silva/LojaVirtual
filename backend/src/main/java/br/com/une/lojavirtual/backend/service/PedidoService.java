@@ -97,4 +97,10 @@ public class PedidoService {
         pedido.setStatus(novoStatus);
         return repository.save(pedido);
     }
+
+    //Listar pedidos de todos os users
+    public List<Pedido> listarTodos()
+    {
+        return repository.findAll();
+    }
 }

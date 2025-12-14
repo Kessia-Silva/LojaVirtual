@@ -46,11 +46,19 @@ public class PedidoController {
     {
         return ResponseEntity.ok(service.listarPorUsuario(id));
     }
-    
+
     // PUT: Atualizar status dos pedidos
     // URL http://localhost:8080/api/pedidos/{id}/status
     @PutMapping("{id}/status")
     public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody StatusPedido status) {
         return ResponseEntity.ok(service.atualizarStatus(id, status));
     }
+
+    // GET Listar todos os pedidos de todos os usuarios
+    // http://localhost:8080/api/pedidos
+    @GetMapping
+    public ResponseEntity<List<Pedido>> listarTodos() {
+        return ResponseEntity.ok(service.listarTodos());
+    }
+    
 }
