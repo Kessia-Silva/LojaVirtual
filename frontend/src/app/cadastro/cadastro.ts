@@ -9,6 +9,9 @@ import { CadastroService } from './services/cadastro-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router, RouterLink } from '@angular/router';
+import { Alerts } from '../Area-Adm/shared/components/alerts/alerts';
+import { MatDialog } from '@angular/material/dialog';
+import { ValidarService } from '../login/services/validar-service';
 
 
 
@@ -29,7 +32,7 @@ export class Cadastro {
 
 
 cadastroForm: FormGroup;
-constructor( private fb: FormBuilder, private snackBar: MatSnackBar,
+constructor( private fb: FormBuilder, private snackBar: MatSnackBar, private dialog: MatDialog, private loginUser: ValidarService,
     private router: Router, private cadastroService: CadastroService
   ) {
     this.cadastroForm = this.fb.group({
@@ -41,30 +44,53 @@ constructor( private fb: FormBuilder, private snackBar: MatSnackBar,
     });
   }
 
-       onSubmit() {
+onSubmit() {
     if (this.cadastroForm.valid) {
-      this.cadastroService.cadastrar(this.cadastroForm.value)
-        .subscribe({
-          next: () => {
-            this.snackBar.open('Cadastro realizado com sucesso!', 'Fechar', {
-              duration: 3000,
-              panelClass: ['snack-success']
-            });
-            setTimeout(() => this.router.navigate(['/home']), 3000);
-          },
-          error: () => {
-            this.snackBar.open('Erro ao cadastrar. Tente novamente.', 'Fechar', {
-              duration: 3000,
-              panelClass: ['snack-error']
-            });
-          }
-        });
+      this.cadastroService.cadastrar(this.cadastroForm.value).subscribe({
+        next: () => {
+          // Abre modal de sucesso
+          const dialogRef = this.dialog.open(Alerts, {
+            data: 'Cadastro realizado com sucesso!'
+          });
+
+          // Fecha modal e redireciona após clique
+          dialogRef.afterClosed().subscribe(() => {
+            this.fazerlogin()
+            this.router.navigate(['/loja']);
+          });
+        },
+        error: () => {
+          // Modal de erro
+          this.dialog.open(Alerts, {
+            data: 'Email ja cadastrado! Tente outro.'
+          });
+        }
+      });
     } else {
-      this.snackBar.open('Erro: Preencha todos os campos corretamente!', 'Fechar', {
-        duration: 3000,
-        panelClass: ['snack-error']
+      // Modal de validação
+      this.dialog.open(Alerts, {
+        data: 'Erro: Preencha todos os campos corretamente!'
       });
     }
+  }
 
+  fazerlogin() {
+  const email = this.cadastroForm.get('email')?.value;
+  const senha = this.cadastroForm.get('senha')?.value;
+
+  if (!email || !senha) return; // segurança
+
+  this.loginUser.login(email, senha).subscribe({
+    next: (logado: boolean) => {
+      if (!logado) {
+        this.dialog.open(Alerts, { data: 'Não foi possível logar automaticamente.' });
+      }
+      // se logado, já estamos redirecionando no afterClosed do modal
+    },
+    error: () => {
+      this.dialog.open(Alerts, { data: 'Erro ao tentar logar. Tente novamente.' });
+    }
+  });
 }
+
 }
