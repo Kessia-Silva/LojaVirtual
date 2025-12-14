@@ -3,14 +3,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ValidarService } from '../services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { ErrorDialog } from '../../Area-Adm/shared/components/error-dialog/error-dialog';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MatDialogModule } from '@angular/material/dialog';
+import { ValidarAdm } from '../service/validar-adm';
 
 @Component({
   selector: 'app-login-adm',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterModule],
+  imports: [ReactiveFormsModule,RouterModule,MatDialogModule],
   templateUrl: './login-adm.html',
   styleUrl: './login-adm.scss',
 })
@@ -34,7 +35,7 @@ export class LoginAdm implements OnInit {
 
   constructor(
     private router: Router,
-    private adminService: ValidarService,
+    private adminService: ValidarAdm,
     private dialog: MatDialog
   ) {}
 
@@ -72,7 +73,7 @@ export class LoginAdm implements OnInit {
     },
     error: (err) => {
       // Aqui o backend retornou 400 ou outro erro
-      let msg = 'Erro ao fazer login';
+      let msg = 'senha ou email incorretos!';
       if (err.error?.erro) {
         msg = err.error.erro; // pega a mensagem do backend
       }

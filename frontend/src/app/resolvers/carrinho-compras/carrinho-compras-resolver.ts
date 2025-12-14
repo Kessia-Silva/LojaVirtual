@@ -1,6 +1,6 @@
 import { ResolveFn} from '@angular/router';
 import { CarrinhoService } from '../../Carrinho-compras/services/service-carrinho';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { Carrinho } from '../../models/carrinho';
 import { take } from 'rxjs';
 import { inject } from '@angular/core';

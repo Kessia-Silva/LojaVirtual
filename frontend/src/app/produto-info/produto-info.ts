@@ -6,7 +6,7 @@ import { CardProdutoLoja } from '../loja/card-produto-loja/card-produto-loja';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { ProdutosRelacionados } from "../produtos-relacionados/produtos-relacionados";
-import { ValidarService } from '../login-Adm/services/validar-service';
+import { ValidarService } from '../login/services/validar-service';
 import { CarrinhoService } from '../Carrinho-compras/services/service-carrinho';
 import { MatDialog } from '@angular/material/dialog';
 import { Alerts } from '../Area-Adm/shared/components/alerts/alerts';

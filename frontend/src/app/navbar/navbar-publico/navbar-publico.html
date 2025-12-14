@@ -14,7 +14,7 @@
   </div>
 
   <!-- Ícones se NAO estiver logado -->
-  <div class="icones-escolha" *ngIf="!(validarService.isLogado$ | async)">
+  <div class="icones-escolha" *ngIf="!(validarService.estaLogado())">
     <button class="persson-button" mat-icon-button [matMenuTriggerFor]="menuPublico">
       <mat-icon class="persson">account_circle</mat-icon>
     </button>
@@ -26,7 +26,7 @@
   </div>
 
   <!-- Ícones se ESTIVER logado -->
-  <div class="icones-escolha" *ngIf="validarService.isLogado$ | async">
+  <div class="icones-escolha" *ngIf="validarService.estaLogado()">
     <button mat-icon-button [matMenuTriggerFor]="menuCliente">
       <mat-icon>account_circle</mat-icon>
     </button>

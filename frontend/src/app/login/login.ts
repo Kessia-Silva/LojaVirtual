@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, RouterLink  } from '@angular/router';
-import { ValidarService } from '../login-Adm/services/validar-service';
+import { ValidarService } from './services/validar-service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ErrorDialog } from '../Area-Adm/shared/components/error-dialog/error-dialog';

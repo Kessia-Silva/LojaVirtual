@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 
 
 @Component({

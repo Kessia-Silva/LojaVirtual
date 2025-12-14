@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Produto } from '../../models/produto-model';
 import { Router } from '@angular/router';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { CarrinhoService } from '../../Carrinho-compras/services/service-carrinho';
 import { MatDialog } from '@angular/material/dialog';
 import { Alerts } from '../../Area-Adm/shared/components/alerts/alerts';
@@ -52,7 +52,7 @@ adicionarAoCarrinho(produto: Produto) {
   } else {
     this.router.navigate(['/login']);
   }
-} 
+}
   irParaProduto(id: number) {
   this.router.navigate(['/produto-info', id]);
 }

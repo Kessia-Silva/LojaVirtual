@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Pedido } from '../../models/pedido-model';
 import { ServicePedido } from '../Services/service-pedido';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { PedidoService } from '../../Area-Adm/pedidos/services/pedido-service';
 import { ActivatedRoute } from '@angular/router';

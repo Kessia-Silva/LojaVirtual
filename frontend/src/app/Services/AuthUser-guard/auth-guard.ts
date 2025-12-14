@@ -1,4 +1,4 @@
-import { ValidarService } from './../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 

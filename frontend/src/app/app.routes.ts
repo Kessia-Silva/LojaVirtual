@@ -16,13 +16,14 @@ import { CarrinhoCompras } from './Carrinho-compras/carrinho-compras';
 
 import { LayoutPublico } from './layout-publico/layout-publico';
 import { produtoResolver } from './resolvers/produto-resolver';
-import { AuthGuard } from './Services/auth-guard';
+import { AuthGuard } from './Services/AuthUser-guard/auth-guard';
 import { ProdutoResolver } from './resolvers/produto-id-resolver-resolver';
 import { MinhaConta } from './Area-Cliente/minha-conta/minha-conta';
 import { MeusPedidos } from './Area-Cliente/meus-pedidos/meus-pedidos';
 import { carrinhoResolver } from './resolvers/carrinho-compras/carrinho-compras-resolver';
 import { meusPedidosResolver } from './resolvers/meus-pedidos/meus-pedidos-resolver';
 import { EditarMinhaConta } from './Area-Cliente/editar-minha-conta/editar-minha-conta';
+import { AdminGuard } from './Services/AuthAdm-guard/admin-guard';
 
 
 export const routes: Routes = [
@@ -55,7 +56,8 @@ export const routes: Routes = [
   {
     path: 'areaAdm',
     loadChildren: () =>
-      import('./Area-Adm/areaAdm-module').then(m => m.AreaAdmModule)
+      import('./Area-Adm/areaAdm-module').then(m => m.AreaAdmModule),
+    canActivate: [AdminGuard]
   },
 
   // 🔹 ROTAS SEM LAYOUT

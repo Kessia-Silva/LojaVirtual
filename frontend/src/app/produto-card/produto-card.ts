@@ -3,7 +3,7 @@ import { Component,EventEmitter,Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import { ValidarService } from '../login-Adm/services/validar-service';
+import { ValidarService } from '../login/services/validar-service';
 import { CarrinhoService } from '../Carrinho-compras/services/service-carrinho';
 import { MatDialog } from '@angular/material/dialog';
 import { Alerts } from '../Area-Adm/shared/components/alerts/alerts';

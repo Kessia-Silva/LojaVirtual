@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

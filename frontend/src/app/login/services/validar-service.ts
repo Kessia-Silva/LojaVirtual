@@ -23,17 +23,19 @@ export class ValidarService {
 
   // Tenta logar e retorna true se deu certo
   login(email: string, senha: string): Observable<boolean> {
-    return this.http.post<Usuario>(`${this.API}/login`, { email, senha }).pipe(
-      map((usuario: Usuario) => {
-        if (usuario && this.isBrowser()) {
-          localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
-          this.logadoSubject.next(true);
-          return true;
-        }
-        return false;
-      })
-    );
-  }
+  return this.http.post<Usuario>(`${this.API}/login`, { email, senha }).pipe(
+    map((usuario: Usuario) => {
+      // Só aceita login se for CLIENTE
+      if (usuario && usuario.tipo === 'CLIENTE' && this.isBrowser()) {
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+        this.logadoSubject.next(true);
+        return true;
+      }
+      return false;
+    })
+  );
+}
+
 
   // Retorna o usuário logado, ou null se não tiver
   getUsuario(): Usuario | null {
@@ -46,12 +48,9 @@ export class ValidarService {
 
   // Verifica se o usuário está logado
   estaLogado(): boolean {
-  if (this.isBrowser()) {
-    return !!localStorage.getItem('usuarioLogado');
-  }
-  return false;
+  const usuario = this.getUsuario();
+  return !!usuario && usuario.tipo === 'CLIENTE';
 }
-
 
   // Faz logout
   logout(): void {

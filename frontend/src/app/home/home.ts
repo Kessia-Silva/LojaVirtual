@@ -6,7 +6,7 @@ import { ProdutoCard } from '../produto-card/produto-card';
 import { Produto } from '../models/produto-model';
 import { ProdutoService } from '../Area-Adm/produtos/services/produto-service';
 import { Observable } from 'rxjs';
-import { ValidarService } from '../login-Adm/services/validar-service';
+import { ValidarService } from '../login/services/validar-service';
 
 
 

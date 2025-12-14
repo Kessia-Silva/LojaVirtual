@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
 import { Pedido } from '../../models/pedido-model';
 import { ServicePedido } from '../../Area-Cliente/Services/service-pedido';
-import { ValidarService } from '../../login-Adm/services/validar-service';
+import { ValidarService } from '../../login/services/validar-service';
 
 export const meusPedidosResolver: ResolveFn<Pedido[]> = () => {
   const pedidoService = inject(ServicePedido);
