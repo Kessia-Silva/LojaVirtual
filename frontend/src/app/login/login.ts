@@ -4,7 +4,7 @@ import { Router, RouterLink  } from '@angular/router';
 import { ValidarService } from './services/validar-service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { ErrorDialog } from '../Area-Adm/shared/components/error-dialog/error-dialog';
+import { ErrorDialog } from '../shared/error-dialog/error-dialog';
 
 @Component({
   selector: 'app-login',

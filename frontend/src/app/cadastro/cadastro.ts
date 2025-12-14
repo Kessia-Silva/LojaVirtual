@@ -9,7 +9,7 @@ import { CadastroService } from './services/cadastro-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router, RouterLink } from '@angular/router';
-import { Alerts } from '../Area-Adm/shared/components/alerts/alerts';
+import { Alerts } from '../shared/alerts/alerts';
 import { MatDialog } from '@angular/material/dialog';
 import { ValidarService } from '../login/services/validar-service';
 

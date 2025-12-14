@@ -12,7 +12,7 @@ import { Produto } from '../../../models/produto-model';
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialog } from '../../shared/components/confirmation-dialog/confirmation-dialog';
+import { ConfirmationDialog } from '../../../shared/confirmation-dialog/confirmation-dialog';
 
 @Component({
   selector: 'app-remover-produto',

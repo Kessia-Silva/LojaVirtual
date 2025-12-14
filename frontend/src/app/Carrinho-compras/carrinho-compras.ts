@@ -14,7 +14,7 @@ import { MatProgressSpinner, MatProgressSpinnerModule } from "@angular/material/
 import { FormsModule } from '@angular/forms';
 import { ServicePedido } from '../Area-Cliente/Services/service-pedido';
 import { Usuario } from '../models/usuarioLogin-model';
-import { Alerts } from '../Area-Adm/shared/components/alerts/alerts';
+import { Alerts } from '../shared/alerts/alerts';
 import { MatDialog } from '@angular/material/dialog';
 
 

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ValidarService } from '../../login/services/validar-service';
-import { ErrorDialog } from '../../Area-Adm/shared/components/error-dialog/error-dialog';
+import { ErrorDialog } from '../../shared/error-dialog/error-dialog';
 import { MatDialog,MatDialogModule } from '@angular/material/dialog';
 import { ValidarAdm } from '../service/validar-adm';
 
