@@ -45,36 +45,33 @@ h2 {
 .status {
   padding: 4px 8px;
   border-radius: 16px;
-  color: #19d116;
   text-transform: capitalize;
   font-weight: 600;
   font-size: 12px;
   text-align: center;
 }
 
-/* ===== Status por Categoria ===== */
-.status.pendente { background-color: #ffcc66; }
-.status.processando { background-color: #ff9933; }
-.status.enviado { background-color: #4CAF50; }
-.status.entregue { background-color: #2196F3; }
-.status.cancelado { background-color: #f44336; }
-
-.status.pendente {
+.status.PENDENTE {
   background: #ffd966;
   color: #8a6d00;
 }
 
-.status.processando {
+.status.PROCESSANDO {
   background: #a6d8ff;
   color: #005b9a;
 }
 
-.status.enviado {
+.status.ENVIADO {
   background: #a4f5a4;
   color: #006400;
 }
 
-.status.cancelado {
+.status.ENTREGUE {
+  background: #c3f5ff;
+  color: #004d4d;
+}
+
+.status.CANCELADO {
   background: #ffb3b3;
   color: #8a0000;
 }
