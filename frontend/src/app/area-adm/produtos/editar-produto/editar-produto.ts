@@ -38,7 +38,7 @@ export class EditarProduto {
     private route: ActivatedRoute,
     private produtoService: ProdutoService,
     private generoService: GeneroMusicalService,
-    private dialog: MatDialog
+    private dialog: MatDialog 
   ) {}
 
     ngOnInit(): void {

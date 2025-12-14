@@ -13,6 +13,7 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../../../shared/confirmation-dialog/confirmation-dialog';
+import { Alerts } from '../../../shared/alerts/alerts';
 
 @Component({
   selector: 'app-remover-produto',
@@ -75,22 +76,27 @@ export class RemoverProduto {
 
   // 🔹 ETAPA 2 — tenta excluir no backend
   tentarExcluir(produto: Produto): void {
-    if (this.removendo) return;
-    this.removendo = true;
+  if (this.removendo) return;
+  this.removendo = true;
 
-    this.produtoService.deleteProduto(produto.id).subscribe({
-      next: () => {
-        this.produtos = this.produtos.filter(p => p.id !== produto.id);
-        this.filtrarProdutos();
-        this.mensagemSucesso = `Produto "${produto.nome}" removido com sucesso!`;
-        this.removendo = false;
-      },
-      error: () => {
-        this.removendo = false;
-        this.confirmarDesativacao(produto);
-      }
-    });
-  }
+  this.produtoService.deleteProduto(produto.id).subscribe({
+    next: () => {
+      this.produtos = this.produtos.filter(p => p.id !== produto.id);
+      this.filtrarProdutos();
+
+      this.dialog.open(Alerts, {
+        data: `Produto "${produto.nome}" removido com sucesso!`
+      });
+
+      this.removendo = false;
+    },
+    error: () => {
+      this.removendo = false;
+      this.confirmarDesativacao(produto);
+    }
+  });
+}
+
 
   // 🔹 ETAPA 3 — não pode excluir → perguntar se desativa
   confirmarDesativacao(produto: Produto): void {
@@ -105,18 +111,24 @@ export class RemoverProduto {
     });
   }
 
-  // 🔹 ETAPA 4 — desativar
-  desativarProduto(produto: Produto): void {
-    this.produtoService.desativarProduto(produto.id).subscribe({
-      next: () => {
-        produto.ativo = false;
-        this.mensagemSucesso = `Produto "${produto.nome}" desativado com sucesso!`;
-      },
-      error: () => {
-        alert('Erro ao desativar produto.');
-      }
-    });
-  }
+ // 🔹 ETAPA 4 — desativar
+desativarProduto(produto: Produto): void {
+  this.produtoService.desativarProduto(produto.id).subscribe({
+    next: () => {
+      produto.ativo = false;
+
+      this.dialog.open(Alerts, {
+        data: `Produto "${produto.nome}" desativado com sucesso!`
+      });
+    },
+    error: () => {
+      this.dialog.open(Alerts, {
+        data: 'Erro ao desativar produto.'
+      });
+    }
+  });
+}
+
 
 }
 
