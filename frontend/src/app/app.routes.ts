@@ -42,10 +42,20 @@ export const routes: Routes = [
         component: Loja,
         resolve: { produtos: produtoResolver }
       },
+      /*
       {
   path: 'produto-info/:id',
   component: ProdutoInfo,
   resolve: { produto: ProdutoResolver }
+},*/
+
+{
+  path: 'produto-info/:id',
+  component: ProdutoInfo,
+  resolve: {
+    produto: ProdutoResolver,
+    relacionados: produtosRelacionadosResolver
+  }
 },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },

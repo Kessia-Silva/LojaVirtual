@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Produto } from '../models/produto-model';
 import { CardProdutoLoja } from "../loja/card-produto-loja/card-produto-loja";
@@ -14,45 +15,27 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 })
 export class ProdutosRelacionados  implements OnChanges   {
 
+@Input() produtos: Produto[] = [];
 
+  loading = true;
 
-  @Input() categoria: string = '';  // categoria agora pode mudar dinamicamente
-  produtos: Produto[] = [];
-  loading: boolean = true;
-
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Sempre que a categoria mudar e não estiver vazia
-    if (changes['categoria'] && this.categoria) {
-      this.loading = true;
-      this.produtoService.getByCategoria(this.categoria).subscribe(
-        (produtos) => {
-          this.produtos = produtos;
-          this.loading = false;
-        },
-        (err) => {
-          console.error('Erro ao carregar produtos relacionados:', err);
-          this.produtos = [];
-          this.loading = false;
-        }
-      );
+    if (changes['produtos']) {
+      this.loading = false; // 🔥 dados chegaram
     }
   }
 
   verProduto(prod: Produto) {
-    // Navega via router para evitar refresh total
-    window.location.href = `/produto-info/${prod.id}`;
+    this.router.navigate(['/produto-info', prod.id]);
   }
 
-   // Função para rolar o carrossel para esquerda e direita
   scroll(direction: number) {
     const carousel = document.querySelector('.produtos-lista');
     if (carousel) {
-      const width = carousel.clientWidth; // largura do carrossel
+      const width = carousel.clientWidth;
       carousel.scrollBy({ left: direction * width / 2, behavior: 'smooth' });
     }
+  }
 }
-}
-
-

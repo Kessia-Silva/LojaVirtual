@@ -31,8 +31,13 @@
     </div>
 
     <!-- Produtos relacionados -->
+    <!--
 <app-produtos-relacionados [categoria]="categoriaProdutosRelacionados"></app-produtos-relacionados>
-  </div>
+ -->
+<app-produtos-relacionados
+  [produtos]="produtosRelacionados">
+</app-produtos-relacionados>
+</div>
 
   <!-- Produto não encontrado -->
   <div *ngIf="!loading && !produto">
