@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.com.une.lojavirtual.backend.model.Pedido;
@@ -57,7 +59,9 @@ public class ProdutoService {
     @Autowired
     private br.com.une.lojavirtual.backend.repository.ItemPedidoRepository itemPedidoRepository;
     public List<Produto> buscarMaisVendidos() {
-        return itemPedidoRepository.findTopSellingProducts();
+        // Cria um objeto de paginação: Página 0 (primeira), com 6 itens
+        Pageable limite = PageRequest.of(0, 6);
+        return itemPedidoRepository.findTopSellingProducts(limite);
     }
 
     // Salvar ou Atualizar
