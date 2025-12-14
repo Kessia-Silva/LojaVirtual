@@ -54,6 +54,43 @@ export class MeusPedidos {
   }
 
 
+cancelarPedido(pedido: Pedido) {
+  if (pedido.status !== 'PENDENTE') return;
+
+  if (confirm(`Deseja realmente cancelar o pedido nº ${pedido.id}?`)) {
+    this.pedidoService.atualizarStatus(pedido.id, 'CANCELADO').subscribe({
+      next: (pedidoAtualizado: Pedido) => {
+        pedido.status = pedidoAtualizado.status;
+        this.filtrarPedidos(this.statusSelecionado);
+      },
+      error: (err) => {
+        console.error('Erro ao cancelar pedido', err);
+        alert('Não foi possível cancelar o pedido. Tente novamente.');
+      }
+    });
+  }
+}
+
+confirmarPedido(pedido:Pedido){
+  if(pedido.status !== 'ENVIADO') return;
+
+  if(confirm('Deseja realmente cancelar o pedido nº ${pedido.id}?')){
+    this.pedidoService.atualizarStatus(pedido.id, 'ENTREGUE').subscribe({
+      next: (pedidoAtualizado: Pedido) => {
+        pedido.status = pedidoAtualizado.status;
+        this.filtrarPedidos(this.statusSelecionado)
+      },
+      error: (err) => {
+        console.error("Erro ao colocar como ENTREGUE o pedido ", err);
+        alert("Não foi possível colocar como ENTREGUE o pedido. Tente novamente.");
+      }
+    })
+  }
+
+}
+
+
+
 
 
 

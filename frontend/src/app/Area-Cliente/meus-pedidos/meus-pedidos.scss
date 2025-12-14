@@ -120,3 +120,34 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+/*estilos gerais para o botão de cancelar */
+.cancelarPedido button {
+  background-color: #f28444; /* laranja forte */
+  color: #fff;               /* texto branco */
+  border: none;              /* remove borda padrão */
+  padding: 8px 16px;         /* espaçamento interno */
+  border-radius: 5px;        /* cantos arredondados */
+  cursor: pointer;           /* cursor de mãozinha */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* efeito ao passar o mouse */
+.cancelarPedido button:hover {
+  background-color: #ee6237; /* laranja mais escuro */
+}
+
+/* efeito ao clicar */
+.cancelarPedido button:active {
+  transform: scale(0.98); /* leve redução ao clicar */
+}
+
+/* opcional: tamanho menor em telas pequenas */
+@media (max-width: 600px) {
+  .cancelarPedido button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}

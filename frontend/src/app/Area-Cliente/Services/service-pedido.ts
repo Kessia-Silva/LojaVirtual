@@ -18,4 +18,17 @@ export class ServicePedido {
   listarPorUsuario(usuarioId: number): Observable<Pedido[]> {
     return this.http.get<any[]>(`${this.apiUrl}/usuario/${usuarioId}`);
   }
+
+// Atualizar somente o status
+atualizarStatus(id: number, novoStatus: Pedido['status']): Observable<Pedido> {
+  console.log('Status enviado:', novoStatus);
+
+  return this.http.put<Pedido>(
+    `${this.apiUrl}/${id}/status`,
+    JSON.stringify(novoStatus),
+    {
+      headers: { 'Content-Type': 'application/json' }
+    }
+  );
+}
 }
