@@ -21,6 +21,7 @@ export class ProdutoInfo {
   produto!: Produto;
   loading: boolean = true;
   categoriaProdutosRelacionados: string = '';
+  produtosRelacionados: Produto[] = [];
 
 
   constructor(
@@ -34,13 +35,17 @@ export class ProdutoInfo {
   }
 
   ngOnInit() {
+    /*
     // Produto já vem do resolver
     this.produto = this.route.snapshot.data['produto'];
     this.loading = false;
     // ✅ Passa apenas quando o produto e o gênero estiverem prontos
   if (this.produto?.generoMusical?.nome) {
     this.categoriaProdutosRelacionados = this.produto.generoMusical.nome;
-  }
+  }*/
+ this.produto = this.route.snapshot.data['produto'];
+  this.produtosRelacionados = this.route.snapshot.data['relacionados'];
+  this.loading = false;
   }
 
   verProduto(prod: Produto) {

@@ -23,6 +23,7 @@ import { MeusPedidos } from './Area-Cliente/meus-pedidos/meus-pedidos';
 import { carrinhoResolver } from './resolvers/carrinho-compras/carrinho-compras-resolver';
 import { meusPedidosResolver } from './resolvers/meus-pedidos/meus-pedidos-resolver';
 import { EditarMinhaConta } from './Area-Cliente/editar-minha-conta/editar-minha-conta';
+import { produtosRelacionadosResolver } from './resolvers/produtos-relacionados-resolver-resolver';
 
 
 export const routes: Routes = [
@@ -41,10 +42,20 @@ export const routes: Routes = [
         component: Loja,
         resolve: { produtos: produtoResolver }
       },
+      /*
       {
   path: 'produto-info/:id',
   component: ProdutoInfo,
   resolve: { produto: ProdutoResolver }
+},*/
+
+{
+  path: 'produto-info/:id',
+  component: ProdutoInfo,
+  resolve: {
+    produto: ProdutoResolver,
+    relacionados: produtosRelacionadosResolver
+  }
 },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },
