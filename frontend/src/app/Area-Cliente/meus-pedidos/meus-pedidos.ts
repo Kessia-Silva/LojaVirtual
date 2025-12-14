@@ -4,6 +4,7 @@ import { ServicePedido } from '../Services/service-pedido';
 import { ValidarService } from '../../login-Adm/services/validar-service';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { PedidoService } from '../../Area-Adm/pedidos/services/pedido-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-meus-pedidos',
@@ -21,13 +22,17 @@ export class MeusPedidos {
   constructor(
     private pedidoService: ServicePedido,
     private pedidoServicoAdm: PedidoService,
-    private authService: ValidarService
+    private authService: ValidarService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    this.carregarPedidos();
+    this.loading = true;
+    this.pedidos = this.route.snapshot.data['pedidos'];
+    this.filtrarPedidos(this.statusSelecionado);
+    this.loading = false;
   }
-
+/*
   carregarPedidos() {
     this.loading = true;
     const usuarioId = this.authService.getUsuario();
@@ -44,7 +49,7 @@ export class MeusPedidos {
         this.loading = false;
       }
     });
-  }
+  }*/
 
   filtrarPedidos(status: string) {
     this.statusSelecionado = status;
