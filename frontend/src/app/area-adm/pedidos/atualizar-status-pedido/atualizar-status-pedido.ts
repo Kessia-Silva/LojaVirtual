@@ -24,7 +24,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class AtualizarStatusPedido {
    pedidos: Pedido[] = [];
     pedidosFiltrados: Pedido[] = [];
-    statusSelecionado: string = 'todos';
+    statusSelecionado: string = 'TODOS';
 
     constructor(
       private pedidoService: PedidoService,
@@ -39,7 +39,7 @@ export class AtualizarStatusPedido {
     }
 
     filtrarStatus(): void {
-      if (this.statusSelecionado === 'todos') {
+      if (this.statusSelecionado === 'TODOS') {
         this.pedidosFiltrados = this.pedidos;
       } else {
         this.pedidosFiltrados = this.pedidos.filter(

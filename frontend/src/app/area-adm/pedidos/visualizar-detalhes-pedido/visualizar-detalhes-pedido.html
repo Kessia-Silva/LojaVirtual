@@ -3,7 +3,7 @@
   <div class="modal">
     <h3>Detalhes do Pedido #{{ pedido.id }}</h3>
 
-    <p><strong>Cliente:</strong> {{ pedido.usuario }}</p>
+    <p><strong>Cliente:</strong> {{ pedido.usuario.nome }}</p>
     <p><strong>Status: </strong> <span class="status {{ pedido.status }}">{{ pedido.status }}</span></p>
     <p><strong>Data:</strong> {{ pedido.dataPedido | date:'dd/MM/yyyy HH:mm' }}</p>
 

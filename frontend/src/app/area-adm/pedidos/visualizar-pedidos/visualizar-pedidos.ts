@@ -26,7 +26,7 @@ export class VisualizarPedidos implements OnInit{
 
   pedidos: Pedido[] = [];
   pedidosFiltrados: Pedido[] = [];
-  statusSelecionado: string = 'todos';
+  statusSelecionado: string = 'TODOS';
   pedidoSelecionado?: Pedido;  // para abrir o modal
 
   constructor(
