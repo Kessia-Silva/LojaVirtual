@@ -29,26 +29,29 @@ export class RemoverProduto {
   buscaProduto = '';
 
   loadingProdutos = true;
-  mensagemSucesso: string | null = null;
   removendo = false;
+  produtoEmAcao: Produto | null = null;
+
+  mensagemSucesso: string | null = null; // mensagem temporária
 
   constructor(
     private route: ActivatedRoute,
     private produtoService: ProdutoService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.carregarProdutos();
   }
 
-  // 🔹 Resolver mantém a página sincronizada
   carregarProdutos(): void {
     this.route.data.subscribe({
       next: ({ produtos }) => {
         this.produtos = produtos;
-        this.produtosFiltrados = produtos;
+        this.produtosFiltrados = [...produtos];
         this.loadingProdutos = false;
+        this.cdr.detectChanges();
       },
       error: () => this.loadingProdutos = false
     });
@@ -59,76 +62,90 @@ export class RemoverProduto {
     this.produtosFiltrados = this.produtos.filter(p =>
       p.nome.toLowerCase().includes(termo)
     );
+    this.cdr.detectChanges();
   }
 
-  // 🔹 ETAPA 1 — confirmação de exclusão
   abrirConfirmacao(produto: Produto): void {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: `Tem certeza que deseja excluir o produto "${produto.nome}"?`
     });
 
     dialogRef.afterClosed().subscribe(confirmou => {
-      if (confirmou) {
-        this.tentarExcluir(produto);
+      if (confirmou) this.tentarExcluir(produto);
+    });
+  }
+
+  tentarExcluir(produto: Produto): void {
+    if (this.removendo) return;
+    this.removendo = true;
+    this.produtoEmAcao = produto;
+    this.cdr.detectChanges();
+
+    this.produtoService.deleteProduto(produto.id).subscribe({
+      next: () => {
+        this.produtos = this.produtos.filter(p => p.id !== produto.id);
+        this.filtrarProdutos();
+
+        this.exibirMensagemSucesso(`Produto "${produto.nome}" removido com sucesso!`);
+
+        this.removendo = false;
+        this.produtoEmAcao = null;
+        this.cdr.detectChanges();
+      },
+      error: () => {
+        this.removendo = false;
+        this.produtoEmAcao = null;
+        this.cdr.detectChanges();
+        this.confirmarDesativacao(produto);
       }
     });
   }
 
-  // 🔹 ETAPA 2 — tenta excluir no backend
-  tentarExcluir(produto: Produto): void {
-  if (this.removendo) return;
-  this.removendo = true;
-
-  this.produtoService.deleteProduto(produto.id).subscribe({
-    next: () => {
-      this.produtos = this.produtos.filter(p => p.id !== produto.id);
-      this.filtrarProdutos();
-
-      this.dialog.open(Alerts, {
-        data: `Produto "${produto.nome}" removido com sucesso!`
-      });
-
-      this.removendo = false;
-    },
-    error: () => {
-      this.removendo = false;
-      this.confirmarDesativacao(produto);
-    }
-  });
-}
-
-
-  // 🔹 ETAPA 3 — não pode excluir → perguntar se desativa
   confirmarDesativacao(produto: Produto): void {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: 'Produto com histórico de pedidos não pode ser excluído. Deseja desativar o produto?'
     });
 
     dialogRef.afterClosed().subscribe(confirmou => {
-      if (confirmou) {
-        this.desativarProduto(produto);
+      if (confirmou) this.desativarProduto(produto);
+    });
+  }
+
+  desativarProduto(produto: Produto): void {
+    this.removendo = true;
+    this.produtoEmAcao = produto;
+    this.cdr.detectChanges();
+
+    this.produtoService.desativarProduto(produto.id).subscribe({
+      next: () => {
+        produto.ativo = false;
+        this.filtrarProdutos();
+
+        this.exibirMensagemSucesso(`Produto "${produto.nome}" desativado com sucesso!`);
+
+        this.removendo = false;
+        this.produtoEmAcao = null;
+        this.cdr.detectChanges();
+      },
+      error: () => {
+        this.removendo = false;
+        this.produtoEmAcao = null;
+        this.cdr.detectChanges();
+        this.dialog.open(Alerts, { data: 'Erro ao desativar produto.' });
       }
     });
   }
 
- // 🔹 ETAPA 4 — desativar
-desativarProduto(produto: Produto): void {
-  this.produtoService.desativarProduto(produto.id).subscribe({
-    next: () => {
-      produto.ativo = false;
+  private exibirMensagemSucesso(msg: string) {
+    this.mensagemSucesso = msg;
+    this.cdr.detectChanges();
 
-      this.dialog.open(Alerts, {
-        data: `Produto "${produto.nome}" desativado com sucesso!`
-      });
-    },
-    error: () => {
-      this.dialog.open(Alerts, {
-        data: 'Erro ao desativar produto.'
-      });
-    }
-  });
+    // some automaticamente após 3 segundos
+    setTimeout(() => {
+      this.mensagemSucesso = null;
+      this.cdr.detectChanges();
+    }, 3000);
+  }
 }
 
-
-}
 
