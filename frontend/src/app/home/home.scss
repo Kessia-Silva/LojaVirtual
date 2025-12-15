@@ -7,7 +7,7 @@
 .imagens-container {
   display: flex;            /* organiza imagens lado a lado */
   width: 100%;             /* ocupa toda a largura da tela */
-  height: 300px;            /* altura fixa do banner */
+  height: 335px;            /* altura fixa do banner */
 }
 
 .imagem1{
@@ -34,88 +34,61 @@
 
 /* === Banner de destaque com texto sobreposto === */
 .banner {
-  position: relative;
+  position: relative;             /* necessário para posicionar texto dentro */
   width: 100%;
-  max-width: 600px;
-  margin: auto;
+  max-width: 600px;               /* largura máxima do banner */
 }
 
 .banner img {
-  width: 100%;
+  width: 100%;                    /* ocupa toda a largura do banner */
   height: auto;
   display: block;
-  border-radius: 12px; /* cantos arredondados para o banner */
 }
 
-/* Texto sobreposto */
 .banner-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 50%;        /* mantém o texto no lado esquerdo */
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
 
-  background-color: rgba(0, 0, 0, 0.6); /* fundo preto semi-transparente */
-  padding: 20px 30px;
-  border-radius: 12px;
-  width: 80%;              /* evita que o texto fique muito largo */
-  max-width: 500px;
+  /* fundo semi-transparente atrás do texto */
+  background-color: rgba(0, 0, 0, 0.5); /* preto 50% transparente */
+  padding: 20px 30px;                  /* espaço interno do quadrado */
+  border-radius: 10px;                  /* cantos arredondados */
 }
 
 .banner-text h1 {
-  margin: 0 0 15px 0;
-  font-family: 'Arial Black', sans-serif;
-  font-size: 32px;
-  text-shadow: 2px 2px 4px #000;
-  letter-spacing: 4px;
-  line-height: 1.2;
+  margin: 20px 0;                 /* espaço entre linhas de texto */
+  font-family: 'Arial Black';
+  text-shadow: 2px 2px 4px #000;  /* sombra para contraste sobre a imagem */
+  letter-spacing: 7px;            /* espaçamento entre letras */
 }
 
-/* Botão dentro do banner */
-.banner-button {
+.banner-button{
   border: none;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid white; /* linha embaixo do botão */
   cursor: pointer;
   background: none;
   color: white;
   font-size: 16px;
   text-shadow: 1px 1px 4px #000;
-  padding: 6px 12px;
-  transition: all 0.3s;
 }
 
-.banner-button:hover {
-  color: #ff6600;            /* laranja da paleta ao passar o mouse */
-  border-bottom-color: #ff6600;
-  transform: translateY(-2px);
+/* === Seção de produtos === */
+.produtos, h1{
+  text-align: center;           /* centraliza títulos e seções */
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
 
-/* ===== Responsividade ===== */
-@media (max-width: 768px) {
-  .banner-text h1 {
-    font-size: 26px;
-    letter-spacing: 2px;
-  }
-  .banner-text {
-    padding: 15px 20px;
-  }
-  .banner-button {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-text h1 {
-    font-size: 22px;
-    letter-spacing: 1px;
-  }
-  .banner-text {
-    padding: 10px 15px;
-  }
-  .banner-button {
-    font-size: 13px;
-  }
+.produtos {
+  max-width: 1200px;            /* largura máxima da seção */
+  margin: 0 auto;               /* centraliza horizontalmente */
+  padding: 40px 20px;           /* espaçamento interno */
+  text-align: center;
 }
 
 /* === Lista de produtos dentro da seção === */
@@ -156,42 +129,85 @@
 
 
 .title2 {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 38px;
-  color: #111;
-  text-shadow: 3px 3px 0 #ff6600,
-               6px 6px 0 rgba(0,0,0,0.2);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  display: block; /* altera de inline-block para block */
-  line-height: 1.2;
-  word-wrap: break-word;
-  transition: transform 0.3s;
-  text-align: center; /* garante que o título ficará centralizado */
-  width: 100%; /* ocupa toda a largura disponível */
+  font-family: 'Arial Black';
+  font-size: 32px;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.title2:hover {
-  transform: scale(1.08);
-}
 
-/* ===== Responsividade ===== */
-@media (max-width: 768px) {
-  .title2 {
-    font-size: 28px;
+
+
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .banner-text {
+    width: 90%;
+    padding: 15px 20px;
+  }
+  .banner-text h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
     line-height: 1.3;
   }
-}
-
-@media (max-width: 480px) {
-  .title2 {
-    font-size: 24px;
-    line-height: 1.4;
-    letter-spacing: 1px;
+  .banner-button {
+    font-size: 13px;
   }
 }
 
+/* Celulares médios */
+@media (min-width: 481px) and (max-width: 768px) {
+  .banner-text {
+    top: 35%;
+    width: 80%;
+    padding: 20px 25px;
+  }
+  .banner-text h1 {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+  .banner-button {
+    font-size: 14px;
+  }
+}
 
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1179px) {
+  .banner-text {
+    top: 33%;
+    width: 70%;
+    padding: 22px 30px;
+  }
+  .banner-text h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+}
 
+/* Laptops médios e grandes */
+@media (min-width: 1180px) {
+  .banner-text {
+    top: 40%;
+    width: 60%;
+    max-width: 1100px;
+    padding: 25px 40px;
+  }
+  .banner-text h1 {
+    font-size: 34px;
+    letter-spacing: 4px;
+    line-height: 1.2;
+  }
+}
 
+/* Telas gigantes (>1600px) */
+@media (min-width: 1600px) {
+  .banner-text {
+    top: 45%;
+    width: 55%;
+    padding: 30px 45px;
+  }
+  .banner-text h1 {
+    font-size: 36px;
+    letter-spacing: 5px;
+  }
+}
