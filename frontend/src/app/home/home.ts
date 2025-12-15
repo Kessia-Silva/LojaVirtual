@@ -7,13 +7,13 @@ import { Produto } from '../models/produto-model';
 import { ProdutoService } from '../Area-Adm/produtos/services/produto-service';
 import { Observable } from 'rxjs';
 import { ValidarService } from '../login/services/validar-service';
-
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatIconModule, CommonModule, ProdutoCard,NgFor],
+  imports: [MatIconModule, CommonModule, ProdutoCard,NgFor, RouterModule ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
