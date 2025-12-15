@@ -19,20 +19,22 @@
     </div>
 
     <!-- Email -->
+     <!--
     <label>Email:</label>
     <input type="email" formControlName="email" placeholder="Digite seu email">
     <div class="erro" *ngIf="contaForm.get('email')?.invalid && contaForm.get('email')?.touched">
       Email inválido
-    </div>
-
+    </div> -->
+<!--
    <label>Senha:</label>
 <div class="senha-container">
   <input
     [type]="hideSenha ? 'password' : 'text'"
     formControlName="senha"
     placeholder="Digite sua senha">
-
+-->
   <!-- Ícone para mostrar/esconder -->
+   <!--
   <button type="button" class="mostrar-senha-btn" (click)="toggleSenha()">
     <mat-icon>{{ hideSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
   </button>
@@ -40,13 +42,28 @@
 
 <div class="erro" *ngIf="contaForm.get('senha')?.invalid && contaForm.get('senha')?.touched">
   Senha deve ter no mínimo 8 caracteres
-</div>
+</div>-->
 
-    <!-- Endereço -->
-    <label>Endereço:</label>
-    <input type="text" formControlName="endereco" placeholder="Digite seu endereço">
+    <!-- Cep -->
+    <label>Cep:</label>
+    <input type="text" formControlName="cep" placeholder="Digite seu cep"  maxlength="8">
+    <div class="erro" *ngIf="contaForm.get('cep')?.invalid && contaForm.get('cep')?.touched">
+      Cep é obrigatório
+    </div>
+
+     <!-- Estado -->
+    <label>Estado:</label>
+    <input type="text" formControlName="estado" placeholder="Digite o nome de seu Estado">
+    <div class="erro" *ngIf="contaForm.get('estado')?.invalid && contaForm.get('estado')?.touched">
+      Estado é obrigatório
+    </div>
+
+
+     <!-- Endereço -->
+    <label>Endereco:</label>
+    <input type="text" formControlName="endereco" placeholder="Ex. Rua das Flores, 123">
     <div class="erro" *ngIf="contaForm.get('endereco')?.invalid && contaForm.get('endereco')?.touched">
-      Endereço obrigatório
+      Endereço é obrigatório
     </div>
 
     <button class ="salvar" type="submit" [disabled]="contaForm.invalid">Salvar</button>

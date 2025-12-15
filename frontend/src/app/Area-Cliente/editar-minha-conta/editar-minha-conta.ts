@@ -26,9 +26,13 @@ export class EditarMinhaConta implements OnInit{
   ) {
     this.contaForm = new FormGroup({
       nome: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      senha: new FormControl('', [Validators.minLength(8)]),
+     // email: new FormControl('', [Validators.required, Validators.email]),
+      //senha: new FormControl('', [Validators.minLength(8)]),
+      cep: new FormControl('', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]),
+      estado: new FormControl('', [Validators.required]),
       endereco:new FormControl('', [Validators.required]),
+
+
 
     });
   }
@@ -38,7 +42,11 @@ export class EditarMinhaConta implements OnInit{
     if(usuario){
       this.contaForm.patchValue({
         nome: usuario.nome,
-        email: usuario.email
+        //email: usuario.email,
+        cep: usuario.cep,
+        estado: usuario.estado,
+
+        endereco: usuario.endereco
       });
     }
   }

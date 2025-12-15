@@ -37,9 +37,11 @@ constructor( private fb: FormBuilder, private snackBar: MatSnackBar, private dia
   ) {
     this.cadastroForm = this.fb.group({
       nome: ['', Validators.required],
-      sobrenome: ['', Validators.required],
+      //sobrenome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]],
+      cep: new FormControl('', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]),
+      estado: ['', Validators.required],
       endereco: ['', Validators.required]
     });
   }

@@ -12,7 +12,7 @@ export class CadastroService {
 
   constructor(private http: HttpClient) {}
 
-  cadastrar(dados: { nome: string; sobrenome: string; email: string; senha: string; endereco: string }): Observable<Usuario> {
+  cadastrar(dados: { nome: string; sobrenome: string; email: string; senha: string; cep: string; estado: string; endereco: string }): Observable<Usuario> {
   const usuario: Usuario = {
     ...dados,
     tipo: TipoUsuario.CLIENTE, // força o tipo

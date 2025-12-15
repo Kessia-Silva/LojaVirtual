@@ -12,7 +12,7 @@
     </mat-error>
 
     </mat-form-field>
-
+<!--
     <mat-form-field appearance="outline" class="sobrenome">
       <mat-label>Sobrenome</mat-label>
       <input matInput formControlName="sobrenome"
@@ -20,7 +20,7 @@
       <mat-error *ngIf="cadastroForm.get('sobrenome')?.hasError('required')">
       Sobrenome é <strong>obrigatório</strong>
     </mat-error>
-    </mat-form-field>
+    </mat-form-field>-->
 
     <mat-form-field appearance="outline" class="email">
       <mat-label>Email</mat-label>
@@ -51,10 +51,28 @@
 </mat-error>
 </mat-form-field>
 
+
+<mat-form-field appearance="outline" class="cep">
+  <mat-label>Cep</mat-label>
+  <input matInput formControlName="cep" placeholder="Ex.44200000" type="text"  maxlength="8">
+  <!-- Erro se o campo estiver vazio -->
+  <mat-error *ngIf="cadastroForm.get('cep')?.hasError('required')">
+    Cep é <strong>obrigatório</strong>
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="estado">
+  <mat-label>Estado</mat-label>
+  <input matInput formControlName="estado" placeholder="Ex. Bahia" type="text">
+  <!-- Erro se o campo estiver vazio -->
+  <mat-error *ngIf="cadastroForm.get('estado')?.hasError('required')">
+    Estado é <strong>obrigatório</strong>
+  </mat-error>
+</mat-form-field>
+
 <mat-form-field appearance="outline" class="endereco">
   <mat-label>Endereço</mat-label>
   <input matInput formControlName="endereco" placeholder="Ex. Rua das Flores, 123" type="text">
-
   <!-- Erro se o campo estiver vazio -->
   <mat-error *ngIf="cadastroForm.get('endereco')?.hasError('required')">
     Endereço é <strong>obrigatório</strong>
