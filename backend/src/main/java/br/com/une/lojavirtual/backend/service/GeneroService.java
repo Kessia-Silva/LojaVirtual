@@ -44,6 +44,12 @@ public class GeneroService {
 
         repository.deleteById(id);
     }
+
+    public GeneroMusical salvar(GeneroMusical genero) {
+        // O ID deve ser nulo para o banco criar um novo
+        genero.setId(null); 
+        return repository.save(genero);
+    }
     
     // Extra: Buscar por ID (pode ser útil)
     public GeneroMusical buscarPorId(Long id) {

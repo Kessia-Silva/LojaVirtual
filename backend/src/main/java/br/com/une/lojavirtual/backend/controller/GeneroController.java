@@ -3,6 +3,7 @@ package br.com.une.lojavirtual.backend.controller;
 import br.com.une.lojavirtual.backend.model.GeneroMusical;
 import br.com.une.lojavirtual.backend.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,12 @@ public class GeneroController {
     @PutMapping("/{id}")
     public ResponseEntity<GeneroMusical> atualizar(@PathVariable Long id, @RequestBody GeneroMusical genero) {
         return ResponseEntity.ok(service.atualizar(id, genero));
+    }
+
+    @PostMapping
+    public ResponseEntity<GeneroMusical> criar(@RequestBody GeneroMusical genero) {
+        GeneroMusical novoGenero = service.salvar(genero);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoGenero);
     }
 
     @DeleteMapping("/{id}")
