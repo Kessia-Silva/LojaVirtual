@@ -1,7 +1,6 @@
 package br.com.une.lojavirtual.backend;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
@@ -30,31 +29,29 @@ public class DadosIniciais {
     @Bean
     CommandLineRunner rodar(ProdutoRepository produtoRepo, UsuarioRepository usuarioRepo, GeneroRepository generoRepo) {
         return args -> {
-            // 1. Cadastrar Gêneros (PRIMEIRO DE TUDO)
+        // 1. Gêneros 
         if (generoRepo.count() == 0) {
             GeneroMusical rock = new GeneroMusical(null, "Rock");
-GeneroMusical pop = new GeneroMusical(null, "Pop");
-GeneroMusical mpb = new GeneroMusical(null, "MPB");
-GeneroMusical kpop = new GeneroMusical(null, "K-pop");
-GeneroMusical sertanejo = new GeneroMusical(null, "Sertanejo");
-GeneroMusical worship = new GeneroMusical(null, "Worship");
-GeneroMusical musical = new GeneroMusical(null, "Musical");
-GeneroMusical olodum = new GeneroMusical(null, "Olodum");
-GeneroMusical reggae = new GeneroMusical(null, "Reggae");
-GeneroMusical samba = new GeneroMusical(null, "Samba");
+            GeneroMusical pop = new GeneroMusical(null, "Pop");
+            GeneroMusical mpb = new GeneroMusical(null, "MPB");
+            GeneroMusical kpop = new GeneroMusical(null, "K-pop");
+            GeneroMusical sertanejo = new GeneroMusical(null, "Sertanejo");
+            GeneroMusical worship = new GeneroMusical(null, "Worship");
+            GeneroMusical musical = new GeneroMusical(null, "Musical");
+            GeneroMusical olodum = new GeneroMusical(null, "Olodum");
+            GeneroMusical reggae = new GeneroMusical(null, "Reggae");
+            GeneroMusical samba = new GeneroMusical(null, "Samba");
 
-            
             // Salvamos e guardamos as referências para usar nos produtos
-            generoRepo.saveAll(Arrays.asList(
-    rock, pop, mpb, kpop, sertanejo, worship, musical, olodum, reggae,samba
-));
+            generoRepo.saveAll(Arrays.asList(rock, pop, mpb, kpop, sertanejo, 
+                worship, musical, olodum, reggae, samba));
             
             // 2. Cadastrar Produtos (Usando os objetos de gênero acima)
             if (produtoRepo.count() == 0) {
                 Produto p1 = new Produto(
     null,
     "Hamilton",
-    "Lin‑Manuel Miranda (Original Broadway Cast)",
+    "Lin-Manuel Miranda (Original Broadway Cast)",
     "A trilha sonora oficial do musical Hamilton — mistura hip-hop, R&B, soul e show tunes que narra a vida de Alexander Hamilton através de 46 faixas divididas em dois atos, com duração total de aproximadamente 2h22. O álbum reinventa o teatro musical tradicional com batidas contemporâneas e rap ágil, mantendo a força dramática e a riqueza histórica da narrativa.",
     new BigDecimal("99.90"),
     330,
@@ -78,7 +75,7 @@ Produto p3 = new Produto(
     "Die With A Smile",
     "Lady Gaga & Bruno Mars",
     "Single colaborativo de Lady Gaga e Bruno Mars, trazendo uma mistura marcante de pop e soul. A faixa destaca os vocais poderosos dos dois artistas e apresenta produção refinada, com arranjos modernos e atmosfera romântica. Este lançamento especial em CD inclui a versão oficial do single e é um item ideal para fãs e colecionadores.",
-    new BigDecimal("89.90"),
+    new BigDecimal("59.90"),
     550,
     pop,
     "assets/img/fotos-produtos/produto3.jpeg"
@@ -1163,21 +1160,37 @@ Produto p100 = new Produto(
                produtoRepo.saveAll(Arrays.asList( p1, p2, p3, p4, p5,p6, p7, p8, p9, p10,p11, p12, p13, p14, p15,p16, p17, p18, p19, p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30, p31, p32, p33, p34,p35, p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46, p47, p48, p49, p50, p51, p52, p53, p54, p55,p56, p57, p58, p59, p60,p61, p62, p63, p64, p65,p66, p67, p68, p69, p70, p71, p72, p73,p74,p75, p76, p77, p78,p79, p80, p81, p82,p83, p84, p85, p86, p87,p88, p89, p90,p91,p92,p93,p94,p95,p96,p97,p98,p99,p100));
             }
         }
+            // 3. Usuários e Carrinhos
+            if (usuarioRepo.count() == 0) {
+                // Admin    
+                Usuario admin = new Usuario(); // Construtor vazio (NoArgsConstructor)
+                admin.setNome("Rafael Admin");
+                admin.setEmail("admin@loja.com");
+                admin.setSenha("senha1234");
+                admin.setTipo(TipoUsuario.ADMIN);
+                // Endereço fica null automaticamente, não precisa passar
+
+                // Cliente
+                Usuario cliente = new Usuario();
+                cliente.setNome("Vagner Cliente");
+                cliente.setEmail("cliente@loja.com");
+                cliente.setSenha("senha1234");
+                cliente.setTipo(TipoUsuario.CLIENTE);
+
+                // Salva no banco
+                usuarioRepo.saveAll(Arrays.asList(admin, cliente)); // Salva Usuários para gerar ID
+
+                // CRIA CARRINHOS AUTOMATICAMENTE
+                Carrinho carrinhoAdmin = new Carrinho();
+                carrinhoAdmin.setUsuario(admin);
+                
+                Carrinho carrinhoCliente = new Carrinho();
+                carrinhoCliente.setUsuario(cliente);
+
+                carrinhoRepository.saveAll(Arrays.asList(carrinhoAdmin, carrinhoCliente));
+                System.out.println("--- DADOS INICIAIS: Usuários e Carrinhos criados com sucesso ---");
+            }
             
-
-// 3. Usuários (Mantém igual)
-if (usuarioRepo.count() == 0) {
-    Usuario admin = new Usuario(null, "Rafael Admin", "admin@loja.com", "senha1234", TipoUsuario.ADMIN,"rua da Mangueira");
-    Usuario cliente = new Usuario(null, "Vagner Cliente", "cliente@loja.com", "senha1234", TipoUsuario.CLIENTE, "rua do limoeiro 529");
-    usuarioRepo.saveAll(Arrays.asList(admin, cliente));
-
-Carrinho c1 = new Carrinho();
-c1.setUsuario(cliente);
-c1.setItens(new ArrayList<>());
-
-carrinhoRepository.saveAll(Arrays.asList(c1));
-
-}
         };
     }
 }

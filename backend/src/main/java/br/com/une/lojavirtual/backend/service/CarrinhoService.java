@@ -78,4 +78,11 @@ public class CarrinhoService {
         
         return carrinhoRepository.save(carrinho);
     }
+
+    @Transactional
+    public void limparCarrinho(Long usuarioId) {
+        Carrinho carrinho = buscarCarrinhoPorUsuario(usuarioId);
+        carrinho.getItens().clear(); // O orphanRemoval remove do banco
+        carrinhoRepository.save(carrinho);
+    }
 }

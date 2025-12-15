@@ -47,5 +47,19 @@ public class Produto {
 
     private String imagemUrl; // Link da capa do álbum
 
-    
+    @Column(nullable = false)
+    private boolean ativo = true;    
+
+    public Produto(Long id, String nome, String artista, String descricao, java.math.BigDecimal preco, Integer estoque, GeneroMusical generoMusical, String imagemUrl) {
+        this.id = id;
+        this.nome = nome;
+        this.artista = artista;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.estoque = estoque;
+        this.generoMusical = generoMusical;
+        this.imagemUrl = imagemUrl;
+        this.ativo = true; // Define como ativo por padrão, se quisermos desativar algum, é só colocar o ativo como false
+    }
 }
+

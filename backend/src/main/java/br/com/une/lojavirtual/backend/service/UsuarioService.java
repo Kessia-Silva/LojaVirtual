@@ -55,4 +55,21 @@ public class UsuarioService {
         return repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado."));
     }
+
+    public Usuario atualizar(Long id, Usuario dadosAtualizados) {
+        Usuario usuarioExistente = buscarPorId(id); // lança erro se não achar
+
+        // Atualiza apenas os campos permitidos
+        usuarioExistente.setNome(dadosAtualizados.getNome());
+        
+        // Atualiza endereço
+        usuarioExistente.setCep(dadosAtualizados.getCep());
+        usuarioExistente.setEndereco(dadosAtualizados.getEndereco());
+        usuarioExistente.setCidade(dadosAtualizados.getCidade());
+        usuarioExistente.setEstado(dadosAtualizados.getEstado());
+
+        // Nota: Não atualizamos senha, email ou tipo aqui por segurança/regras de negócio simples
+        
+        return repository.save(usuarioExistente);
+    }
 }

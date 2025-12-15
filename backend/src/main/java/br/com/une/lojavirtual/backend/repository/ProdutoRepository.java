@@ -18,4 +18,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     
     @Query("SELECT p FROM Produto p WHERE LOWER(p.generoMusical.nome) = LOWER(:nomeGenero)")
     List<Produto> buscarPorNomeDoGenero(@Param("nomeGenero") String nomeGenero);
+
+    boolean existsByGeneroMusicalId(Long id);
 }

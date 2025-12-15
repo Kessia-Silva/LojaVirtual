@@ -1,6 +1,13 @@
 package br.com.une.lojavirtual.backend.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,8 +20,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
 
+public class Usuario {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,8 +43,8 @@ public class Usuario {
     @Column(nullable = false)
     private TipoUsuario tipo; // ADMIN ou CLIENTE
 
-    @NotBlank(message = "O endereço é obrigatório") // define como obrigatório
-    private String endereco;
-
-    
+    private String cep;
+    private String endereco; // Rua, número, bairro
+    private String cidade;
+    private String estado;
 }

@@ -30,4 +30,11 @@ public class UsuarioController {
         Usuario usuarioLogado = service.login(loginData.getEmail(), loginData.getSenha());
         return ResponseEntity.ok(usuarioLogado);
     }
+
+    // PUT: http://localhost:8080/api/usuarios/{id}
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
+        Usuario usuarioAtualizado = service.atualizar(id, usuario);
+        return ResponseEntity.ok(usuarioAtualizado);
+    }
 }

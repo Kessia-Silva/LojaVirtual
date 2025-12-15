@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PatchMapping;
 
 import br.com.une.lojavirtual.backend.model.Produto;
 import br.com.une.lojavirtual.backend.service.ProdutoService;
@@ -66,9 +67,7 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Produto> criar(@RequestBody Produto produto) {
-        System.out.println(produto);
         Produto novoProduto = service.salvar(produto);
-
         // Retorna 201 Created
         return ResponseEntity.status(HttpStatus.CREATED).body(novoProduto);
     }
@@ -77,5 +76,12 @@ public class ProdutoController {
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         service.deletar(id);
         return ResponseEntity.noContent().build();
+    }
+
+    // PATCH Desativar produto
+    // URL: http://localhost:8080/api/produtos/{id}/desativar
+    @PatchMapping("/{id}/desativar")
+    public ResponseEntity<Produto> desativar(@PathVariable Long id) {
+        return ResponseEntity.ok(service.desativar(id));
     }
 }

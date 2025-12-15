@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +18,8 @@ import br.com.une.lojavirtual.backend.service.PedidoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 @RestController
@@ -46,23 +47,18 @@ public class PedidoController {
         return ResponseEntity.ok(service.listarPorUsuario(id));
     }
 
-    // GET: Listar TODOS os pedidos
-// URL: http://localhost:8080/api/pedidos
-@GetMapping
-public ResponseEntity<List<Pedido>> listarTodos() {
-    return ResponseEntity.ok(service.listarTodos());
-}
+    // PUT: Atualizar status dos pedidos
+    // URL http://localhost:8080/api/pedidos/{id}/status
+    @PutMapping("{id}/status")
+    public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody StatusPedido status) {
+        return ResponseEntity.ok(service.atualizarStatus(id, status));
+    }
 
-// PUT: Atualizar status do pedido
-// URL: http://localhost:8080/api/pedidos/{id}/status
-@PutMapping("/{id}/status")
-public ResponseEntity<Pedido> atualizarStatus(
-        @PathVariable Long id,
-        @RequestBody StatusPedido status
-) {
-    Pedido pedidoAtualizado = service.atualizarStatus(id, status);
-    return ResponseEntity.ok(pedidoAtualizado);
-}
-
+    // GET Listar todos os pedidos de todos os usuarios
+    // http://localhost:8080/api/pedidos
+    @GetMapping
+    public ResponseEntity<List<Pedido>> listarTodos() {
+        return ResponseEntity.ok(service.listarTodos());
+    }
     
 }
