@@ -33,6 +33,30 @@
     overflow: hidden;
 }
 
+.inativo {
+  opacity: 0.5;
+}
+
+.inativo .close {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+
+.aviso-inativo {
+  color: #c62828;
+  font-size: 12px;
+}
+
+.indisponivel {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.bloqueado {
+  color: #999;
+}
+
 
 /* Carrinho */
 .cart {

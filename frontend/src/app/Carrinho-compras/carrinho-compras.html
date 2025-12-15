@@ -18,28 +18,55 @@
                 Você não adicionou nenhum produto no seu carrinho ainda!
         </p>
 
-        <div *ngFor="let item of carrinho?.itens">
-            <div class="row main">
-                <img [src]="item.produto.imagemUrl" />
+<div *ngFor="let item of carrinho?.itens">
 
-                <div class="col">
-                    <div class="text-muted">{{ item.produto.nome }}</div>
-                </div>
+  <div class="row main" [class.inativo]="!item.produto.ativo">
 
-                <div class="col">
-                    <a (click)="diminuir(item)">-</a>
-                    <a class="border">{{ item.quantidade }}</a>
-                    <a (click)="aumentar(item)">+</a>
-                </div>
+    <img [src]="item.produto.imagemUrl" />
 
-                <div class="col" class = preco>
-                     {{ item.produto.preco | currency:'BRL' }}
-                    <span class="close" (click)="remover(item)">&#10005;</span>
-                </div>
+    <div class="col">
+      <div class="text-muted">{{ item.produto.nome }}</div>
 
-            </div>
+      <!-- aviso -->
+      <small *ngIf="!item.produto.ativo" class="aviso-inativo">
+        ⚠ Produto indisponível no momento
+      </small>
+    </div>
 
-        </div>
+    <!-- quantidade -->
+    <div class="col">
+      <ng-container *ngIf="item.produto.ativo; else bloqueado">
+        <a (click)="diminuir(item)">-</a>
+        <a class="border">{{ item.quantidade }}</a>
+        <a (click)="aumentar(item)">+</a>
+      </ng-container>
+
+      <ng-template #bloqueado>
+        <span class="bloqueado">—</span>
+      </ng-template>
+    </div>
+
+    <!-- preço -->
+    <div class="col preco">
+      <ng-container *ngIf="item.produto.ativo; else indisponivel">
+        {{ item.produto.preco | currency:'BRL' }}
+        <span class="close" (click)="remover(item)">&#10005;</span>
+      </ng-container>
+
+      <ng-template #indisponivel>
+  <span class="indisponivel">Indisponível</span>
+  <span
+    class="close"
+    (click)="remover(item)">
+    &#10005;
+  </span>
+</ng-template>
+
+    </div>
+
+  </div>
+</div>
+
         <div class="back-to-shop">
             <a href="/loja">&leftarrow;
             <span class="text-muted">Voltar para loja</span>
@@ -55,10 +82,11 @@
     <br> <br>
 
         <hr>
-        <div class="row">
-            <span>ITEMS {{ carrinho?.itens?.length }}</span>
-            <span>{{ carrinho?.valorTotal | currency:'BRL' }}</span>
-        </div>
+<div class="row">
+  <span>ITEMS {{ itensAtivos.length }}</span>
+  <span>{{ valorTotalAtivo | currency:'BRL' }}</span>
+</div>
+
         <br>
 
   <form>
@@ -121,16 +149,19 @@
 
 
     <div class="resumo">
-      <h4>Resumo do Pedido</h4>
-      <div class="resumo-item">
-        <span>Itens</span>
-        <span>{{ carrinho.itens.length }}</span>
-      </div>
-      <div class="resumo-item total">
-        <span>Total</span>
-        <span>{{ carrinho.valorTotal | currency:'BRL' }}</span>
-      </div>
-    </div>
+  <h4>Resumo do Pedido</h4>
+
+  <div class="resumo-item">
+    <span>Itens</span>
+    <span>{{ quantidadeItensAtivos }}</span>
+  </div>
+
+  <div class="resumo-item total">
+    <span>Total</span>
+    <span>{{ valorTotalAtivo | currency:'BRL' }}</span>
+  </div>
+</div>
+
 
     <button
   class="btn-confirm"

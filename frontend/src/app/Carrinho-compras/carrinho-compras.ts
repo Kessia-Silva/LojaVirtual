@@ -144,12 +144,15 @@ finalizarPedido() {
   if (!usuario) return;
 
   const pedidoDTO = {
-    usuarioId: usuario.id,
-    itens: this.carrinho.itens.map(i => ({
+  usuarioId: usuario.id,
+  itens: this.carrinho.itens
+    .filter(i => i.produto.ativo) // 🔹 filtra só produtos ativos
+    .map(i => ({
       produtoId: i.produto.id,
       quantidade: i.quantidade
     }))
-  };
+};
+
 
   this.pedidoService.criarPedido(pedidoDTO).subscribe({
     next: (pedidoCriado) => {
@@ -199,11 +202,37 @@ temItensNoCarrinho(): boolean {
   return !!(this.carrinho && this.carrinho.itens && this.carrinho.itens.length > 0);
 }
 
-
-
 // Getter para total com frete
 get totalComFrete(): number {
-  return (this.carrinho?.valorTotal || 0) + this.freteSelecionado;
+  if (this.itensAtivos.length === 0) {
+    return 0;
+  }
+
+  return this.valorTotalAtivo + this.freteSelecionado;
 }
+
+
+get itensAtivos() {
+  return this.carrinho?.itens?.filter(
+    item => item.produto?.ativo
+  ) || [];
+}
+
+get valorTotalAtivo(): number {
+  return this.itensAtivos.reduce(
+    (total, item) => total + (item.produto.preco * item.quantidade),
+    0
+  );
+}
+
+get quantidadeItensAtivos(): number {
+  return this.itensAtivos.reduce(
+    (total, item) => total + item.quantidade,
+    0
+  );
+}
+
+
+
 
 }

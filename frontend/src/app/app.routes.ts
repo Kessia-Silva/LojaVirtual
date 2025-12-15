@@ -25,6 +25,7 @@ import { meusPedidosResolver } from './resolvers/meus-pedidos/meus-pedidos-resol
 import { EditarMinhaConta } from './Area-Cliente/editar-minha-conta/editar-minha-conta';
 import { AdminGuard } from './Services/AuthAdm-guard/admin-guard';
 import { produtosRelacionadosResolver } from './resolvers/produtos-relacionados-resolver-resolver';
+import { ProdutoAtivoGuard } from './Services/GuardProdutos/produto-ativo-guard';
 
 
 export const routes: Routes = [
@@ -56,7 +57,8 @@ export const routes: Routes = [
   resolve: {
     produto: ProdutoResolver,
     relacionados: produtosRelacionadosResolver
-  }
+  },
+  canActivate: [ProdutoAtivoGuard]
 },
       { path: 'login', component: Login },
       { path: 'cadastro', component: Cadastro },

@@ -41,10 +41,22 @@ loading: boolean = true;
 
     // Carrega os produtos
     this.route.data.subscribe(data => {
-    this.produtos = this.shuffleArray(data['produtos']);
-    this.produtosOriginais = [...this.produtos]; // copia para referência original
-    this.loading = false;
+
+  // 1️⃣ pega os produtos vindos do resolver
+  const produtosRecebidos = data['produtos'];
+
+  // 2️⃣ filtra só os ativos
+  const produtosAtivos = produtosRecebidos.filter((p: Produto) => p.ativo);
+
+  // 3️⃣ embaralha só os ativos
+  this.produtos = this.shuffleArray(produtosAtivos);
+
+  // 4️⃣ guarda a base original (já filtrada)
+  this.produtosOriginais = [...this.produtos];
+
+  this.loading = false;
 });
+
 
     // Carrega os gêneros (quando backend estiver pronto)
     this.generoService.getAll().subscribe(generos => {
@@ -59,17 +71,23 @@ loading: boolean = true;
     );
   }
 
-  filtrarPorCategoria(nomeGenero: string) {
-    if (!nomeGenero || nomeGenero === 'todos') {
-      // reset dos produtos
-      this.produtos = this.produtosOriginais;
-      return;
-    }
-
-    this.produtoService.getByCategoria(nomeGenero).subscribe(produtos => {
-      this.produtos = produtos;
-    });
+  
+filtrarPorCategoria(nomeGenero: string) {
+  if (!nomeGenero || nomeGenero === 'todos') {
+    this.produtos = [...this.produtosOriginais];
+    return;
   }
+
+  this.produtoService.getByCategoria(nomeGenero).subscribe(
+    (produtos: Produto[]) => {
+      this.produtos = produtos.filter(
+        (p: Produto) => p.ativo
+      );
+    }
+  );
+}
+
+
 
   limparFiltros() {
   this.precoMin = 0;

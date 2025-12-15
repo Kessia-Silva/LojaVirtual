@@ -22,10 +22,16 @@ export class ProdutosRelacionados  implements OnChanges   {
   constructor(private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['produtos']) {
-      this.loading = false; // 🔥 dados chegaram
-    }
+  if (changes['produtos'] && this.produtos) {
+
+    // 🔒 filtra apenas produtos ativos
+    this.produtos = this.produtos.filter(
+      (p: Produto) => p.ativo
+    );
+
+    this.loading = false;
   }
+}
 
   verProduto(prod: Produto) {
     this.router.navigate(['/produto-info', prod.id]);

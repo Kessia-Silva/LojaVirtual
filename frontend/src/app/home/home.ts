@@ -30,20 +30,20 @@ export class Home {
   isLogado$!: Observable<boolean>;
 
   ngOnInit(): void {
-    this.produtosService.getMaisVendidos().subscribe(
-      (data) => {
-        this.produtos = data; // agora sim, data é Produto[]
-      },
-      (error) => {
-        if (error.status === 0) {
-          alert('Servidor fora do ar. Tente novamente mais tarde.');
-        } else {
-          alert('Erro ao carregar produtos mais vendidos.');
-        }
-        console.error('Erro ao carregar produtos:', error);
+  this.produtosService.getMaisVendidos().subscribe(
+    (data) => {
+      this.produtos = data.filter(p => p.ativo === true);
+    },
+    (error) => {
+      if (error.status === 0) {
+        alert('Servidor fora do ar. Tente novamente mais tarde.');
+      } else {
+        alert('Erro ao carregar produtos mais vendidos.');
       }
-    );
+      console.error('Erro ao carregar produtos:', error);
+    }
+  );
 
-    this.isLogado$ = this.validarService.isLogado$;
-  }
+  this.isLogado$ = this.validarService.isLogado$;
+}
 }
