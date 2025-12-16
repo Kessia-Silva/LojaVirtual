@@ -7,13 +7,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { GeneroMusicalService } from '../../genero-musical/services/genero-musical-service';
 import { Observable } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { NavbarInternoAdm } from "../../../navbar/navbar-interno-adm/navbar-interno-adm";
 import { ProdutoService } from '../services/produto-service';
 import { GeneroMusical } from '../../../models/generoMusical-models';
 import { Produto } from '../../../models/produto-model';
 import { Alerts } from '../../../shared/alerts/alerts';
 import { MatDialog } from '@angular/material/dialog';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -23,6 +24,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './cadastrar-produto.scss',
 })
 export class CadastrarProduto implements OnInit{
+
+  @ViewChild('formProduto') formProduto!: NgForm;
+
 
  generos$!: Observable<GeneroMusical[]>;
   produto: Produto = {
@@ -54,7 +58,7 @@ onSalvarProduto() {
   if (
     !this.produto.nome?.trim() ||
     !this.produto.artista?.trim() ||
-    !this.produto.preco || this.produto.preco <= 0 ||
+    this.produto.preco === null|| this.produto.preco <= 0 ||
     this.produto.estoque === null || this.produto.estoque < 0 ||
     !this.produto.generoMusical?.id ||
     !this.imagemSelecionada
@@ -79,20 +83,8 @@ onSalvarProduto() {
     dialogRef.afterClosed().subscribe(() => {
 
       // Resetar formulário APÓS clicar em OK
-      this.produto = {
-        id: 0,
-        nome: '',
-        preco: null as any,
-        descricao: '',
-        estoque: null as any,
-        artista: '',
-        generoMusical: { id: 0, nome: '' },
-        imagemUrl: '',
-        ativo: true
-      };
+         this.resetProduto(); // ✅ limpa tudo
 
-      this.imagemPreview = null;
-      this.imagemSelecionada = null;
     });
   },
 
@@ -114,20 +106,38 @@ onSalvarProduto() {
     this.produto.generoMusical = genero;
   }
 
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.imagemSelecionada = input.files[0];
-      // Para enviar ao backend apenas o caminho, você pode definir:
-      this.produto.imagemUrl = `assets/img/Novos-produtos/${this.imagemSelecionada.name}`;
+ onFileSelected(event: Event) {
+  const input = event.target as HTMLInputElement;
 
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagemPreview = reader.result as string;
-      };
-      reader.readAsDataURL(this.imagemSelecionada);
-    }
-  }
+  if (!input.files || input.files.length === 0) return;
+
+  this.imagemSelecionada = input.files[0];
+
+  // Preview instantâneo ⚡
+  this.imagemPreview = URL.createObjectURL(this.imagemSelecionada);
+
+  // Caminho para backend (se precisar)
+  this.produto.imagemUrl = `assets/img/Novos-produtos/${this.imagemSelecionada.name}`;
+}
+
+  resetProduto() {
+      this.formProduto.resetForm(); //LIMPA
+
+  this.produto = {
+    id: 0,
+    nome: '',
+    artista: '',
+    preco: null as any,
+    descricao: '',
+    estoque: null as any,
+    generoMusical: null as any,
+    imagemUrl: '',
+    ativo: true
+  };
+
+  this.imagemPreview = null;
+  this.imagemSelecionada = null;
+}
 
 
 
