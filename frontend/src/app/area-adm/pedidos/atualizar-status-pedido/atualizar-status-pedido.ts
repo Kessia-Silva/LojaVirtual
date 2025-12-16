@@ -49,6 +49,10 @@ export class AtualizarStatusPedido {
     }
 
     atualizarStatus(pedido: Pedido, novoStatus: Pedido['status']) {
+      const statusAnterior = pedido.status;
+
+  // 🔥 Atualiza na hora (UX rápida)
+  pedido.status = novoStatus;
   this.pedidoService.atualizarStatus(pedido.id, novoStatus).subscribe({
     next: (pedidoAtualizado) => {
       pedido.status = pedidoAtualizado.status;
