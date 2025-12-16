@@ -107,7 +107,7 @@
 
         <br>
 
-        <button class="btn" (click)="toggleCheckout()" [disabled]="!carrinho?.itens?.length">Pagamento</button>
+        <button class="btn" (click)="toggleCheckout()" [disabled]="!carrinho?.itens?.length" [disabled]="quantidadeItensAtivos == 0">Pagamento</button>
 
     </div>
 
