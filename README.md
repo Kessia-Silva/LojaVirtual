@@ -83,6 +83,6 @@ O sistema sobe com **2 usuários de teste** e **100 produtos** pré-carregados:
 ## 👨‍💻 Time de Desenvolvimento
 
 * **Rafael & Samuel** - *Backend & API*
-* **Késsia & Ana** - *Frontend Developers*
+* **Késsia & Ana** - *Frontend Developers e Integração*
 
 Universidade do Estado da Bahia (UNEB) - 2025
